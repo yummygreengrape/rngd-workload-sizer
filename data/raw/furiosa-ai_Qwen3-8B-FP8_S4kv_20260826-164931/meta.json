@@ -1,0 +1,126 @@
+{
+  "run_id": "furiosa-ai_Qwen3-8B-FP8_S4kv_20260826-164931",
+  "experiment": "S4kv",
+  "source": "measured_local",
+  "started_at": "2026-08-26T16:49:31.238845+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8101/v1",
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "api_path": "/completions",
+    "n_cards": 1,
+    "devices": "npu:0",
+    "is_chat": false,
+    "not_for_capacity": true
+  },
+  "config": {
+    "file": "benchmark/configs/s4_kv.json",
+    "scale": 1.0,
+    "description": "세션 4. KV 승인 상한이 입력 길이를 따라 오르는 곡선의 중간 점. 관측: 512=0.397 1024=0.426 2048=0.446 4096=0.455 6144=0.463 8192=0.472 로 감속하며 0.48~0.50 점근으로 보인다. in=1536,3072 를 채워 감속을 확인한다. 백분위용 아님 — 읽을 값은 kv_cache_peak 와 peak_running.",
+    "conditions": [
+      {
+        "experiment": "S4kv",
+        "concurrency": 64,
+        "input_tokens": 1536,
+        "output_tokens": 128,
+        "warmup_requests": 64,
+        "measured_requests": 200,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "S4kv",
+        "concurrency": 64,
+        "input_tokens": 3072,
+        "output_tokens": 128,
+        "warmup_requests": 64,
+        "measured_requests": 200,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 1536,
+        "words": 1079,
+        "final_error_tokens": 17,
+        "probes": [
+          {
+            "words": 1181,
+            "tokens": 1686
+          },
+          {
+            "words": 1076,
+            "tokens": 1597
+          },
+          {
+            "words": 1035,
+            "tokens": 1473
+          },
+          {
+            "words": 1079,
+            "tokens": 1553
+          }
+        ]
+      },
+      {
+        "target_tokens": 3072,
+        "words": 2118,
+        "final_error_tokens": 5,
+        "probes": [
+          {
+            "words": 2363,
+            "tokens": 3429
+          },
+          {
+            "words": 2117,
+            "tokens": 3136
+          },
+          {
+            "words": 2074,
+            "tokens": 3008
+          },
+          {
+            "words": 2118,
+            "tokens": 3077
+          }
+        ]
+      }
+    ],
+    "token_counter_mode": "tokenize"
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 45.84°C | 44.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 31.46°C | 38.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 32.61°C | 39.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 32.06°C | 40.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 35.59°C | 40.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 35.62°C | 39.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 34.79°C | 36.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 36.41°C | 41.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID     | NPU core    | CMD                                                                                                                                                     |\n+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| 2200191 | npu0:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-8B-FP8 --devices npu:0 -dp 1 --host 127.0.0.1 --port 8101 --no-enable-prefix-caching |\n+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "세션4 KV 입력길이 곡선 중간점",
+    "백분위용 아님",
+    "실험 처치군입니다. 측정 자체는 유효하지만 의도적으로 교란을 넣었으므로 capacity 계산의 근거로 쓰면 안 됩니다."
+  ]
+}

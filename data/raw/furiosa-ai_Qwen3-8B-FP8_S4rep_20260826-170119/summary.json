@@ -1,0 +1,81 @@
+[
+  {
+    "spec": {
+      "experiment": "S4rep",
+      "concurrency": 512,
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "warmup_requests": 512,
+      "measured_requests": 18300,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100,
+      "warmup_adjusted_from": null
+    },
+    "source": "measured_local",
+    "n_measured_ok": 18300,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 297.61678994004615,
+    "aggregate_output_tps": 7870.523704230088,
+    "per_user_output_tps_median": 15.555787917574357,
+    "ttft_ms_p50": 288.7826366350055,
+    "ttft_ms_p95": 691.3849550765008,
+    "e2e_ms_p50": 8228.44851645641,
+    "e2e_ms_p95": 8930.661887163296,
+    "tpot_ms_p50": 62.09771605905175,
+    "prompt_tokens_median": 507.0,
+    "completion_tokens_median": 128.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 128,
+        "distinct_observed": [
+          128
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 512,
+        "median_actual": 507.0,
+        "drift_pct": 0.98,
+        "verdict": "ok"
+      },
+      "warmup": {
+        "requests": 512,
+        "concurrency": 512,
+        "raised_from": null,
+        "verdict": "ok"
+      },
+      "sample_depth": {
+        "measured_ok": 18300,
+        "required": 10240,
+        "ratio_to_concurrency": 35.7,
+        "verdict": "ok"
+      },
+      "load_retention": {
+        "mean_inflight": 497.28,
+        "mean_decode_inflight": 476.18,
+        "concurrency": 512,
+        "retention": 0.9713,
+        "slot_output_tps": 16.53,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 512,
+        "peak_running_samples": 512.0,
+        "peak_waiting_samples": 136.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.1476593918634104,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  }
+]

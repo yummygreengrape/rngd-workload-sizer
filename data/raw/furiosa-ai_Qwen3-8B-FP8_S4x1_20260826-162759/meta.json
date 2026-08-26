@@ -1,0 +1,116 @@
+{
+  "run_id": "furiosa-ai_Qwen3-8B-FP8_S4x1_20260826-162759",
+  "experiment": "S4x1",
+  "source": "measured_local",
+  "started_at": "2026-08-26T16:27:59.642359+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8101/v1",
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "api_path": "/completions",
+    "n_cards": 1,
+    "devices": "npu:0",
+    "is_chat": false
+  },
+  "config": {
+    "file": "benchmark/configs/s4_x1.json",
+    "scale": 1.0,
+    "description": "세션 4. 1장 기준선을 8장과 같은 세션에서 잡는다. 세션 3 까지는 카드당16/32 기준선이 세션 2 것이라 교차세션 단서가 붙었고, TTFT 는 세션 간 재현성을 확인조차 못 했다(A1solo 창 135초). 이 run 으로 그 단서가 전부 없어진다.",
+    "conditions": [
+      {
+        "experiment": "S4x1",
+        "concurrency": 16,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 16,
+        "measured_requests": 1700,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "S4x1",
+        "concurrency": 32,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 32,
+        "measured_requests": 2350,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "S4x1",
+        "concurrency": 64,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 64,
+        "measured_requests": 2950,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "S4x1",
+        "concurrency": 128,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 128,
+        "measured_requests": 3700,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 512,
+        "words": 349,
+        "final_error_tokens": 1,
+        "probes": [
+          {
+            "words": 393,
+            "tokens": 577
+          },
+          {
+            "words": 349,
+            "tokens": 513
+          }
+        ]
+      }
+    ],
+    "token_counter_mode": "tokenize"
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 41.19°C | 42.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 38.52°C | 40.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 39.12°C | 40.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 39.87°C | 41.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 39.12°C | 40.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 40.45°C | 40.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 35.16°C | 36.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 38.26°C | 40.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID     | NPU core    | CMD                                                                                                                                                     |\n+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| 2200191 | npu0:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-8B-FP8 --devices npu:0 -dp 1 --host 127.0.0.1 --port 8101 --no-enable-prefix-caching |\n+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "세션4",
+    "창 300초, 단독, 폴러 0개",
+    "서버 기동 → run 시작 간격 36초로 통제"
+  ]
+}

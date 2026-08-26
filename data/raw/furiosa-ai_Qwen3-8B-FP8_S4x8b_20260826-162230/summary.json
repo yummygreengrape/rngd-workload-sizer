@@ -1,0 +1,90 @@
+[
+  {
+    "spec": {
+      "experiment": "S4x8b",
+      "concurrency": 1024,
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "warmup_requests": 1024,
+      "measured_requests": 18300,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100,
+      "warmup_adjusted_from": null
+    },
+    "source": "measured_local",
+    "n_measured_ok": 2669,
+    "n_error": 15631,
+    "errors": {
+      "BrokenPipeError: [Errno 32] Broken pipe": 10842,
+      "ConnectionResetError: [Errno 104] Connection reset by peer": 4784,
+      "RemoteDisconnected: Remote end closed connection without res": 5
+    },
+    "window_s": 52.56452594790608,
+    "aggregate_output_tps": 6499.288138517095,
+    "per_user_output_tps_median": 13.172809157212688,
+    "ttft_ms_p50": 1610.3203790262341,
+    "ttft_ms_p95": 2770.4475140199065,
+    "e2e_ms_p50": 9716.985835926607,
+    "e2e_ms_p95": 10208.170950878412,
+    "tpot_ms_p50": 63.85449929837519,
+    "prompt_tokens_median": 507.0,
+    "completion_tokens_median": 128.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 128,
+        "distinct_observed": [
+          128
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 512,
+        "median_actual": 507.0,
+        "drift_pct": 0.98,
+        "verdict": "ok"
+      },
+      "warmup": {
+        "requests": 1024,
+        "concurrency": 1024,
+        "raised_from": null,
+        "verdict": "ok"
+      },
+      "sample_depth": {
+        "measured_ok": 2669,
+        "required": 20480,
+        "ratio_to_concurrency": 2.6,
+        "verdict": "SHALLOW"
+      },
+      "load_retention": {
+        "mean_inflight": 474.55,
+        "mean_decode_inflight": 393.31,
+        "concurrency": 1024,
+        "retention": 0.4634,
+        "slot_output_tps": 16.52,
+        "verdict": "UNDERFILLED"
+      },
+      "concurrency": {
+        "requested": 1024,
+        "peak_running_samples": 128.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "QUEUED_NOT_BATCHED"
+      },
+      "kv_cache_peak": 0.036422118338656204,
+      "retries": {
+        "requests_retried": 3,
+        "verdict": "DISTURBED",
+        "note": "커넥션 재수립이 발생했습니다. 해당 요청의 지연에 영향이 있을 수 있습니다."
+      },
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  }
+]
