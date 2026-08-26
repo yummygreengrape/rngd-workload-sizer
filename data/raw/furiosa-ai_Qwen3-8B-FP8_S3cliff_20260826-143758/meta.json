@@ -1,0 +1,96 @@
+{
+  "run_id": "furiosa-ai_Qwen3-8B-FP8_S3cliff_20260826-143758",
+  "experiment": "S3cliff",
+  "source": "measured_local",
+  "started_at": "2026-08-26T14:37:58.798502+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8101/v1",
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "api_path": "/completions",
+    "n_cards": 1,
+    "devices": "npu:0",
+    "is_chat": false,
+    "not_for_capacity": true
+  },
+  "config": {
+    "file": "benchmark/configs/s3_cliff1024.json",
+    "scale": 1.0,
+    "description": "세션 3. 절벽 위치 세분화. §3 격자가 2의 거듭제곱이라 in=1024 의 절벽이 64~128 사이 어디인지 모른다. 상한 후보 두 개가 여기서 갈린다: C=118,000 이면 절벽 시작 conc=102.4 (96 정상 / 112 절벽), C=100,000 이면 conc=86.8 (96 도 이미 절벽). 사전등록된 예측이다. 읽을 값은 TTFT p95 와 peak_running 이다.",
+    "conditions": [
+      {
+        "experiment": "S3cliff",
+        "concurrency": 96,
+        "input_tokens": 1024,
+        "output_tokens": 128,
+        "warmup_requests": 96,
+        "measured_requests": 600,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "S3cliff",
+        "concurrency": 112,
+        "input_tokens": 1024,
+        "output_tokens": 128,
+        "warmup_requests": 112,
+        "measured_requests": 700,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 1024,
+        "words": 692,
+        "final_error_tokens": 7,
+        "probes": [
+          {
+            "words": 787,
+            "tokens": 1164
+          },
+          {
+            "words": 692,
+            "tokens": 1031
+          }
+        ]
+      }
+    ],
+    "token_counter_mode": "tokenize"
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 41.37°C | 42.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 33.50°C | 38.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 34.66°C | 38.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 34.67°C | 40.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 36.52°C | 39.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 37.29°C | 39.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 34.23°C | 36.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 36.78°C | 40.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID     | NPU core    | CMD                                                                                                                                                     |\n+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| 1669900 | npu0:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-8B-FP8 --devices npu:0 -dp 1 --host 127.0.0.1 --port 8101 --no-enable-prefix-caching |\n+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "세션3 절벽 위치 세분화",
+    "사전등록: 118k면 96정상/112절벽, 100k면 96도 절벽",
+    "단독, 폴러 0개",
+    "실험 처치군입니다. 측정 자체는 유효하지만 의도적으로 교란을 넣었으므로 capacity 계산의 근거로 쓰면 안 됩니다."
+  ]
+}

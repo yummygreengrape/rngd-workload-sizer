@@ -1,0 +1,105 @@
+{
+  "run_id": "furiosa-ai_Qwen3-8B-FP8_S3x4_20260826-132258",
+  "experiment": "S3x4",
+  "source": "measured_local",
+  "started_at": "2026-08-26T13:22:58.518366+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8104/v1",
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "api_path": "/completions",
+    "n_cards": 4,
+    "devices": "npu:0-3",
+    "is_chat": false
+  },
+  "config": {
+    "file": "benchmark/configs/s3_scale4.json",
+    "scale": 1.0,
+    "description": "세션 3. 카드 확장 곡선 — 4장. 세션 1 의 4장 측정은 창이 27~37초라 유지율이 91~95% 로 떨어졌고, 그 하락이 그대로 '확장 효율 저하' 로 찍혔다(8장 82.1% 가 그렇게 나온 값이다). 창을 300초로 맞춰 유지율을 1장 기준선(98.8~99.4%)과 같은 대역에 둔다. 표본 수는 세션 2 실측 처리량 x 4 로 역산했다.",
+    "conditions": [
+      {
+        "experiment": "S3x4",
+        "concurrency": 64,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 64,
+        "measured_requests": 6580,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "S3x4",
+        "concurrency": 128,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 128,
+        "measured_requests": 9090,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "S3x4",
+        "concurrency": 256,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 256,
+        "measured_requests": 11370,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 512,
+        "words": 353,
+        "final_error_tokens": 8,
+        "probes": [
+          {
+            "words": 393,
+            "tokens": 570
+          },
+          {
+            "words": 353,
+            "tokens": 504
+          }
+        ]
+      }
+    ],
+    "token_counter_mode": "tokenize"
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 44.35°C | 43.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 42.24°C | 41.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 33.54°C | 39.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 33.18°C | 40.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 36.15°C | 39.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 36.73°C | 39.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 34.97°C | 36.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 37.15°C | 41.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+---------+----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID     | NPU core                                           | CMD                                                                                                                                                                       |\n+---------+----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| 1485067 | npu0:[0, 7], npu1:[0, 7], npu2:[0, 7], npu3:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-8B-FP8 --devices npu:0,npu:1,npu:2,npu:3 -dp 4 --host 127.0.0.1 --port 8104 --no-enable-prefix-caching |\n+---------+----------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "세션3 카드 확장 곡선",
+    "창 300초, 단독, 폴러 0개",
+    "서버 기동 → run 시작 간격 30초로 통제"
+  ]
+}

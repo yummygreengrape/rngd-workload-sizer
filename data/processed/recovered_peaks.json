@@ -1180,6 +1180,156 @@
       "peak_running": 1.0,
       "peak_waiting": 0.0,
       "kv_cache_peak": 0.03110937268587964
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3c2048_20260826-140431|2048|128|128",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3c2048_20260826-140431",
+      "input_tokens": 2048,
+      "output_tokens": 128,
+      "concurrency": 128,
+      "peak_running": 56.0,
+      "peak_waiting": 74.0,
+      "kv_cache_peak": 0.44267057559175027
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3c2048_20260826-140431|2048|128|16",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3c2048_20260826-140431",
+      "input_tokens": 2048,
+      "output_tokens": 128,
+      "concurrency": 16,
+      "peak_running": 16.0,
+      "peak_waiting": 1.0,
+      "kv_cache_peak": 0.13262496724629647
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3c2048_20260826-140431|2048|128|32",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3c2048_20260826-140431",
+      "input_tokens": 2048,
+      "output_tokens": 128,
+      "concurrency": 32,
+      "peak_running": 32.0,
+      "peak_waiting": 1.0,
+      "kv_cache_peak": 0.2614258209312305
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3c2048_20260826-140431|2048|128|64",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3c2048_20260826-140431",
+      "input_tokens": 2048,
+      "output_tokens": 128,
+      "concurrency": 64,
+      "peak_running": 56.0,
+      "peak_waiting": 10.0,
+      "kv_cache_peak": 0.4424541163335599
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3cliff_20260826-143758|1024|128|112",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3cliff_20260826-143758",
+      "input_tokens": 1024,
+      "output_tokens": 128,
+      "concurrency": 112,
+      "peak_running": 106.0,
+      "peak_waiting": 18.0,
+      "kv_cache_peak": 0.4298842892351393
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3cliff_20260826-143758|1024|128|96",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3cliff_20260826-143758",
+      "input_tokens": 1024,
+      "output_tokens": 128,
+      "concurrency": 96,
+      "peak_running": 96.0,
+      "peak_waiting": 13.0,
+      "kv_cache_peak": 0.38827854129245165
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3kv_20260826-142558|6144|128|64",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3kv_20260826-142558",
+      "input_tokens": 6144,
+      "output_tokens": 128,
+      "concurrency": 64,
+      "peak_running": 21.0,
+      "peak_waiting": 44.0,
+      "kv_cache_peak": 0.4630215433924862
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3kv_20260826-142558|8192|128|64",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3kv_20260826-142558",
+      "input_tokens": 8192,
+      "output_tokens": 128,
+      "concurrency": 64,
+      "peak_running": 16.0,
+      "peak_waiting": 49.0,
+      "kv_cache_peak": 0.4722419482852249
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3x1_20260826-130103|512|128|64",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3x1_20260826-130103",
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "concurrency": 64,
+      "peak_running": 64.0,
+      "peak_waiting": 2.0,
+      "kv_cache_peak": 0.14587834989689705
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3x2_20260826-130716|512|128|128",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3x2_20260826-130716",
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "concurrency": 128,
+      "peak_running": 128.0,
+      "peak_waiting": 8.0,
+      "kv_cache_peak": 0.15276327331968753
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3x2_20260826-130716|512|128|32",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3x2_20260826-130716",
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "concurrency": 32,
+      "peak_running": 32.0,
+      "peak_waiting": 4.0,
+      "kv_cache_peak": 0.040128508443809836
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3x2_20260826-130716|512|128|64",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3x2_20260826-130716",
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "concurrency": 64,
+      "peak_running": 64.0,
+      "peak_waiting": 11.0,
+      "kv_cache_peak": 0.07925067121357693
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3x4_20260826-132258|512|128|128",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3x4_20260826-132258",
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "concurrency": 128,
+      "peak_running": 128.0,
+      "peak_waiting": 33.0,
+      "kv_cache_peak": 0.08331402921820233
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3x4_20260826-132258|512|128|256",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3x4_20260826-132258",
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "concurrency": 256,
+      "peak_running": 256.0,
+      "peak_waiting": 32.0,
+      "kv_cache_peak": 0.16425460165800196
+    },
+    {
+      "key": "furiosa-ai_Qwen3-8B-FP8_S3x4_20260826-132258|512|128|64",
+      "run_id": "furiosa-ai_Qwen3-8B-FP8_S3x4_20260826-132258",
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "concurrency": 64,
+      "peak_running": 64.0,
+      "peak_waiting": 10.0,
+      "kv_cache_peak": 0.04104751090840735
     }
   ]
 }

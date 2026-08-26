@@ -1,0 +1,109 @@
+{
+  "run_id": "furiosa-ai_Qwen3-8B-FP8_S3kv_20260826-142558",
+  "experiment": "S3kv",
+  "source": "measured_local",
+  "started_at": "2026-08-26T14:25:58.722310+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8101/v1",
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "api_path": "/completions",
+    "n_cards": 1,
+    "devices": "npu:0",
+    "is_chat": false
+  },
+  "config": {
+    "file": "benchmark/configs/s3_kv8192.json",
+    "scale": 1.0,
+    "description": "세션 3. KV 승인 상한의 세 번째 점. 세션 2 에서 입력 2048·4096 이 승인 토큰 12.4만·12.7만(max_kv_len 의 47~48%)에서 같은 값에 멈췄는데 두 점이다. in=6144·8192 를 더한다. **백분위용이 아니다** — 표본 200 으로 얕게 잡으므로 sample_depth 가 SHALLOW 로 기록되고 처리량은 인용하지 않는다(세션 2 A-4 는 유지율 80~86% 였다). 읽을 값은 kv_cache_peak 와 peak_running 이다.",
+    "conditions": [
+      {
+        "experiment": "S3kv",
+        "concurrency": 64,
+        "input_tokens": 6144,
+        "output_tokens": 128,
+        "warmup_requests": 64,
+        "measured_requests": 200,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "S3kv",
+        "concurrency": 64,
+        "input_tokens": 8192,
+        "output_tokens": 128,
+        "warmup_requests": 64,
+        "measured_requests": 200,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 6144,
+        "words": 4231,
+        "final_error_tokens": 11,
+        "probes": [
+          {
+            "words": 4726,
+            "tokens": 6862
+          },
+          {
+            "words": 4231,
+            "tokens": 6133
+          }
+        ]
+      },
+      {
+        "target_tokens": 8192,
+        "words": 5672,
+        "final_error_tokens": 92,
+        "probes": [
+          {
+            "words": 6301,
+            "tokens": 9101
+          },
+          {
+            "words": 5672,
+            "tokens": 8284
+          }
+        ]
+      }
+    ],
+    "token_counter_mode": "tokenize"
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 50.11°C | 45.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 30.90°C | 38.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 32.05°C | 39.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 31.13°C | 39.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 35.59°C | 39.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 35.25°C | 39.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 34.41°C | 36.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 36.03°C | 40.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID     | NPU core    | CMD                                                                                                                                                     |\n+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| 1669900 | npu0:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-8B-FP8 --devices npu:0 -dp 1 --host 127.0.0.1 --port 8101 --no-enable-prefix-caching |\n+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "세션3 KV 승인 상한 세번째 점",
+    "백분위용 아님 - 표본 200 얕음",
+    "단독, 폴러 0개"
+  ]
+}

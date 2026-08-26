@@ -1,0 +1,165 @@
+{
+  "run_id": "furiosa-ai_Qwen3-8B-FP8_B3mixed_20260826-133852",
+  "experiment": "B3mixed",
+  "source": "measured_local",
+  "started_at": "2026-08-26T13:38:52.493599+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8101/v1",
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "api_path": "/completions",
+    "n_cards": 1,
+    "devices": "npu:0"
+  },
+  "config": {
+    "file": "benchmark/configs/b3_mixed_load.json",
+    "description": "혼합 부하 간섭. 대화형 배경 부하(in=512, out=128, conc=16) 위에 긴 문서 요청을 포아송 간격으로 주입하고, 배경 요청의 TPOT·TTFT가 주입과 겹쳤을 때 얼마나 나빠지는지 잰다. prefill 버킷이 batch=1뿐이라 긴 프롬프트가 decode 흐름을 끊을 것이라는 가설의 검증이다. 주입 길이를 3단계로 바꿔 용량-반응을 본다. docs/04-experiment-program.md B3",
+    "conditions": [
+      {
+        "experiment": "B3mixed",
+        "background_concurrency": 16,
+        "background_input_tokens": 512,
+        "background_output_tokens": 128,
+        "inject_input_tokens": 1024,
+        "inject_output_tokens": 1,
+        "mean_inject_interval_s": 6.0,
+        "inject_concurrency": 1,
+        "duration_s": 180.0,
+        "warmup_s": 20.0,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B3mixed",
+        "background_concurrency": 16,
+        "background_input_tokens": 512,
+        "background_output_tokens": 128,
+        "inject_input_tokens": 4096,
+        "inject_output_tokens": 1,
+        "mean_inject_interval_s": 6.0,
+        "inject_concurrency": 1,
+        "duration_s": 180.0,
+        "warmup_s": 20.0,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B3mixed",
+        "background_concurrency": 16,
+        "background_input_tokens": 512,
+        "background_output_tokens": 128,
+        "inject_input_tokens": 8192,
+        "inject_output_tokens": 1,
+        "mean_inject_interval_s": 6.0,
+        "inject_concurrency": 1,
+        "duration_s": 180.0,
+        "warmup_s": 20.0,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B3mixed",
+        "background_concurrency": 16,
+        "background_input_tokens": 512,
+        "background_output_tokens": 128,
+        "inject_input_tokens": 8192,
+        "inject_output_tokens": 1,
+        "mean_inject_interval_s": 2.0,
+        "inject_concurrency": 1,
+        "duration_s": 180.0,
+        "warmup_s": 20.0,
+        "min_samples_for_p95": 100
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 512,
+        "words": 356,
+        "final_error_tokens": 2,
+        "probes": [
+          {
+            "words": 393,
+            "tokens": 566
+          },
+          {
+            "words": 356,
+            "tokens": 514
+          }
+        ]
+      },
+      {
+        "target_tokens": 1024,
+        "words": 693,
+        "final_error_tokens": 12,
+        "probes": [
+          {
+            "words": 787,
+            "tokens": 1163
+          },
+          {
+            "words": 693,
+            "tokens": 1012
+          }
+        ]
+      },
+      {
+        "target_tokens": 4096,
+        "words": 2805,
+        "final_error_tokens": 20,
+        "probes": [
+          {
+            "words": 3150,
+            "tokens": 4599
+          },
+          {
+            "words": 2805,
+            "tokens": 4076
+          }
+        ]
+      },
+      {
+        "target_tokens": 8192,
+        "words": 5629,
+        "final_error_tokens": 33,
+        "probes": [
+          {
+            "words": 6301,
+            "tokens": 9170
+          },
+          {
+            "words": 5629,
+            "tokens": 8225
+          }
+        ]
+      }
+    ]
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 43.60°C | 43.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 41.50°C | 41.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 44.51°C | 42.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 43.40°C | 43.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 36.15°C | 39.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 36.36°C | 39.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 34.79°C | 36.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 36.96°C | 41.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID     | NPU core    | CMD                                                                                                                                                     |\n+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| 1669900 | npu0:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-8B-FP8 --devices npu:0 -dp 1 --host 127.0.0.1 --port 8101 --no-enable-prefix-caching |\n+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "세션3 혼합 부하 B3",
+    "단독, 폴러 0개"
+  ]
+}
