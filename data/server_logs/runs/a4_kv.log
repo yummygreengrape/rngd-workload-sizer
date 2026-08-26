@@ -1,0 +1,12 @@
+run_id : furiosa-ai_Qwen3-8B-FP8_A4kv_20260826-060559
+target : local (measured_local)  http://127.0.0.1:8000/v1
+model  : furiosa-ai/Qwen3-8B-FP8   api_path=/completions
+조건    : 4개, scale=1.0
+
+[1/4] A4kv conc=64 in=512 out=128 ...  26.9s  agg= 1215.5 tok/s  TTFT p50=  248.2ms p95=    340  TPOT p50=  46.6ms  ok=200 err=0
+[2/4] A4kv conc=64 in=1024 out=128 ...  40.9s  agg=  797.3 tok/s  TTFT p50=  284.4ms p95=    385  TPOT p50=  71.0ms  ok=200 err=0
+[3/4] A4kv conc=64 in=2048 out=128 ...  76.5s  agg=  405.2 tok/s  TTFT p50= 2729.8ms p95=   2842  TPOT p50= 119.4ms  ok=200 err=0
+[4/4] A4kv conc=64 in=4096 out=128 ... 156.2s  agg=  180.7 tok/s  TTFT p50=21165.7ms p95=  21478  TPOT p50= 125.6ms  ok=200 err=0
+
+결과 : /root/rngd-bench/data/raw/furiosa-ai_Qwen3-8B-FP8_A4kv_20260826-060559
+  ! A4kv conc=64 in=4096 out=128: 의도한 동시성만큼 동시에 처리되지 않았습니다 (큐잉)

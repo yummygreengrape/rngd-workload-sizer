@@ -1,0 +1,14 @@
+{
+  "experiment": "A4kv",
+  "description": "세션 2 A-4. KV 캐시 포화점. 카드 1장의 max_kv_len = 263,329 토큰(서버 기동 로그). 동시성을 64 로 고정하고 입력 길이를 늘려 KV 요구량을 41k -> 74k -> 139k -> 270k 로 밀어올린다. 마지막 조건이 상한을 넘으므로 대기열(waiting_peak)이 생기는 지점이 보인다. **이 실험은 백분위용이 아니다** — 표본을 200 으로 얕게 잡았고 sample_depth 가 SHALLOW 로 기록된다. 읽을 값은 kv_cache_peak 와 waiting_peak 다.",
+  "defaults": {
+    "output_tokens": 128,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {"input_tokens": 512,  "concurrency": 64, "warmup_requests": 64, "measured_requests": 200},
+    {"input_tokens": 1024, "concurrency": 64, "warmup_requests": 64, "measured_requests": 200},
+    {"input_tokens": 2048, "concurrency": 64, "warmup_requests": 64, "measured_requests": 200},
+    {"input_tokens": 4096, "concurrency": 64, "warmup_requests": 64, "measured_requests": 200}
+  ]
+}

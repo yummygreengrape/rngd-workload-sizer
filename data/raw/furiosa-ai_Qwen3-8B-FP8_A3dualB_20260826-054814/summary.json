@@ -1,0 +1,78 @@
+[
+  {
+    "spec": {
+      "experiment": "A3dualB",
+      "concurrency": 16,
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "warmup_requests": 16,
+      "measured_requests": 1250,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100,
+      "warmup_adjusted_from": null
+    },
+    "source": "measured_local",
+    "n_measured_ok": 1250,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 332.5230171061121,
+    "aggregate_output_tps": 481.1696988450639,
+    "per_user_output_tps_median": 29.656279283819224,
+    "ttft_ms_p50": 159.01273395866156,
+    "ttft_ms_p95": 231.22435994446278,
+    "e2e_ms_p50": 4316.1179720191285,
+    "e2e_ms_p95": 4344.867734005675,
+    "tpot_ms_p50": 32.732472287520295,
+    "prompt_tokens_median": 508.0,
+    "completion_tokens_median": 128.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 128,
+        "distinct_observed": [
+          128
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 512,
+        "median_actual": 508.0,
+        "drift_pct": 0.78,
+        "verdict": "ok"
+      },
+      "warmup": {
+        "requests": 16,
+        "concurrency": 16,
+        "raised_from": null,
+        "verdict": "ok"
+      },
+      "sample_depth": {
+        "measured_ok": 1250,
+        "required": 320,
+        "ratio_to_concurrency": 78.1,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 16,
+        "peak_running_samples": 32.0,
+        "peak_waiting_samples": 2.0,
+        "verdict": "FOREIGN_LOAD",
+        "note": "서버가 동시에 처리한 요청이 최대 32.0건으로, 이 클라이언트가 요청한 16건보다 많습니다. **같은 서버에 다른 클라이언트가 붙어 있었다는 뜻**이고, 이 조건에 적힌 동시성은 카드가 실제로 받은 동시성이 아닙니다. capacity 계산에 쓸 수 없습니다."
+      },
+      "kv_cache_peak": 0.07675569344812003,
+      "source": "measured_local",
+      "capacity_usable": false,
+      "capacity_blocks": [
+        "같은 서버에 다른 클라이언트가 붙어 있었습니다 — 요청 동시성 16, 서버가 실제로 처리한 최대 32.0. 이 행의 동시성 라벨이 실제와 다릅니다"
+      ],
+      "capacity_note": "capacity 계산에 사용할 수 없습니다: 같은 서버에 다른 클라이언트가 붙어 있었습니다 — 요청 동시성 16, 서버가 실제로 처리한 최대 32.0. 이 행의 동시성 라벨이 실제와 다릅니다"
+    }
+  }
+]

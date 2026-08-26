@@ -1,0 +1,22 @@
+[project]
+name = "rngd-workload-sizer"
+version = "0.1.0"
+description = "RNGD NPU 실측 벤치마크 기반 workload capacity planner"
+requires-python = ">=3.10"
+
+# benchmark/ 는 표준 라이브러리만 쓴다.
+# 평가 서버(Python 3.10)와 개발 머신(3.14)의 패키지 구성이 다르고,
+# 평가 서버에 pip 설치를 요구하지 않기 위해서다.
+dependencies = []
+
+[project.optional-dependencies]
+analysis = ["pandas>=2.0", "matplotlib>=3.7"]
+app = ["streamlit>=1.30"]
+dev = ["pytest>=7.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.setuptools.packages.find]
+include = ["benchmark*", "planner*", "analysis*"]

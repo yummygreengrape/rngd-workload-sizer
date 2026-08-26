@@ -1,0 +1,19 @@
+{
+  "experiment": "D3q4bpre",
+  "description": "세션 2 구간 D(대체). Qwen3-4B-FP8 의 prefill 계단. out=1 로 두어 prefill 비용만 본다. **교차검증 X11 의 직접 시험이다** — 8B 에서 확인한 비용 경계(128/256/1024/1280)를 실측 없는 모델에 일반화하면 안 된다고 했는데, 실제로 모델마다 다른지 여기서 확인한다. 경계 직전/직후를 한 토큰 단위로 붙여 잰다.",
+  "defaults": {
+    "output_tokens": 1,
+    "concurrency": 1,
+    "warmup_requests": 4,
+    "measured_requests": 30,
+    "min_samples_for_p95": 20
+  },
+  "conditions": [
+    {"input_tokens": 128}, {"input_tokens": 129},
+    {"input_tokens": 256}, {"input_tokens": 257},
+    {"input_tokens": 512},
+    {"input_tokens": 1024}, {"input_tokens": 1025},
+    {"input_tokens": 1280}, {"input_tokens": 1281},
+    {"input_tokens": 2048}
+  ]
+}

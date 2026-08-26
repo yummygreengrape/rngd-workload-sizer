@@ -1,0 +1,16 @@
+{
+  "experiment": "A3dualA",
+  "description": "세션 2 A-3(b) 클라이언트 A. **같은 카드·같은 서버에 클라이언트 2개를 동시에 붙인다**(각 동시성 16). 세션 1 의 B4soak/B4soak2 가 실제로 이 상태였다 — 둘 다 npu:6 포트 8000. 겹친 구간의 처리량 하락이 '부하 생성기의 호스트 자원 경합'이나 'furiosa-smi 폴링'이 아니라 **카드가 받는 동시성이 2배가 된 것**인지 가른다. 합계가 conc=32 실측(약 1,066 tok/s)에 가까우면 그쪽이다. 창은 (a)와 맞춰 5분.",
+  "defaults": {
+    "output_tokens": 128,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {
+      "input_tokens": 512,
+      "concurrency": 16,
+      "warmup_requests": 16,
+      "measured_requests": 1250
+    }
+  ]
+}

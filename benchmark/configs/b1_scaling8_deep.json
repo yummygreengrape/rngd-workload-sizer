@@ -1,0 +1,26 @@
+{
+  "experiment": "B1x8deep",
+  "description": "세션 2 구간 B. 8장 확장 효율 재측정. **창 길이를 1장 기준선과 맞춘다** — 세션 1 의 다중카드 측정은 창이 60 -> 37.4 -> 27.9 -> 14.6 초로 갈수록 짧아져서, 기준선(1장, 창 60초)과 비교군(8장, 창 14.6초)의 측정 조건이 달랐다. A-3(d)가 1장 카드당 32 를 창 345초/표본 2,600 으로 깊게 쟀으므로 8장 쪽을 같은 창 길이에 맞춘다. 카드당 64 는 X14 를 위해 새로 넣는다 — 다중카드 실측이 4/16/32 에만 있어서 운영점(카드당 22~50)이 격자 밖이고, planner 가 카드당 4 에서 잰 효율로 폴백한다.",
+  "defaults": {
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {
+      "concurrency": 128,
+      "warmup_requests": 128,
+      "measured_requests": 13260
+    },
+    {
+      "concurrency": 256,
+      "warmup_requests": 256,
+      "measured_requests": 18280
+    },
+    {
+      "concurrency": 512,
+      "warmup_requests": 512,
+      "measured_requests": 22740
+    }
+  ]
+}

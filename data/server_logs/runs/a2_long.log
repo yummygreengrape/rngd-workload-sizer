@@ -1,0 +1,12 @@
+run_id : furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632
+target : local (measured_local)  http://127.0.0.1:8000/v1
+model  : furiosa-ai/Qwen3-8B-FP8   api_path=/completions
+조건    : 4개, scale=1.0
+
+[1/4] A2long conc=32 in=1024 out=128 ... 123.3s  agg=  695.4 tok/s  TTFT p50=  258.3ms p95=    349  TPOT p50=  44.0ms  ok=640 err=0
+[2/4] A2long conc=64 in=1024 out=128 ... 206.5s  agg=  829.4 tok/s  TTFT p50=  287.1ms p95=    390  TPOT p50=  74.4ms  ok=1280 err=0
+[3/4] A2long conc=128 in=1024 out=128 ... 436.3s  agg=  774.0 tok/s  TTFT p50= 5947.2ms p95=   6154  TPOT p50= 115.9ms  ok=2560 err=0
+[4/4] A2long conc=64 in=2048 out=128 ... 379.1s  agg=  448.1 tok/s  TTFT p50= 2758.3ms p95=   2967  TPOT p50= 119.0ms  ok=1280 err=0
+
+결과 : /root/rngd-bench/data/raw/furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632
+  검증 경고 없음

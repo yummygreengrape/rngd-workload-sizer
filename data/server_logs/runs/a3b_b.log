@@ -1,0 +1,9 @@
+run_id : furiosa-ai_Qwen3-8B-FP8_A3dualB_20260826-054814
+target : local (measured_local)  http://127.0.0.1:8000/v1
+model  : furiosa-ai/Qwen3-8B-FP8   api_path=/completions
+조건    : 1개, scale=1.0
+
+[1/1] A3dualB conc=16 in=512 out=128 ... 336.4s  agg=  481.2 tok/s  TTFT p50=  159.0ms p95=    231  TPOT p50=  32.7ms  ok=1250 err=0
+
+결과 : /root/rngd-bench/data/raw/furiosa-ai_Qwen3-8B-FP8_A3dualB_20260826-054814
+  ! A3dualB conc=16 in=512 out=128: capacity 계산 사용 불가

@@ -1,0 +1,11 @@
+run_id : furiosa-ai_Qwen3-8B-FP8_A1solo_20260826-050142
+target : local (measured_local)  http://127.0.0.1:8000/v1
+model  : furiosa-ai/Qwen3-8B-FP8   api_path=/completions
+조건    : 3개, scale=1.0
+
+[1/3] A1solo conc=64 in=512 out=128 ... 141.4s  agg= 1212.8 tok/s  TTFT p50=  172.3ms p95=    260  TPOT p50=  51.2ms  ok=1280 err=0
+[2/3] A1solo conc=128 in=512 out=128 ... 219.0s  agg= 1563.5 tok/s  TTFT p50=  262.1ms p95=    287  TPOT p50=  79.5ms  ok=2560 err=0
+[3/3] A1solo conc=256 in=512 out=128 ... 492.6s  agg= 1365.2 tok/s  TTFT p50= 8883.9ms p95=   9115  TPOT p50= 114.2ms  ok=5120 err=0
+
+결과 : /root/rngd-bench/data/raw/furiosa-ai_Qwen3-8B-FP8_A1solo_20260826-050142
+  ! A1solo conc=256 in=512 out=128: 의도한 동시성만큼 동시에 처리되지 않았습니다 (큐잉)

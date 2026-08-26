@@ -1,0 +1,18 @@
+run_id : furiosa-ai_Qwen3-Embedding-0.6B_D1emb_20260826-065639
+target : local (measured_local)  http://127.0.0.1:8007/v1
+model  : furiosa-ai/Qwen3-Embedding-0.6B
+
+[1/10] D1emb batch=1 doc=128tok conc=1 ... Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/root/rngd-bench/benchmark/run_embedding.py", line 269, in <module>
+    sys.exit(main())
+  File "/root/rngd-bench/benchmark/run_embedding.py", line 241, in main
+    res = run_condition(target, factory, spec, run_id=run_id,
+  File "/root/rngd-bench/benchmark/run_embedding.py", line 95, in run_condition
+    factory.calibrate(spec.doc_tokens)
+  File "/root/rngd-bench/benchmark/prompts.py", line 79, in calibrate
+    raise CalibrationError(
+benchmark.prompts.CalibrationError: 토큰 수를 셀 수 없습니다. 전용 서버라면 /tokenize 를, 호스팅이라면 probe 요청 경로를 확인하세요.

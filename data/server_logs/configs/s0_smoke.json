@@ -1,0 +1,13 @@
+{
+  "experiment": "S0",
+  "description": "스모크. 하네스가 전용 서버와 실제로 대화되는지 확인한다. /tokenize 사용 여부, /metrics 수집, ignore_eos 동작, 스트리밍 파싱을 한 번에 검증.",
+  "defaults": {
+    "warmup_requests": 2,
+    "measured_requests": 5,
+    "min_samples_for_p95": 5
+  },
+  "conditions": [
+    {"input_tokens": 128, "output_tokens": 16, "concurrency": 1},
+    {"input_tokens": 512, "output_tokens": 32, "concurrency": 4}
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "run_id": "furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632",
+  "experiment": "A2long",
+  "source": "measured_local",
+  "started_at": "2026-08-26T05:16:32.244106+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8000/v1",
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "api_path": "/completions",
+    "n_cards": 1,
+    "devices": "npu:0",
+    "is_chat": false
+  },
+  "config": {
+    "file": "benchmark/configs/a2_longinput_highconc.json",
+    "scale": 1.0,
+    "description": "세션 2 A-2. 긴 입력의 고동시성 구간. 세션 1 의 in=1024/2048 은 conc>=16 부터 전부 warm-up 8 / 표본 100 이라 지연 백분위를 믿을 수 없다(in=1024 conc=64 의 TTFT p95 6,226ms 는 램프 지배로 보인다). 긴 입력에서 절벽이 어디인지 확인한다. warm-up = 동시성, 표본 = 동시성 x 20.",
+    "conditions": [
+      {
+        "experiment": "A2long",
+        "concurrency": 32,
+        "input_tokens": 1024,
+        "output_tokens": 128,
+        "warmup_requests": 32,
+        "measured_requests": 640,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "A2long",
+        "concurrency": 64,
+        "input_tokens": 1024,
+        "output_tokens": 128,
+        "warmup_requests": 64,
+        "measured_requests": 1280,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "A2long",
+        "concurrency": 128,
+        "input_tokens": 1024,
+        "output_tokens": 128,
+        "warmup_requests": 128,
+        "measured_requests": 2560,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "A2long",
+        "concurrency": 64,
+        "input_tokens": 2048,
+        "output_tokens": 128,
+        "warmup_requests": 64,
+        "measured_requests": 1280,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 1024,
+        "words": 699,
+        "final_error_tokens": 1,
+        "probes": [
+          {
+            "words": 787,
+            "tokens": 1153
+          },
+          {
+            "words": 699,
+            "tokens": 1023
+          }
+        ]
+      },
+      {
+        "target_tokens": 2048,
+        "words": 1404,
+        "final_error_tokens": 16,
+        "probes": [
+          {
+            "words": 1575,
+            "tokens": 2297
+          },
+          {
+            "words": 1404,
+            "tokens": 2064
+          }
+        ]
+      }
+    ],
+    "token_counter_mode": "tokenize"
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 46.58°C | 44.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 30.90°C | 38.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 32.24°C | 38.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 31.69°C | 39.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 35.03°C | 39.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 35.25°C | 38.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 34.23°C | 36.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 36.03°C | 40.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+--------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID    | NPU core    | CMD                                                                                                                                                     |\n+--------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| 601818 | npu0:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-8B-FP8 --devices npu:0 -dp 1 --host 127.0.0.1 --port 8000 --no-enable-prefix-caching |\n+--------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "세션2 A-2 긴 입력 고동시성",
+    "단독 실행 — 다른 측정 없음",
+    "warm-up=동시성, 표본=동시성x20"
+  ]
+}

@@ -1,5 +1,6 @@
 # macOS
 .DS_Store
+._*
 
 # Python
 __pycache__/
@@ -30,12 +31,15 @@ data/raw/**/metrics_timeseries.jsonl
 # 개발 중 생긴 임시 산출물
 data/raw/**/*.tmp
 
-# 개발 중 사용한 테스트용 스크립트
-tests/
+# tests/ 와 pyproject.toml 은 **커밋한다.**
+#
+# 한동안 둘 다 여기서 제외돼 있었다. 그런데 README 는 clone 한 사람에게
+# `python -m pytest tests/ -q` 를 실행하라고 안내한다 — 파일이 없으니 바로 실패한다.
+# pyproject.toml 에는 `[tool.pytest.ini_options] pythonpath` 가 있어서 이것만 빠져도
+# import 가 깨진다. 재현 가능하다고 적어놓고 재현 수단을 빼면 안 된다 (교차검증 X10).
 
-# 굳이 공개할 필요 없는 폴더 및 파일
+# 굳이 공개할 필요 없는 폴더 및 파일(agent.md 등 추가 필요 시 추가)
 .claude/
-pyproject.toml
 
 # 호스팅 엔드포인트 dev run 은 커밋하지 않는다.
 #

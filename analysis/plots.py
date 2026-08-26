@@ -121,9 +121,10 @@ def plot_prefill_steps(out: str) -> str | None:
                  for r in rows if r["ttft_ms_p50"] is not None)
     xs, ys = zip(*pts)
 
-    # A4(경계 정밀 스캔)로 확인한 평탄 구간
-    plateaus = [(56, 100, "~20 ms"), (110, 240, "~26 ms"),
-                (250, 1004, "~78 ms"), (1005, 1300, "~95–105 ms")]
+    # 실측 토큰 수로 재정렬해 확인한 평탄 구간 (계단은 128·256·1024·1280 네 곳).
+    # 아티팩트에 선언된 384·512·640·768·896 은 실제 비용 경계가 아니다.
+    plateaus = [(56, 127, "~20 ms"), (128, 255, "~26 ms"),
+                (257, 1024, "~78 ms"), (1025, 1280, "~95–105 ms")]
 
     fig, ax = plt.subplots(figsize=(8.4, 4.6))
     for i, (lo, hi, label) in enumerate(plateaus):
@@ -134,7 +135,7 @@ def plot_prefill_steps(out: str) -> str | None:
                 xytext=(-8, 14), ha="right", fontsize=8.5, color=MUTED)
     ax.annotate("896 tok · 77.4 ms", (896, 77.4), textcoords="offset points",
                 xytext=(0, -26), ha="center", fontsize=8.5, color=MUTED)
-    ax.annotate("같은 비용 구간\n256 – 1,004 tok", (560, 78.6),
+    ax.annotate("같은 비용 구간\n257 – 1,024 tok", (560, 78.6),
                 textcoords="offset points", xytext=(0, 26), ha="center",
                 fontsize=9.5, color=TEAL, fontweight="bold")
     ax.annotate("경계를 넘으면\n토큰 몇 개 차이로 +24%", (1024, 95.4),
@@ -195,7 +196,7 @@ def plot_concurrency_cliff(store: BenchmarkStore, out: str) -> str:
     fig.suptitle("최대 처리량 지점은 운영할 수 없는 지점이다", fontsize=13,
                  fontweight="bold", color=INK, y=1.02)
     fig.text(0.5, -0.04, "RNGD 1장 · 입력 512 / 출력 128 토큰 · 조건당 100건 이상 "
-             "· 동시성 64 이상은 다른 측정과 동시 실행되어 처리량이 보수적",
+             "· 동시성 64 이상은 세션 2 에서 단독 재측정 — 기존 값과 처리량 0~7% 차",
              ha="center", fontsize=8.5, color=MUTED)
     p = os.path.join(out, "02-concurrency-cliff.png")
     fig.savefig(p); plt.close(fig)
@@ -292,17 +293,19 @@ def plot_soak(out: str) -> str | None:
     a1.plot(mins, tps, "-", color=TEAL, lw=1.9)
     a1.set_ylim(0, max(tps) * 1.42)
     a1.set_ylabel("처리량 (tok/s)")
-    a1.set_title("지연은 35분 내내 안정 — 처리량은 모니터링 폴링에 눌려 있었다")
+    a1.set_title("32.7분 지속 부하 — 처리량 계단은 폴링이 아니라 같은 카드를 나눠 쓴 결과")
 
-    # 12:15:59 에 남아 있던 furiosa-smi 폴링 루프 하나가 종료된 시점
+    # 26분 지점 = 같은 카드에 붙어 있던 두 번째 클라이언트(B4soak2)가 끝난 시각.
+    # 예전에는 이 지점을 furiosa-smi 폴링 루프의 종료 시각으로 적었는데, 세션 2 의
+    # 통제 실험에서 폴러 2개의 비용이 0.5% 로 나와 그 귀속이 반증됐다.
     jump = 26.0
     for ax in (a1, a2):
         ax.axvline(jump, color=RUST, lw=1.2, ls="--", alpha=0.8)
     a1.axvspan(0, jump, color=RUST, alpha=0.05)
-    a1.annotate("furiosa-smi 폴링 루프 2개 동시 실행\n(하나가 여기서 종료)",
+    a1.annotate("같은 카드에 클라이언트 2개\n(카드가 받는 동시성 32)",
                 (jump, max(tps) * 1.30), ha="right", va="top", fontsize=8.5,
                 color=RUST, xytext=(-8, 0), textcoords="offset points")
-    a1.annotate(f"{tps[-2]:.0f} tok/s\n독립 측정 707 과 일치", (mins[-2], tps[-2]),
+    a1.annotate(f"{tps[-2]:.0f} tok/s\n단독 구간 — 독립 측정 702~707 과 일치", (mins[-2], tps[-2]),
                 ha="left", va="center", fontsize=8.5, color=TEAL,
                 xytext=(-52, -26), textcoords="offset points")
     _clean(a1)
@@ -316,10 +319,10 @@ def plot_soak(out: str) -> str | None:
     _clean(a2)
 
     fig.text(0.5, -0.02,
-             f"RNGD 1장 · 입력 512 / 출력 128 · 동시성 16 · 측정 {len(m):,}건 · "
-             "카드 53–56 °C / 151–174 W · 스로틀링 없음\n"
-             "TTFT 는 폴링 종료 전후로 159→155 ms 로 거의 변화 없으나, "
-             "TPOT 은 32.8→21.9 ms 로 33% 개선됐다 — 모니터링이 decode 를 방해하고 있었다",
+             f"RNGD 1장 · 입력 512 / 출력 128 · 라벨 동시성 16 · 측정 {len(m):,}건 · "
+             "단독 구간 51.9–55.6 °C / 145–159 W (스로틀 카운터 미수집으로 확인 불가)\n"
+             "TTFT 는 전이 전후로 159→155 ms 로 거의 변화 없으나 TPOT 은 32.8→21.9 ms 로 바뀐다 — "
+             "카드가 받던 동시성이 32 에서 16 으로 줄어든 것이다 (세션 2 통제 실험으로 재현)",
              ha="center", fontsize=8.5, color=MUTED)
     fig.subplots_adjust(hspace=0.18)
     p = os.path.join(out, "04-soak-stability.png")
@@ -367,35 +370,54 @@ def plot_cards_vs_users(store: BenchmarkStore, out: str) -> str:
 # ---------------------------------------------------------------- 6. SLA 완화의 대가
 
 def plot_sla_tradeoff(store: BenchmarkStore, out: str) -> str:
-    curve = store.concurrency_curve(MODEL, 512, 128)
-    users = 1000
-    labels, cards, colors, per_card = [], [], [], []
-    for label, ttft, tps, color in TIERS:
-        cmax = max_concurrency_meeting_sla(curve, ServiceRequirement(
-            workload="llm_chat", model=MODEL, concurrent_users=users,
-            avg_input_tokens=512, avg_output_tokens=128,
-            target_output_tps_per_user=tps, target_max_ttft_ms=ttft))
-        if cmax is None:
-            continue
-        labels.append(label); cards.append(math.ceil(users / cmax))
-        colors.append(color); per_card.append(cmax)
+    """무엇이 카드 수를 줄이는가 — 두 변수를 분리해서 본다.
 
-    fig, ax = plt.subplots(figsize=(7.6, 4.2))
-    bars = ax.bar(labels, cards, color=colors, width=0.55)
-    for b, n, pc in zip(bars, cards, per_card):
-        ax.text(b.get_x() + b.get_width() / 2, n + max(cards) * 0.03,
-                f"{n}장", ha="center", fontsize=11, fontweight="bold", color=INK)
-        if n >= max(cards) * 0.25:
-            ax.text(b.get_x() + b.get_width() / 2, n / 2, f"카드당\n{pc}명",
-                    ha="center", va="center", fontsize=9.5, color="white")
-        else:                                   # 막대가 짧으면 글자가 넘친다
-            ax.text(b.get_x() + b.get_width() / 2, n + max(cards) * 0.10,
-                    f"카드당 {pc}명", ha="center", fontsize=9, color=MUTED)
-    ax.set_ylim(0, max(cards) * 1.22)
+    원래 이 그림은 "첫 응답 목표를 0.3초에서 1.5초로 늦추면 카드가 절반" 이라는 제목이었다.
+    그런데 두 등급은 TTFT 와 사용자당 속도를 **동시에** 바꾼다. 속도를 고정하고 TTFT 만
+    완화하면 카드 수가 전혀 줄지 않는다. 효과를 TTFT 에 귀속한 것이 틀렸다.
+    """
+    users = 1000
+    speeds = [30.0, 15.0]
+    ttfts = [300.0, 1500.0]
+    grid = []
+    for tps in speeds:
+        row = []
+        for ttft in ttfts:
+            r = plan(store, ServiceRequirement(
+                workload="llm_chat", model=MODEL, concurrent_users=users,
+                avg_input_tokens=512, avg_output_tokens=128,
+                target_output_tps_per_user=tps, target_max_ttft_ms=ttft,
+                target_utilization=0.7))
+            row.append(r.n_cards if r.feasible and r.n_cards else float("nan"))
+        grid.append(row)
+
+    fig, ax = plt.subplots(figsize=(8.2, 4.4))
+    x = [0, 1]
+    for i, (tps, row) in enumerate(zip(speeds, grid)):
+        ax.plot(x, row, "-o", color=SERIES[i], lw=2.2, ms=9,
+                label=f"사용자당 {tps:.0f} tok/s")
+        for xi, v in zip(x, row):
+            ax.annotate(f"{v:.0f}장", (xi, v), textcoords="offset points",
+                        xytext=(0, 14), ha="center", fontsize=11,
+                        fontweight="bold", color=SERIES[i])
+
+    ax.annotate("", xy=(0.5, grid[1][0]), xytext=(0.5, grid[0][0]),
+                arrowprops=dict(arrowstyle="<->", color=RUST, lw=1.6))
+    ax.text(0.55, (grid[0][0] + grid[1][0]) / 2,
+            f"속도를 절반으로 낮추면\n{grid[0][0] - grid[1][0]:.0f}장 감소",
+            fontsize=9.5, color=RUST, va="center")
+    ax.text(0.5, grid[0][0] + max(grid[0]) * 0.10,
+            "TTFT 를 5배 완화해도 변화 없음", ha="center", fontsize=9.5, color=MUTED)
+
+    ax.set_xticks(x)
+    ax.set_xticklabels([f"TTFT p95 ≤{t/1000:.1f}s" for t in ttfts])
+    ax.set_xlim(-0.25, 1.35)
+    ax.set_ylim(0, max(max(g) for g in grid) * 1.25)
     ax.set_ylabel("필요 RNGD 카드 수")
-    ax.set_title("첫 응답 목표를 0.3초에서 1.5초로 늦추면 카드가 절반이 된다")
+    ax.set_title("카드를 줄이는 것은 첫 응답이 아니라 사용자당 생성 속도다")
+    ax.legend(loc="center left")
     ax.text(0.5, -0.16, f"동시 사용자 {users:,}명 · 입력 512 / 출력 128 토큰 "
-            "· 지연 SLA 기준 최소 카드 수",
+            "· 목표 이용률 70% · 지연·처리량 제약 모두 반영",
             transform=ax.transAxes, ha="center", fontsize=8.5, color=MUTED)
     _clean(ax)
     p = os.path.join(out, "06-sla-tradeoff.png")

@@ -1,0 +1,90 @@
+{
+  "run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo32_20260826-064504",
+  "experiment": "A3solo32",
+  "source": "measured_local",
+  "started_at": "2026-08-26T06:45:04.671802+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8006/v1",
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "api_path": "/completions",
+    "n_cards": 1,
+    "devices": "npu:6",
+    "is_chat": false
+  },
+  "config": {
+    "file": "benchmark/configs/a3d_solo32.json",
+    "scale": 1.0,
+    "description": "세션 2 A-3(d). A3solo(conc=16)와 **같은 조건에서 동시성만 32**. 세션 1 의 conc=32 는 표본 500 · 창 60초라 짧은 창 편향이 있는지 확인할 비교 대상이 없다. conc=16 은 227.4 -> 158ms 로 부풀어 있었고, conc=64/128/256 은 세션 1 값이 이미 맞았다(0.01~0.8% 안). conc=32 만 열려 있어서 닫는다. A-3(b)의 클라이언트 2개 x 16 은 도착 패턴이 달라 대체가 안 된다.",
+    "conditions": [
+      {
+        "experiment": "A3solo32",
+        "concurrency": 32,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 32,
+        "measured_requests": 2600,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 512,
+        "words": 347,
+        "final_error_tokens": 2,
+        "probes": [
+          {
+            "words": 393,
+            "tokens": 593
+          },
+          {
+            "words": 339,
+            "tokens": 483
+          },
+          {
+            "words": 359,
+            "tokens": 530
+          },
+          {
+            "words": 347,
+            "tokens": 510
+          }
+        ]
+      }
+    ],
+    "token_counter_mode": "tokenize"
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 43.98°C | 42.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 41.50°C | 41.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 41.91°C | 41.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 42.66°C | 42.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 41.54°C | 41.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 43.06°C | 41.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 39.43°C | 39.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 41.42°C | 42.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID     | NPU core    | CMD                                                                                                                                                     |\n+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| 1324833 | npu6:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-8B-FP8 --devices npu:6 -dp 1 --host 127.0.0.1 --port 8006 --no-enable-prefix-caching |\n+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "세션2 npu6 카드차이 시험 — A-3(d)와 동일 조건, 카드만 npu:6",
+    "단독, 폴러 0개"
+  ]
+}

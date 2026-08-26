@@ -11,7 +11,197 @@
     "scaling_efficiency": 1.0,
     "window_s": 0.7708085228223354,
     "run_id": "furiosa-ai_Qwen2.5-0.5B-Instruct_S0_20260825-110135",
-    "baseline_run_id": "furiosa-ai_Qwen2.5-0.5B-Instruct_S0_20260825-110135"
+    "baseline_run_id": "furiosa-ai_Qwen2.5-0.5B-Instruct_S0_20260825-110135",
+    "load_retention": 0.9953,
+    "baseline_load_retention": 0.9953,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 1,
+    "n_cards": 1,
+    "aggregate_output_tps": 100.28992198507892,
+    "per_card_tps": 100.28992198507892,
+    "single_card_tps": 100.28992198507892,
+    "scaling_efficiency": 1.0,
+    "window_s": 25.52599452994764,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658",
+    "load_retention": 0.999,
+    "baseline_load_retention": 0.999,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 128,
+    "output_tokens": 1,
+    "concurrency_per_card": 1,
+    "n_cards": 1,
+    "aggregate_output_tps": 56.38204776626053,
+    "per_card_tps": 56.38204776626053,
+    "single_card_tps": 56.38204776626053,
+    "scaling_efficiency": 1.0,
+    "window_s": 0.5320842571090907,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "load_retention": 0.9668,
+    "baseline_load_retention": 0.9668,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 129,
+    "output_tokens": 1,
+    "concurrency_per_card": 1,
+    "n_cards": 1,
+    "aggregate_output_tps": 54.64306703590032,
+    "per_card_tps": 54.64306703590032,
+    "single_card_tps": 54.64306703590032,
+    "scaling_efficiency": 1.0,
+    "window_s": 0.5490174989681691,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "load_retention": 0.9729,
+    "baseline_load_retention": 0.9729,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 256,
+    "output_tokens": 1,
+    "concurrency_per_card": 1,
+    "n_cards": 1,
+    "aggregate_output_tps": 32.14633763403519,
+    "per_card_tps": 32.14633763403519,
+    "single_card_tps": 32.14633763403519,
+    "scaling_efficiency": 1.0,
+    "window_s": 0.9332322811242193,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "load_retention": 0.9757,
+    "baseline_load_retention": 0.9757,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 257,
+    "output_tokens": 1,
+    "concurrency_per_card": 1,
+    "n_cards": 1,
+    "aggregate_output_tps": 35.87060807398019,
+    "per_card_tps": 35.87060807398019,
+    "single_card_tps": 35.87060807398019,
+    "scaling_efficiency": 1.0,
+    "window_s": 0.836339320987463,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "load_retention": 0.9665,
+    "baseline_load_retention": 0.9665,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 1,
+    "concurrency_per_card": 1,
+    "n_cards": 1,
+    "aggregate_output_tps": 15.027347247661568,
+    "per_card_tps": 15.027347247661568,
+    "single_card_tps": 15.027347247661568,
+    "scaling_efficiency": 1.0,
+    "window_s": 1.9963603359647095,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "load_retention": 0.9823,
+    "baseline_load_retention": 0.9823,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 1024,
+    "output_tokens": 1,
+    "concurrency_per_card": 1,
+    "n_cards": 1,
+    "aggregate_output_tps": 14.301131845521159,
+    "per_card_tps": 14.301131845521159,
+    "single_card_tps": 14.301131845521159,
+    "scaling_efficiency": 1.0,
+    "window_s": 2.097736062016338,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "load_retention": 0.9802,
+    "baseline_load_retention": 0.9802,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 1025,
+    "output_tokens": 1,
+    "concurrency_per_card": 1,
+    "n_cards": 1,
+    "aggregate_output_tps": 14.141855473368922,
+    "per_card_tps": 14.141855473368922,
+    "single_card_tps": 14.141855473368922,
+    "scaling_efficiency": 1.0,
+    "window_s": 2.121362366946414,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "load_retention": 0.9807,
+    "baseline_load_retention": 0.9807,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 1280,
+    "output_tokens": 1,
+    "concurrency_per_card": 1,
+    "n_cards": 1,
+    "aggregate_output_tps": 9.714903476297172,
+    "per_card_tps": 9.714903476297172,
+    "single_card_tps": 9.714903476297172,
+    "scaling_efficiency": 1.0,
+    "window_s": 3.0880389160010964,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "load_retention": 0.9846,
+    "baseline_load_retention": 0.9846,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 1281,
+    "output_tokens": 1,
+    "concurrency_per_card": 1,
+    "n_cards": 1,
+    "aggregate_output_tps": 9.333504783310577,
+    "per_card_tps": 9.333504783310577,
+    "single_card_tps": 9.333504783310577,
+    "scaling_efficiency": 1.0,
+    "window_s": 3.2142266700975597,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "load_retention": 0.9859,
+    "baseline_load_retention": 0.9859,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 2048,
+    "output_tokens": 1,
+    "concurrency_per_card": 1,
+    "n_cards": 1,
+    "aggregate_output_tps": 7.513200071016462,
+    "per_card_tps": 7.513200071016462,
+    "single_card_tps": 7.513200071016462,
+    "scaling_efficiency": 1.0,
+    "window_s": 3.9929723308887333,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D3q4bpre_20260826-065459",
+    "load_retention": 0.9863,
+    "baseline_load_retention": 0.9863,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -25,7 +215,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 0.6208505679387599,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9618,
+    "baseline_load_retention": 0.9618,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -39,7 +232,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 0.6293217791244388,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9604,
+    "baseline_load_retention": 0.9604,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -53,7 +249,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 0.7961943750269711,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9666,
+    "baseline_load_retention": 0.9666,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -67,7 +266,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 0.8263870689552277,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9646,
+    "baseline_load_retention": 0.9646,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -81,7 +283,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 0.8150538739282638,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.969,
+    "baseline_load_retention": 0.969,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -95,7 +300,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 0.8142259689047933,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9715,
+    "baseline_load_retention": 0.9715,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -109,7 +317,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 1.7391795800067484,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9838,
+    "baseline_load_retention": 0.9838,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -123,7 +334,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.37758885580115,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9879,
+    "baseline_load_retention": 0.9879,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -137,7 +351,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.415210752049461,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9869,
+    "baseline_load_retention": 0.9869,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -151,7 +368,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.413342858897522,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9861,
+    "baseline_load_retention": 0.9861,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -165,7 +385,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.388800519052893,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9855,
+    "baseline_load_retention": 0.9855,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -179,7 +402,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.4067524180281907,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.985,
+    "baseline_load_retention": 0.985,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -193,7 +419,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.411974139045924,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9847,
+    "baseline_load_retention": 0.9847,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -207,7 +436,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.4019981699530035,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9838,
+    "baseline_load_retention": 0.9838,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -221,7 +453,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.379138425923884,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9836,
+    "baseline_load_retention": 0.9836,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -235,7 +470,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.3709328828845173,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9822,
+    "baseline_load_retention": 0.9822,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -249,7 +487,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.6680298771243542,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.984,
+    "baseline_load_retention": 0.984,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -263,7 +504,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 3.108115723123774,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9874,
+    "baseline_load_retention": 0.9874,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -277,7 +521,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 3.839230193058029,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9877,
+    "baseline_load_retention": 0.9877,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -291,7 +538,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 4.715125549118966,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.99,
+    "baseline_load_retention": 0.99,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -305,7 +555,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 0.6933942609466612,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
+    "load_retention": 0.9653,
+    "baseline_load_retention": 0.9653,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -319,7 +572,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 0.7509989710524678,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
+    "load_retention": 0.9683,
+    "baseline_load_retention": 0.9683,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -333,7 +589,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 0.6915223561227322,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
+    "load_retention": 0.9675,
+    "baseline_load_retention": 0.9675,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -347,7 +606,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 0.7467866910155863,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
+    "load_retention": 0.9685,
+    "baseline_load_retention": 0.9685,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -361,7 +623,10 @@
     "scaling_efficiency": 1.2169484660477563,
     "window_s": 1.1909430490341038,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9793,
+    "baseline_load_retention": 0.9838,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -375,7 +640,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 1.446081724949181,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
+    "load_retention": 0.9829,
+    "baseline_load_retention": 0.9829,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -389,7 +657,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.017750791972503,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
+    "load_retention": 0.9836,
+    "baseline_load_retention": 0.9836,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -403,7 +674,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.3263769780751318,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
+    "load_retention": 0.9846,
+    "baseline_load_retention": 0.9846,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -417,7 +691,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.156101774889976,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
+    "load_retention": 0.9841,
+    "baseline_load_retention": 0.9841,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -431,7 +708,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.247837302973494,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
+    "load_retention": 0.9844,
+    "baseline_load_retention": 0.9844,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -445,7 +725,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.3676140781026334,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
+    "load_retention": 0.9849,
+    "baseline_load_retention": 0.9849,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -459,7 +742,10 @@
     "scaling_efficiency": 1.0027127596610033,
     "window_s": 2.217343111988157,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9842,
+    "baseline_load_retention": 0.984,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -473,7 +759,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.365698616951704,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
+    "load_retention": 0.9851,
+    "baseline_load_retention": 0.9851,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -487,7 +776,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 2.371393699897453,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445",
+    "load_retention": 0.9848,
+    "baseline_load_retention": 0.9848,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -501,7 +793,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 164.72662607906386,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
+    "load_retention": 0.9993,
+    "baseline_load_retention": 0.9993,
+    "comparable": true
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -515,7 +810,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 170.7408453130629,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
+    "load_retention": 0.9991,
+    "baseline_load_retention": 0.9991,
+    "comparable": true
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -529,7 +827,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 181.89795734896325,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
+    "load_retention": 0.9989,
+    "baseline_load_retention": 0.9989,
+    "comparable": true
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -543,7 +844,10 @@
     "scaling_efficiency": 1.1413258138898934,
     "window_s": 0.2325349359307438,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_E1_20260825-110208",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9761,
+    "baseline_load_retention": 0.9666,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -557,7 +861,10 @@
     "scaling_efficiency": 1.3531831295341163,
     "window_s": 0.42841690382920206,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_E1_20260825-110208",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9795,
+    "baseline_load_retention": 0.9838,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -571,7 +878,10 @@
     "scaling_efficiency": 1.0041667437914636,
     "window_s": 0.798921903129667,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_E1_20260825-110208",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9873,
+    "baseline_load_retention": 0.985,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -585,7 +895,10 @@
     "scaling_efficiency": 1.1039270786649709,
     "window_s": 0.8056177890393883,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_E1_20260825-110208",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+    "load_retention": 0.9846,
+    "baseline_load_retention": 0.984,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -599,7 +912,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 1.769185297191143,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_E1_20260825-110208",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_E1_20260825-110208"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_E1_20260825-110208",
+    "load_retention": 0.9908,
+    "baseline_load_retention": 0.9908,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -613,7 +929,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 3.519562517059967,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_E1_20260825-110208",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_E1_20260825-110208"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_E1_20260825-110208",
+    "load_retention": 0.993,
+    "baseline_load_retention": 0.993,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -627,7 +946,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 8.059155496070161,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_E1_20260825-110208",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_E1_20260825-110208"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_E1_20260825-110208",
+    "load_retention": 0.9947,
+    "baseline_load_retention": 0.9947,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -641,7 +963,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 85.95076299807988,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
+    "load_retention": 0.9991,
+    "baseline_load_retention": 0.9991,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen2.5-0.5B-Instruct",
@@ -655,7 +980,27 @@
     "scaling_efficiency": 1.0,
     "window_s": 0.7895805789157748,
     "run_id": "furiosa-ai_Qwen2.5-0.5B-Instruct_S0_20260825-110135",
-    "baseline_run_id": "furiosa-ai_Qwen2.5-0.5B-Instruct_S0_20260825-110135"
+    "baseline_run_id": "furiosa-ai_Qwen2.5-0.5B-Instruct_S0_20260825-110135",
+    "load_retention": 0.593,
+    "baseline_load_retention": 0.593,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 4,
+    "n_cards": 1,
+    "aggregate_output_tps": 343.68475709041843,
+    "per_card_tps": 343.68475709041843,
+    "single_card_tps": 343.68475709041843,
+    "scaling_efficiency": 1.0,
+    "window_s": 29.794745879014954,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658",
+    "load_retention": 0.9968,
+    "baseline_load_retention": 0.9968,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -669,7 +1014,10 @@
     "scaling_efficiency": 0.9920474578146006,
     "window_s": 47.037341840798035,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414",
+    "load_retention": 0.9975,
+    "baseline_load_retention": 0.9984,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -683,7 +1031,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 51.83705081208609,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
+    "load_retention": 0.9975,
+    "baseline_load_retention": 0.9975,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -697,7 +1048,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 66.39977180794813,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
+    "load_retention": 0.9941,
+    "baseline_load_retention": 0.9941,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -711,7 +1065,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 93.32655079104006,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414",
+    "load_retention": 0.9984,
+    "baseline_load_retention": 0.9984,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -725,7 +1082,10 @@
     "scaling_efficiency": 0.9719659205541785,
     "window_s": 24.0045841159299,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C1x2_20260825-112704",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414",
+    "load_retention": 0.9614,
+    "baseline_load_retention": 0.9984,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -739,7 +1099,10 @@
     "scaling_efficiency": 1.0037289279596346,
     "window_s": 46.48991784104146,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C2x2_20260825-113804",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414",
+    "load_retention": 0.9967,
+    "baseline_load_retention": 0.9984,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -753,7 +1116,10 @@
     "scaling_efficiency": 0.8827972757621645,
     "window_s": 13.21460676100105,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C1x4_20260825-112748",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414",
+    "load_retention": 0.8854,
+    "baseline_load_retention": 0.9984,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -767,7 +1133,10 @@
     "scaling_efficiency": 0.9980456213347861,
     "window_s": 35.0659887669608,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C2x4_20260825-114008",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414",
+    "load_retention": 0.9838,
+    "baseline_load_retention": 0.9984,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -781,7 +1150,10 @@
     "scaling_efficiency": 0.7517354091863081,
     "window_s": 7.759258581092581,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C1x8_20260825-113001",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414",
+    "load_retention": 0.78,
+    "baseline_load_retention": 0.9984,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -795,7 +1167,10 @@
     "scaling_efficiency": 0.9686956483215321,
     "window_s": 18.064216871047392,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C1x8b_20260825-113047",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414",
+    "load_retention": 0.9382,
+    "baseline_load_retention": 0.9984,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -809,7 +1184,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 28.087741867871955,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
+    "load_retention": 0.9652,
+    "baseline_load_retention": 0.9652,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -823,7 +1201,44 @@
     "scaling_efficiency": 1.0,
     "window_s": 33.55179608706385,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
+    "load_retention": 0.9654,
+    "baseline_load_retention": 0.9654,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 16,
+    "n_cards": 1,
+    "aggregate_output_tps": 846.0887789833415,
+    "per_card_tps": 846.0887789833415,
+    "single_card_tps": 846.0887789833415,
+    "scaling_efficiency": 1.0,
+    "window_s": 48.41099541494623,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658",
+    "load_retention": 0.9895,
+    "baseline_load_retention": 0.9895,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 16,
+    "n_cards": 1,
+    "aggregate_output_tps": 702.2071448666279,
+    "per_card_tps": 702.2071448666279,
+    "single_card_tps": 702.2071448666279,
+    "scaling_efficiency": 1.0,
+    "window_s": 309.88007113104686,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo_20260826-054247",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo_20260826-054247",
+    "load_retention": 0.994,
+    "baseline_load_retention": 0.994,
+    "comparable": true
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -833,11 +1248,14 @@
     "n_cards": 1,
     "aggregate_output_tps": 674.4666603681654,
     "per_card_tps": 674.4666603681654,
-    "single_card_tps": 521.0737975573377,
-    "scaling_efficiency": 1.2943783846547163,
+    "single_card_tps": 702.2071448666279,
+    "scaling_efficiency": 0.9604952972904721,
     "window_s": 18.977958069881424,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B4soak2_20260825-114958"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo_20260826-054247",
+    "load_retention": 0.8984,
+    "baseline_load_retention": 0.994,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -851,7 +1269,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 25.537765854038298,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
+    "load_retention": 0.8993,
+    "baseline_load_retention": 0.8993,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -865,35 +1286,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 39.9365383379627,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607"
-  },
-  {
-    "model": "furiosa-ai/Qwen3-8B-FP8",
-    "input_tokens": 512,
-    "output_tokens": 128,
-    "concurrency_per_card": 16,
-    "n_cards": 1,
-    "aggregate_output_tps": 521.0737975573377,
-    "per_card_tps": 521.0737975573377,
-    "single_card_tps": 521.0737975573377,
-    "scaling_efficiency": 1.0,
-    "window_s": 1965.1726968430448,
-    "run_id": "furiosa-ai_Qwen3-8B-FP8_B4soak2_20260825-114958",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B4soak2_20260825-114958"
-  },
-  {
-    "model": "furiosa-ai/Qwen3-8B-FP8",
-    "input_tokens": 512,
-    "output_tokens": 128,
-    "concurrency_per_card": 16,
-    "n_cards": 1,
-    "aggregate_output_tps": 521.4292632211383,
-    "per_card_tps": 521.4292632211383,
-    "single_card_tps": 521.0737975573377,
-    "scaling_efficiency": 1.0006821791183262,
-    "window_s": 1963.8330109710805,
-    "run_id": "furiosa-ai_Qwen3-8B-FP8_B4soak_20260825-114317",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B4soak2_20260825-114958"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
+    "load_retention": 0.9015,
+    "baseline_load_retention": 0.9015,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -903,11 +1299,14 @@
     "n_cards": 1,
     "aggregate_output_tps": 707.1180754165492,
     "per_card_tps": 707.1180754165492,
-    "single_card_tps": 521.0737975573377,
-    "scaling_efficiency": 1.357040171145316,
+    "single_card_tps": 702.2071448666279,
+    "scaling_efficiency": 1.0069935639160352,
     "window_s": 72.4065778828226,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B4soak2_20260825-114958"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo_20260826-054247",
+    "load_retention": 0.9686,
+    "baseline_load_retention": 0.994,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -917,11 +1316,14 @@
     "n_cards": 2,
     "aggregate_output_tps": 1258.8351585361386,
     "per_card_tps": 629.4175792680693,
-    "single_card_tps": 521.0737975573377,
-    "scaling_efficiency": 1.2079240641510278,
+    "single_card_tps": 702.2071448666279,
+    "scaling_efficiency": 0.8963417474022088,
     "window_s": 10.16813036496751,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C1x2_20260825-112704",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B4soak2_20260825-114958"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo_20260826-054247",
+    "load_retention": 0.8307,
+    "baseline_load_retention": 0.994,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -931,11 +1333,14 @@
     "n_cards": 2,
     "aggregate_output_tps": 1411.071480162092,
     "per_card_tps": 705.535740081046,
-    "single_card_tps": 521.0737975573377,
-    "scaling_efficiency": 1.3540034893107642,
+    "single_card_tps": 702.2071448666279,
+    "scaling_efficiency": 1.0047401898980255,
     "window_s": 36.284483613912016,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C2x2_20260825-113804",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B4soak2_20260825-114958"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo_20260826-054247",
+    "load_retention": 0.9565,
+    "baseline_load_retention": 0.994,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -945,11 +1350,14 @@
     "n_cards": 4,
     "aggregate_output_tps": 2481.694871224993,
     "per_card_tps": 620.4237178062483,
-    "single_card_tps": 521.0737975573377,
-    "scaling_efficiency": 1.190663819049505,
+    "single_card_tps": 702.2071448666279,
+    "scaling_efficiency": 0.8835337582959043,
     "window_s": 5.157765424111858,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C1x4_20260825-112748",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B4soak2_20260825-114958"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo_20260826-054247",
+    "load_retention": 0.8071,
+    "baseline_load_retention": 0.994,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -959,11 +1367,31 @@
     "n_cards": 4,
     "aggregate_output_tps": 2895.299308655105,
     "per_card_tps": 723.8248271637763,
-    "single_card_tps": 521.0737975573377,
-    "scaling_efficiency": 1.3891023316790907,
+    "single_card_tps": 702.2071448666279,
+    "scaling_efficiency": 1.030785335146731,
     "window_s": 26.525754960952327,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C2x4_20260825-114008",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B4soak2_20260825-114958"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo_20260826-054247",
+    "load_retention": 0.9351,
+    "baseline_load_retention": 0.994,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 16,
+    "n_cards": 8,
+    "aggregate_output_tps": 6114.224033571856,
+    "per_card_tps": 764.278004196482,
+    "single_card_tps": 702.2071448666279,
+    "scaling_efficiency": 1.0883939444131452,
+    "window_s": 277.5953237370122,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_B1x8deep_20260826-062804",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo_20260826-054247",
+    "load_retention": 0.9944,
+    "baseline_load_retention": 0.994,
+    "comparable": true
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -973,11 +1401,14 @@
     "n_cards": 8,
     "aggregate_output_tps": 4829.381553104762,
     "per_card_tps": 603.6726941380953,
-    "single_card_tps": 521.0737975573377,
-    "scaling_efficiency": 1.158516695654167,
+    "single_card_tps": 702.2071448666279,
+    "scaling_efficiency": 0.8596789402545205,
     "window_s": 2.650442889891565,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C1x8_20260825-113001",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B4soak2_20260825-114958"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo_20260826-054247",
+    "load_retention": 0.7433,
+    "baseline_load_retention": 0.994,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -987,11 +1418,116 @@
     "n_cards": 8,
     "aggregate_output_tps": 5702.139753137191,
     "per_card_tps": 712.7674691421489,
-    "single_card_tps": 521.0737975573377,
-    "scaling_efficiency": 1.367882001519598,
+    "single_card_tps": 702.2071448666279,
+    "scaling_efficiency": 1.015038759364271,
     "window_s": 17.958170867990702,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C1x8b_20260825-113047",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B4soak2_20260825-114958"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo_20260826-054247",
+    "load_retention": 0.9028,
+    "baseline_load_retention": 0.994,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 32,
+    "n_cards": 1,
+    "aggregate_output_tps": 1149.0063782180994,
+    "per_card_tps": 1149.0063782180994,
+    "single_card_tps": 1149.0063782180994,
+    "scaling_efficiency": 1.0,
+    "window_s": 71.29638403491117,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658",
+    "load_retention": 0.9856,
+    "baseline_load_retention": 0.9856,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 1024,
+    "output_tokens": 128,
+    "concurrency_per_card": 32,
+    "n_cards": 1,
+    "aggregate_output_tps": 695.3731491533377,
+    "per_card_tps": 695.3731491533377,
+    "single_card_tps": 695.3731491533377,
+    "scaling_efficiency": 1.0,
+    "window_s": 117.80725226411596,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632",
+    "load_retention": 0.982,
+    "baseline_load_retention": 0.982,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 32,
+    "n_cards": 1,
+    "aggregate_output_tps": 974.93172947992,
+    "per_card_tps": 974.93172947992,
+    "single_card_tps": 966.0089397166303,
+    "scaling_efficiency": 1.0092367569247416,
+    "window_s": 341.3572355241049,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo32_20260826-055931",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "load_retention": 0.9928,
+    "baseline_load_retention": 0.9877,
+    "comparable": true
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 32,
+    "n_cards": 1,
+    "aggregate_output_tps": 971.3810184778478,
+    "per_card_tps": 971.3810184778478,
+    "single_card_tps": 966.0089397166303,
+    "scaling_efficiency": 1.0055611066733952,
+    "window_s": 342.6050063460134,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo32_20260826-064504",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "load_retention": 0.9929,
+    "baseline_load_retention": 0.9877,
+    "comparable": true
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 32,
+    "n_cards": 1,
+    "aggregate_output_tps": 966.0089397166303,
+    "per_card_tps": 966.0089397166303,
+    "single_card_tps": 966.0089397166303,
+    "scaling_efficiency": 1.0,
+    "window_s": 344.5102693331428,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "load_retention": 0.9877,
+    "baseline_load_retention": 0.9877,
+    "comparable": true
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 32,
+    "n_cards": 1,
+    "aggregate_output_tps": 969.5417579947926,
+    "per_card_tps": 969.5417579947926,
+    "single_card_tps": 966.0089397166303,
+    "scaling_efficiency": 1.003657127934239,
+    "window_s": 343.2549420958385,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "load_retention": 0.9877,
+    "baseline_load_retention": 0.9877,
+    "comparable": true
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1001,11 +1537,14 @@
     "n_cards": 1,
     "aggregate_output_tps": 936.8449222865164,
     "per_card_tps": 936.8449222865164,
-    "single_card_tps": 1065.918345977604,
-    "scaling_efficiency": 0.8789087136194205,
+    "single_card_tps": 966.0089397166303,
+    "scaling_efficiency": 0.9698097851571965,
     "window_s": 13.662880264921114,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "load_retention": 0.8454,
+    "baseline_load_retention": 0.9877,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1015,11 +1554,14 @@
     "n_cards": 1,
     "aggregate_output_tps": 609.8875048431187,
     "per_card_tps": 609.8875048431187,
-    "single_card_tps": 609.8875048431187,
-    "scaling_efficiency": 1.0,
+    "single_card_tps": 695.3731491533377,
+    "scaling_efficiency": 0.8770650773411319,
     "window_s": 20.98747703200206,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632",
+    "load_retention": 0.8663,
+    "baseline_load_retention": 0.982,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1033,7 +1575,10 @@
     "scaling_efficiency": 1.0,
     "window_s": 34.5296625320334,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
+    "load_retention": 0.8833,
+    "baseline_load_retention": 0.8833,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1043,11 +1588,14 @@
     "n_cards": 1,
     "aggregate_output_tps": 1004.8723714572129,
     "per_card_tps": 1004.8723714572129,
-    "single_card_tps": 1065.918345977604,
-    "scaling_efficiency": 0.9427292205348028,
+    "single_card_tps": 966.0089397166303,
+    "scaling_efficiency": 1.0402309234860527,
     "window_s": 50.95174417598173,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1hi_20260825-115233",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "load_retention": 0.9625,
+    "baseline_load_retention": 0.9877,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1057,11 +1605,14 @@
     "n_cards": 1,
     "aggregate_output_tps": 1065.918345977604,
     "per_card_tps": 1065.918345977604,
-    "single_card_tps": 1065.918345977604,
-    "scaling_efficiency": 1.0,
+    "single_card_tps": 966.0089397166303,
+    "scaling_efficiency": 1.1034249292664737,
     "window_s": 60.042122589889914,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "load_retention": 0.9764,
+    "baseline_load_retention": 0.9877,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1071,11 +1622,14 @@
     "n_cards": 2,
     "aggregate_output_tps": 1783.9776802534664,
     "per_card_tps": 891.9888401267332,
-    "single_card_tps": 1065.918345977604,
-    "scaling_efficiency": 0.83682661387036,
+    "single_card_tps": 966.0089397166303,
+    "scaling_efficiency": 0.9233753472182046,
     "window_s": 7.174977659014985,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C1x2_20260825-112704",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "load_retention": 0.829,
+    "baseline_load_retention": 0.9877,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1085,11 +1639,14 @@
     "n_cards": 2,
     "aggregate_output_tps": 2054.4705218172435,
     "per_card_tps": 1027.2352609086217,
-    "single_card_tps": 1065.918345977604,
-    "scaling_efficiency": 0.9637091478770785,
+    "single_card_tps": 966.0089397166303,
+    "scaling_efficiency": 1.063380698329719,
     "window_s": 37.38189435401,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C2x2_20260825-113804",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "load_retention": 0.9494,
+    "baseline_load_retention": 0.9877,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1099,11 +1656,14 @@
     "n_cards": 4,
     "aggregate_output_tps": 3445.4105864150342,
     "per_card_tps": 861.3526466037586,
-    "single_card_tps": 1065.918345977604,
-    "scaling_efficiency": 0.8080850187579531,
+    "single_card_tps": 966.0089397166303,
+    "scaling_efficiency": 0.8916611546642915,
     "window_s": 3.7150869769975543,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C1x4_20260825-112748",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "load_retention": 0.741,
+    "baseline_load_retention": 0.9877,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1113,11 +1673,31 @@
     "n_cards": 4,
     "aggregate_output_tps": 4123.671829475832,
     "per_card_tps": 1030.917957368958,
-    "single_card_tps": 1065.918345977604,
-    "scaling_efficiency": 0.9671640996322795,
+    "single_card_tps": 966.0089397166303,
+    "scaling_efficiency": 1.0671929782258207,
     "window_s": 27.93626766721718,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C2x4_20260825-114008",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "load_retention": 0.9182,
+    "baseline_load_retention": 0.9877,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 32,
+    "n_cards": 8,
+    "aggregate_output_tps": 7800.1503162737545,
+    "per_card_tps": 975.0187895342193,
+    "single_card_tps": 966.0089397166303,
+    "scaling_efficiency": 1.009326880370519,
+    "window_s": 299.97370629105717,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_B1x8deep_20260826-062804",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "load_retention": 0.9819,
+    "baseline_load_retention": 0.9877,
+    "comparable": true
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1127,11 +1707,14 @@
     "n_cards": 8,
     "aggregate_output_tps": 4821.752733661084,
     "per_card_tps": 602.7190917076355,
-    "single_card_tps": 1065.918345977604,
-    "scaling_efficiency": 0.5654458373683899,
+    "single_card_tps": 966.0089397166303,
+    "scaling_efficiency": 0.6239270331022376,
     "window_s": 2.654636333929375,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C1x8_20260825-113001",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "load_retention": 0.3705,
+    "baseline_load_retention": 0.9877,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1141,11 +1724,150 @@
     "n_cards": 8,
     "aggregate_output_tps": 7003.224001513688,
     "per_card_tps": 875.403000189211,
-    "single_card_tps": 1065.918345977604,
-    "scaling_efficiency": 0.8212664727018443,
+    "single_card_tps": 966.0089397166303,
+    "scaling_efficiency": 0.9062058995499589,
     "window_s": 14.621837025042623,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_C1x8b_20260825-113047",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_C2x1_20260825-113414"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+    "load_retention": 0.8561,
+    "baseline_load_retention": 0.9877,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 64,
+    "n_cards": 1,
+    "aggregate_output_tps": 1426.7933621495688,
+    "per_card_tps": 1426.7933621495688,
+    "single_card_tps": 1426.7933621495688,
+    "scaling_efficiency": 1.0,
+    "window_s": 114.83092390699312,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658",
+    "load_retention": 0.98,
+    "baseline_load_retention": 0.98,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 64,
+    "n_cards": 1,
+    "aggregate_output_tps": 1212.758519809757,
+    "per_card_tps": 1212.758519809757,
+    "single_card_tps": 1212.758519809757,
+    "scaling_efficiency": 1.0,
+    "window_s": 135.09696887200698,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A1solo_20260826-050142",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A1solo_20260826-050142",
+    "load_retention": 0.981,
+    "baseline_load_retention": 0.981,
+    "comparable": true
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 1024,
+    "output_tokens": 128,
+    "concurrency_per_card": 64,
+    "n_cards": 1,
+    "aggregate_output_tps": 829.4291919573844,
+    "per_card_tps": 829.4291919573844,
+    "single_card_tps": 829.4291919573844,
+    "scaling_efficiency": 1.0,
+    "window_s": 197.53343816287816,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632",
+    "load_retention": 0.9756,
+    "baseline_load_retention": 0.9756,
+    "comparable": true
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 2048,
+    "output_tokens": 128,
+    "concurrency_per_card": 64,
+    "n_cards": 1,
+    "aggregate_output_tps": 448.055787658287,
+    "per_card_tps": 448.055787658287,
+    "single_card_tps": 448.055787658287,
+    "scaling_efficiency": 1.0,
+    "window_s": 365.668750439072,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632",
+    "load_retention": 0.9682,
+    "baseline_load_retention": 0.9682,
+    "comparable": true
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 64,
+    "n_cards": 1,
+    "aggregate_output_tps": 1215.5385627349044,
+    "per_card_tps": 1215.5385627349044,
+    "single_card_tps": 1212.758519809757,
+    "scaling_efficiency": 1.00229233015455,
+    "window_s": 21.060623483965173,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A4kv_20260826-060559",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A1solo_20260826-050142",
+    "load_retention": 0.8575,
+    "baseline_load_retention": 0.981,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 1024,
+    "output_tokens": 128,
+    "concurrency_per_card": 64,
+    "n_cards": 1,
+    "aggregate_output_tps": 797.2592643927957,
+    "per_card_tps": 797.2592643927957,
+    "single_card_tps": 829.4291919573844,
+    "scaling_efficiency": 0.9612143774579837,
+    "window_s": 32.1100062970072,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A4kv_20260826-060559",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632",
+    "load_retention": 0.8408,
+    "baseline_load_retention": 0.9756,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 2048,
+    "output_tokens": 128,
+    "concurrency_per_card": 64,
+    "n_cards": 1,
+    "aggregate_output_tps": 405.17294508734113,
+    "per_card_tps": 405.17294508734113,
+    "single_card_tps": 448.055787658287,
+    "scaling_efficiency": 0.9042912874866137,
+    "window_s": 63.18289587297477,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A4kv_20260826-060559",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632",
+    "load_retention": 0.8221,
+    "baseline_load_retention": 0.9682,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 4096,
+    "output_tokens": 128,
+    "concurrency_per_card": 64,
+    "n_cards": 1,
+    "aggregate_output_tps": 180.71940032354837,
+    "per_card_tps": 180.71940032354837,
+    "single_card_tps": 180.71940032354837,
+    "scaling_efficiency": 1.0,
+    "window_s": 141.65606987499632,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A4kv_20260826-060559",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A4kv_20260826-060559",
+    "load_retention": 0.8033,
+    "baseline_load_retention": 0.8033,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1155,11 +1877,14 @@
     "n_cards": 1,
     "aggregate_output_tps": 1070.7974501390374,
     "per_card_tps": 1070.7974501390374,
-    "single_card_tps": 1212.7473373758062,
-    "scaling_efficiency": 0.8829518046653263,
+    "single_card_tps": 1212.758519809757,
+    "scaling_efficiency": 0.8829436632669555,
     "window_s": 11.953707956941798,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1hi_20260825-115233"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A1solo_20260826-050142",
+    "load_retention": 0.8299,
+    "baseline_load_retention": 0.981,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1169,11 +1894,14 @@
     "n_cards": 1,
     "aggregate_output_tps": 709.615748010887,
     "per_card_tps": 709.615748010887,
-    "single_card_tps": 709.615748010887,
-    "scaling_efficiency": 1.0,
+    "single_card_tps": 829.4291919573844,
+    "scaling_efficiency": 0.855547109857868,
     "window_s": 18.037931142142043,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632",
+    "load_retention": 0.8543,
+    "baseline_load_retention": 0.9756,
+    "comparable": false
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1183,11 +1911,82 @@
     "n_cards": 1,
     "aggregate_output_tps": 1212.7473373758062,
     "per_card_tps": 1212.7473373758062,
-    "single_card_tps": 1212.7473373758062,
-    "scaling_efficiency": 1.0,
+    "single_card_tps": 1212.758519809757,
+    "scaling_efficiency": 0.9999907793400186,
     "window_s": 63.32728807814419,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1hi_20260825-115233",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1hi_20260825-115233"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A1solo_20260826-050142",
+    "load_retention": 0.9476,
+    "baseline_load_retention": 0.981,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 64,
+    "n_cards": 8,
+    "aggregate_output_tps": 7794.246241396194,
+    "per_card_tps": 974.2807801745242,
+    "single_card_tps": 1212.758519809757,
+    "scaling_efficiency": 0.80335925434468,
+    "window_s": 373.4447064991109,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_B1x8deep_20260826-062804",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A1solo_20260826-050142",
+    "load_retention": 0.976,
+    "baseline_load_retention": 0.981,
+    "comparable": true
+  },
+  {
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 128,
+    "n_cards": 1,
+    "aggregate_output_tps": 1795.5613621037735,
+    "per_card_tps": 1795.5613621037735,
+    "single_card_tps": 1795.5613621037735,
+    "scaling_efficiency": 1.0,
+    "window_s": 182.4944593461696,
+    "run_id": "furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658",
+    "baseline_run_id": "furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658",
+    "load_retention": 0.9713,
+    "baseline_load_retention": 0.9713,
+    "comparable": true
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 128,
+    "n_cards": 1,
+    "aggregate_output_tps": 1563.527996748092,
+    "per_card_tps": 1563.527996748092,
+    "single_card_tps": 1563.527996748092,
+    "scaling_efficiency": 1.0,
+    "window_s": 209.57731532887556,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A1solo_20260826-050142",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A1solo_20260826-050142",
+    "load_retention": 0.9721,
+    "baseline_load_retention": 0.9721,
+    "comparable": true
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 1024,
+    "output_tokens": 128,
+    "concurrency_per_card": 128,
+    "n_cards": 1,
+    "aggregate_output_tps": 773.9500035797874,
+    "per_card_tps": 773.9500035797874,
+    "single_card_tps": 773.9500035797874,
+    "scaling_efficiency": 1.0,
+    "window_s": 423.38652171893045,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A2long_20260826-051632",
+    "load_retention": 0.9693,
+    "baseline_load_retention": 0.9693,
+    "comparable": true
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1197,11 +1996,31 @@
     "n_cards": 1,
     "aggregate_output_tps": 1459.4917563813374,
     "per_card_tps": 1459.4917563813374,
-    "single_card_tps": 1459.4917563813374,
-    "scaling_efficiency": 1.0,
+    "single_card_tps": 1563.527996748092,
+    "scaling_efficiency": 0.9334605836396057,
     "window_s": 70.1614103349857,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1hi_20260825-115233",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1hi_20260825-115233"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A1solo_20260826-050142",
+    "load_retention": 0.8962,
+    "baseline_load_retention": 0.9721,
+    "comparable": false
+  },
+  {
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "concurrency_per_card": 256,
+    "n_cards": 1,
+    "aggregate_output_tps": 1365.230910141293,
+    "per_card_tps": 1365.230910141293,
+    "single_card_tps": 1365.230910141293,
+    "scaling_efficiency": 1.0,
+    "window_s": 480.03601085487753,
+    "run_id": "furiosa-ai_Qwen3-8B-FP8_A1solo_20260826-050142",
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A1solo_20260826-050142",
+    "load_retention": 0.9678,
+    "baseline_load_retention": 0.9678,
+    "comparable": true
   },
   {
     "model": "furiosa-ai/Qwen3-8B-FP8",
@@ -1211,10 +2030,13 @@
     "n_cards": 1,
     "aggregate_output_tps": 1309.7974499159768,
     "per_card_tps": 1309.7974499159768,
-    "single_card_tps": 1309.7974499159768,
-    "scaling_efficiency": 1.0,
+    "single_card_tps": 1365.230910141293,
+    "scaling_efficiency": 0.9593962751549633,
     "window_s": 97.7250337509904,
     "run_id": "furiosa-ai_Qwen3-8B-FP8_B1hi_20260825-115233",
-    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_B1hi_20260825-115233"
+    "baseline_run_id": "furiosa-ai_Qwen3-8B-FP8_A1solo_20260826-050142",
+    "load_retention": 0.9148,
+    "baseline_load_retention": 0.9678,
+    "comparable": false
   }
 ]

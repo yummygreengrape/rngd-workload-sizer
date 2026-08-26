@@ -1,0 +1,137 @@
+{
+  "run_id": "furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658",
+  "experiment": "D2q4b",
+  "source": "measured_local",
+  "started_at": "2026-08-26T06:56:58.632150+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8004/v1",
+    "model": "furiosa-ai/Qwen3-4B-FP8",
+    "api_path": "/completions",
+    "n_cards": 1,
+    "devices": "npu:0",
+    "is_chat": false
+  },
+  "config": {
+    "file": "benchmark/configs/d2_4b_frontier.json",
+    "scale": 1.0,
+    "description": "세션 2 구간 D(대체). **Qwen3-32B-FP8 은 이 서버에서 못 돌립니다** — 컴파일된 아티팩트(.fxb)가 캐시에 없습니다(가중치 34GB 만 있음). furiosa-llm build 는 장시간이라 3시간 예약에 안 들어갑니다. 대신 아티팩트가 있는 **Qwen3-4B-FP8** 로 모델 비교를 합니다. 오히려 이쪽이 정직한 비교입니다 — 8B 와 **같은 카드 1장**에 올라가므로 '카드당 용량' 을 같은 단위로 비교할 수 있습니다. 32B 는 4장이 최소 단위라 애초에 같은 축에 못 놓습니다. warm-up = 동시성, 표본 = 동시성 x 20.",
+    "conditions": [
+      {
+        "experiment": "D2q4b",
+        "concurrency": 1,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 4,
+        "measured_requests": 20,
+        "ignore_eos": true,
+        "min_samples_for_p95": 20,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "D2q4b",
+        "concurrency": 4,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 4,
+        "measured_requests": 80,
+        "ignore_eos": true,
+        "min_samples_for_p95": 20,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "D2q4b",
+        "concurrency": 16,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 16,
+        "measured_requests": 320,
+        "ignore_eos": true,
+        "min_samples_for_p95": 20,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "D2q4b",
+        "concurrency": 32,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 32,
+        "measured_requests": 640,
+        "ignore_eos": true,
+        "min_samples_for_p95": 20,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "D2q4b",
+        "concurrency": 64,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 64,
+        "measured_requests": 1280,
+        "ignore_eos": true,
+        "min_samples_for_p95": 20,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "D2q4b",
+        "concurrency": 128,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 128,
+        "measured_requests": 2560,
+        "ignore_eos": true,
+        "min_samples_for_p95": 20,
+        "warmup_adjusted_from": null
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 512,
+        "words": 368,
+        "final_error_tokens": 9,
+        "probes": [
+          {
+            "words": 393,
+            "tokens": 547
+          },
+          {
+            "words": 368,
+            "tokens": 521
+          }
+        ]
+      }
+    ],
+    "token_counter_mode": "tokenize"
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 42.12°C | 42.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 37.41°C | 40.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 37.26°C | 40.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 38.20°C | 41.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 36.71°C | 39.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 38.41°C | 40.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 34.04°C | 37.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 36.22°C | 40.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID     | NPU core    | CMD                                                                                                                                                     |\n+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| 1344388 | npu0:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-4B-FP8 --devices npu:0 -dp 1 --host 127.0.0.1 --port 8004 --no-enable-prefix-caching |\n+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "세션2 구간D 4B 프론티어 — 8B와 같은 카드 1장 비교",
+    "단독, 폴러 0개"
+  ]
+}

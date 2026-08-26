@@ -1,0 +1,30 @@
+/usr/local/lib/python3.10/dist-packages/furiosa/models/core/attention/attention.py:6: UserWarning: LTW Backend is provided temporarily for compatibility purposes only. This feature may be removed without notice in future versions. (Default behavior, set USE_WTL_BACKEND=1 to use WTL backend)
+  from furiosa.models.core.attention.backends import LLMAttentionBackend
+INFO:furiosa_llm.server.models:Loading LLM: furiosa-ai/Qwen3-Embedding-0.6B
+INFO:furiosa_llm.utils:Revision 'v2026.3' not found for 'furiosa-ai/Qwen3-Embedding-0.6B'; falling back to the default branch (main).
+Fetching 13 files:   0%|          | 0/13 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 13 files:   8%|▊         | 1/13 [00:00<00:05,  2.13it/s]Fetching 13 files:  69%|██████▉   | 9/13 [00:00<00:00, 16.33it/s]Fetching 13 files:  92%|█████████▏| 12/13 [00:04<00:00,  1.94it/s]Fetching 13 files: 100%|██████████| 13/13 [00:04<00:00,  2.60it/s]
+INFO:furiosa_llm.utils:Using FXB: /root/.cache/huggingface/hub/models--furiosa-ai--Qwen3-Embedding-0.6B/snapshots/ffd674f4290b16abf72a8510bc38bb3c9051be6c/qwen3-embedding-0d6b-d41b0a59c1-5c18c4e33f-2608190246.fxb
+[2m2026-08-26T06:51:48.10514014Z[0m [32m INFO[0m [2mfuriosa_generator::entrypoint[0m[2m:[0m Using FXB: /root/.cache/huggingface/hub/models--furiosa-ai--Qwen3-Embedding-0.6B/snapshots/ffd674f4290b16abf72a8510bc38bb3c9051be6c/qwen3-embedding-0d6b-d41b0a59c1-5c18c4e33f-2608190246.fxb
+[2m2026-08-26T06:51:48.111543808Z[0m [32m INFO[0m [2mfuriosa_generator::entrypoint[0m[2m:[0m Device mesh: 1 DP group(s), TP=8, devices=npu:0
+[2m2026-08-26T06:51:48.18248692Z[0m [32m INFO[0m [2mfuriosa_generator::entrypoint[0m[2m:[0m Loading DP group 1/1: [npu:0:0-3, npu:0:4-7]
+[2m2026-08-26T06:51:48.182992402Z[0m [32m INFO[0m [2mdevice_runtime::context[0m[2m:[0m Memory dump thread for Device([npu:0:0-3, npu:0:4-7]) started
+Traceback (most recent call last):
+  File "/usr/local/bin/furiosa-llm", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/furiosa_llm/cli/main.py", line 28, in main
+    args.dispatch_function(args)
+  File "/usr/local/lib/python3.10/dist-packages/furiosa_llm/cli/serve.py", line 445, in serve
+    run_server(args)
+  File "/usr/local/lib/python3.10/dist-packages/furiosa_llm/server/app.py", line 632, in run_server
+    app = init_app(args)
+  File "/usr/local/lib/python3.10/dist-packages/furiosa_llm/server/app.py", line 456, in init_app
+    llm = load_llm_from_args(args, served_model_name=served_model_name)
+  File "/usr/local/lib/python3.10/dist-packages/furiosa_llm/server/models.py", line 41, in load_llm_from_args
+    return LLM(
+  File "/usr/local/lib/python3.10/dist-packages/furiosa_llm/api.py", line 338, in __init__
+    self._init_from_v3_engine(
+  File "/usr/local/lib/python3.10/dist-packages/furiosa_llm/api.py", line 430, in _init_from_v3_engine
+    self.engine = NativeLLMEngine(
+ValueError: internal error: engine init failed: loading EDF edfs/full_attention_b1_a128_kv0.edf

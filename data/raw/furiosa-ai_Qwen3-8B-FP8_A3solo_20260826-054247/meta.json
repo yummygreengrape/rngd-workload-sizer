@@ -1,0 +1,82 @@
+{
+  "run_id": "furiosa-ai_Qwen3-8B-FP8_A3solo_20260826-054247",
+  "experiment": "A3solo",
+  "source": "measured_local",
+  "started_at": "2026-08-26T05:42:47.082889+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8000/v1",
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "api_path": "/completions",
+    "n_cards": 1,
+    "devices": "npu:0",
+    "is_chat": false
+  },
+  "config": {
+    "file": "benchmark/configs/a3a_solo16.json",
+    "scale": 1.0,
+    "description": "세션 2 A-3(a). 이 세션의 단독 기준점이자 **정상상태 기준점**. 카드 1장(npu:0) · 클라이언트 1 · 동시성 16 · 폴러 0. 창을 5분으로 길게 잡았다 — 세션 1 의 C2x1 conc=16 은 창 72초/400건이라 p95 229ms 였는데, soak 의 단독 구간(2,210건 정상상태)은 157ms 였다. 짧은 창 p95 와 정상상태 p95 가 갈리는 축을 이 run 이 고정한다.",
+    "conditions": [
+      {
+        "experiment": "A3solo",
+        "concurrency": 16,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 16,
+        "measured_requests": 1700,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 512,
+        "words": 346,
+        "final_error_tokens": 7,
+        "probes": [
+          {
+            "words": 393,
+            "tokens": 582
+          },
+          {
+            "words": 346,
+            "tokens": 519
+          }
+        ]
+      }
+    ],
+    "token_counter_mode": "tokenize"
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 41.37°C | 42.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 37.96°C | 39.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 38.38°C | 39.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 39.50°C | 41.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 37.64°C | 40.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 40.08°C | 39.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 34.79°C | 36.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 37.71°C | 40.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+--------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID    | NPU core    | CMD                                                                                                                                                     |\n+--------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| 601818 | npu0:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-8B-FP8 --devices npu:0 -dp 1 --host 127.0.0.1 --port 8000 --no-enable-prefix-caching |\n+--------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "세션2 A-3(a) 단독 기준점",
+    "폴러 0개"
+  ]
+}

@@ -53,9 +53,18 @@ class BenchmarkRow:
     kv_cache_peak: float | None = None   # 0~1
     waiting_peak: float | None = None
     n_samples: int = 0
-    window_s: float | None = None   # 측정창 길이. 짧으면 램프업이 지표를 지배한다
+    window_s: float | None = None   # 측정창 길이
     exclusive: bool = True          # 측정 중 같은 머신에서 다른 측정이 돌지 않았는가
+    # 백분위를 믿을 수 있는지는 **측정창 길이가 아니라** 아래 둘로 갈린다.
+    # warm-up 이 동시성보다 적으면 워커 일부의 첫 요청이 측정에 들어와 백분위를 지배한다.
+    warmup_requests: int | None = None
+    percentile_source: str = "summary"   # summary | recomputed_ramp_excluded
     run_id: str = ""
+    # 하네스 자기검증이 "이 조건은 capacity 계산에 못 쓴다" 고 판정했는가.
+    # **로드 게이트용이다** — store 에 들어온 행은 전부 usable 이므로 계산 중에는 다시 안 본다.
+    # 기본값이 True 인 이유: 손으로 만든 행(테스트·mock)까지 막으면 쓸 수 없다.
+    capacity_usable: bool = True
+    capacity_blocks: list[str] = field(default_factory=list)
 
     @property
     def per_card_output_tps(self) -> float:
@@ -76,6 +85,7 @@ class BenchmarkRow:
             "n_samples": self.n_samples,
             "window_s": self.window_s,
             "exclusive": self.exclusive,
+            "percentile_source": self.percentile_source,
         }
 
 

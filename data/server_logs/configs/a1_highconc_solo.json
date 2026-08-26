@@ -1,0 +1,13 @@
+{
+  "experiment": "A1solo",
+  "description": "세션 2 A-1. 고동시성(64/128/256) 단독 재측정. 세션 1의 해당 구간은 B1hi 하나에서만 나왔고 그 run 은 다른 측정과 동시 실행이었다(처리량 -26%, 백분위는 오히려 낮아짐). 치트시트와 절벽 위치(128↔256)의 근거를 단독 측정으로 다시 세운다. warm-up = 동시성, 표본 = 동시성 x 20 을 config 에 명시한다.",
+  "defaults": {
+    "output_tokens": 128,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {"input_tokens": 512, "concurrency": 64,  "warmup_requests": 64,  "measured_requests": 1280},
+    {"input_tokens": 512, "concurrency": 128, "warmup_requests": 128, "measured_requests": 2560},
+    {"input_tokens": 512, "concurrency": 256, "warmup_requests": 256, "measured_requests": 5120}
+  ]
+}

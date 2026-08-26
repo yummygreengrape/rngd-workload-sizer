@@ -1,0 +1,93 @@
+{
+  "run_id": "furiosa-ai_Qwen3-8B-FP8_A5repeat_20260826-061501",
+  "experiment": "A5repeat",
+  "source": "measured_local",
+  "started_at": "2026-08-26T06:15:01.682144+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8000/v1",
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "api_path": "/completions",
+    "n_cards": 1,
+    "devices": "npu:0",
+    "is_chat": false
+  },
+  "config": {
+    "file": "benchmark/configs/a5_repeatability.json",
+    "scale": 1.0,
+    "description": "세션 2 A-5(신규, 최우선). **같은 조건 반복 측정 — run 간 재현성을 잰다.** A-3(d)와 완전히 동일한 조건(1장 npu:0 · conc=32 · 표본 2,600 · 창 약 345초)을 두 번 더 돌린다. 세션 1+2 의 같은 조건 네 측정이 936.8 ~ 1,065.9 로 13.8% 벌어져 있는데 창 길이도 warm-up 도 램프 제외도 그 순서를 설명하지 못했다(카드가 서로 달랐다). **산포를 모르면 어떤 차이도 유의미한지 말할 수 없다** — 확장효율 82.1% vs 89.8%, 오염 차이 7.1%/4.2% 가 전부 이 산포와 비슷한 크기다. A-3(d)와 합쳐 같은 카드·같은 조건 3회가 된다.",
+    "conditions": [
+      {
+        "experiment": "A5repeat",
+        "concurrency": 32,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 32,
+        "measured_requests": 2600,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      },
+      {
+        "experiment": "A5repeat",
+        "concurrency": 32,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 32,
+        "measured_requests": 2600,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100,
+        "warmup_adjusted_from": null
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 512,
+        "words": 348,
+        "final_error_tokens": 3,
+        "probes": [
+          {
+            "words": 393,
+            "tokens": 579
+          },
+          {
+            "words": 348,
+            "tokens": 509
+          }
+        ]
+      }
+    ],
+    "token_counter_mode": "tokenize"
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 41.00°C | 41.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 35.92°C | 39.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 36.52°C | 39.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 37.08°C | 40.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 36.89°C | 40.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 38.78°C | 39.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 34.60°C | 37.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 37.52°C | 40.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+--------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID    | NPU core    | CMD                                                                                                                                                     |\n+--------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+\n| 601818 | npu0:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-8B-FP8 --devices npu:0 -dp 1 --host 127.0.0.1 --port 8000 --no-enable-prefix-caching |\n+--------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "세션2 A-5 재현성 — A-3(d)와 동일 조건 2회 반복",
+    "단독, 폴러 0개, npu:0"
+  ]
+}

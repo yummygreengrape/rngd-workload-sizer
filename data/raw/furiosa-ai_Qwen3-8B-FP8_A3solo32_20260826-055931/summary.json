@@ -1,0 +1,73 @@
+[
+  {
+    "spec": {
+      "experiment": "A3solo32",
+      "concurrency": 32,
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "warmup_requests": 32,
+      "measured_requests": 2600,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100,
+      "warmup_adjusted_from": null
+    },
+    "source": "measured_local",
+    "n_measured_ok": 2600,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 341.3572355241049,
+    "aggregate_output_tps": 974.93172947992,
+    "per_user_output_tps_median": 29.762378269611755,
+    "ttft_ms_p50": 158.96645258180797,
+    "ttft_ms_p95": 234.74459093995392,
+    "e2e_ms_p50": 4300.731576047838,
+    "e2e_ms_p95": 4327.065862948075,
+    "tpot_ms_p50": 32.61008006648901,
+    "prompt_tokens_median": 505.0,
+    "completion_tokens_median": 128.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 128,
+        "distinct_observed": [
+          128
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 512,
+        "median_actual": 505.0,
+        "drift_pct": 1.37,
+        "verdict": "ok"
+      },
+      "warmup": {
+        "requests": 32,
+        "concurrency": 32,
+        "raised_from": null,
+        "verdict": "ok"
+      },
+      "sample_depth": {
+        "measured_ok": 2600,
+        "required": 640,
+        "ratio_to_concurrency": 81.2,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 32,
+        "peak_running_samples": 32.0,
+        "peak_waiting_samples": 3.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0754759255532053,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  }
+]

@@ -30,11 +30,15 @@ from typing import Any
 from .client import StreamingClient
 from .metrics import MetricsPoller
 from .prompts import PromptFactory
-from .schema import RequestRecord
+from .schema import RequestRecord, capacity_blocks
 from .target import Target
 
 # 이 개수 미만이면 P95 를 신뢰할 수 없다고 보고 값을 내지 않는다 (docs/01 IMP-8).
 MIN_SAMPLES_FOR_P95 = 100
+
+# 측정 표본은 동시성의 이 배수 이상이어야 한다. 표본이 동시성에 비해 적으면
+# 앞쪽 요청 몇 건이 백분위를 지배한다.
+MIN_SAMPLES_PER_WORKER = 20
 
 # prompt 중 이 비율을 넘게 prefix cache 에서 나오면 오염으로 본다.
 # 서로 다른 프롬프트라도 선두 토큰 2~4개는 공유되므로 0 을 기준으로 쓰면 전부 오탐이 된다.
@@ -51,6 +55,26 @@ class ConditionSpec:
     measured_requests: int = 100
     ignore_eos: bool = True
     min_samples_for_p95: int = MIN_SAMPLES_FOR_P95
+    # __post_init__ 이 warm-up 을 올렸으면 원래 값을 남긴다 (meta 에 기록)
+    warmup_adjusted_from: int | None = None
+
+    def __post_init__(self) -> None:
+        """warm-up 요청 수를 동시성 이상으로 올린다.
+
+        워커가 N개인데 warm-up 이 M건(M<N)이면 워커 N−M 개의 **첫 요청이 측정에 들어온다.**
+        그 요청들은 큐가 형성되는 동안 대기하므로 지연이 부풀려지고, 표본에서 차지하는
+        비율이 크면 백분위를 지배한다.
+
+        실측(B1 conc=32, warmup=8): 전체 p95 1,437ms → 앞 32건 제외 시 246ms.
+        참값은 247~252ms 였다. 앞 8건이나 16건을 제외해도 안 되고 **정확히 동시성만큼**
+        제외해야 복원된다.
+
+        warmup >= concurrency 인 측정은 앞 구간 배율이 1.0~1.5배, 미달인 측정은
+        5.4~14.1배였다. 이건 측정창 길이가 아니라 warm-up 부족의 문제다.
+        """
+        if self.warmup_requests < self.concurrency:
+            self.warmup_adjusted_from = self.warmup_requests
+            self.warmup_requests = self.concurrency
 
     def label(self) -> str:
         return (f"{self.experiment} conc={self.concurrency} "
@@ -258,19 +282,57 @@ def _validate(res: ConditionResult, spec: ConditionSpec, ok: list[RequestRecord]
             "verdict": "ok" if drift <= 0.05 else "DRIFTED",
         }
 
+    # 3.5) warm-up 이 동시성 이상이었는가 + 표본이 충분한가
+    #      백분위를 믿을 수 있는지는 측정창 길이가 아니라 이 둘로 갈린다.
+    v["warmup"] = {
+        "requests": spec.warmup_requests,
+        "concurrency": spec.concurrency,
+        "raised_from": spec.warmup_adjusted_from,
+        "verdict": "ok" if spec.warmup_requests >= spec.concurrency else "DEFICIENT",
+    }
+    need = spec.concurrency * MIN_SAMPLES_PER_WORKER
+    v["sample_depth"] = {
+        "measured_ok": len(ok),
+        "required": need,
+        "ratio_to_concurrency": round(len(ok) / max(1, spec.concurrency), 1),
+        "verdict": "ok" if len(ok) >= need else "SHALLOW",
+    }
+
     # 4) 의도한 concurrency 가 실제로 발생했는지 — 배칭인가 큐잉인가
     if poller and poller.available:
         t_from, t_to = window if window else (None, None)
         # 엔진별 값을 합산해야 dp 배포에서 실제 동시 처리량이 나온다.
         running = poller.peak_sum("running", t_from, t_to)
         waiting = poller.peak_sum("waiting", t_from, t_to)
+        # 하한만 보면 **다른 클라이언트가 같은 서버에 붙은 경우를 못 잡는다.**
+        # `/metrics` 는 서버 전체 값이라 남의 부하까지 합쳐 나온다. 세션 1 의 soak 두 건이
+        # 정확히 그 사각지대였다 — 라벨은 conc=16 인데 창의 3/4 동안 카드가 32 를 받고
+        # 있었고, 하한 검사만 있어서 `ok` 로 통과했다. 그 row 가 곡선에 그대로 들어갔고
+        # 나중에 그 구간의 성능 저하가 다른 원인(폴링)으로 잘못 귀속됐다.
+        #
+        # 상한은 1.25 로 둔다. peak 통계라 순간 스파이크가 섞이는데, 남의 부하가 붙으면
+        # 배수로 뛰기 때문에(16 -> 32) 여유를 둬도 놓치지 않는다.
+        if running is None:
+            conc_verdict = "unknown"
+        elif running < spec.concurrency * 0.8:
+            conc_verdict = "QUEUED_NOT_BATCHED"
+        elif running > spec.concurrency * 1.25:
+            conc_verdict = "FOREIGN_LOAD"
+        else:
+            conc_verdict = "ok"
         v["concurrency"] = {
             "requested": spec.concurrency,
             "peak_running_samples": running,
             "peak_waiting_samples": waiting,
-            "verdict": ("ok" if running is not None and running >= spec.concurrency * 0.8
-                        else "QUEUED_NOT_BATCHED" if running is not None else "unknown"),
+            "verdict": conc_verdict,
         }
+        if conc_verdict == "FOREIGN_LOAD":
+            v["concurrency"]["note"] = (
+                f"서버가 동시에 처리한 요청이 최대 {running}건으로, 이 클라이언트가 요청한 "
+                f"{spec.concurrency}건보다 많습니다. **같은 서버에 다른 클라이언트가 붙어 "
+                f"있었다는 뜻**이고, 이 조건에 적힌 동시성은 카드가 실제로 받은 동시성이 "
+                f"아닙니다. capacity 계산에 쓸 수 없습니다."
+            )
         kv = poller.peak("kv_cache", t_from, t_to)   # 사용률이므로 합산하지 않고 최댓값
         if kv is not None:
             v["kv_cache_peak"] = kv
@@ -285,13 +347,15 @@ def _validate(res: ConditionResult, spec: ConditionSpec, ok: list[RequestRecord]
                         "verdict": "DISTURBED",
                         "note": "커넥션 재수립이 발생했습니다. 해당 요청의 지연에 영향이 있을 수 있습니다."}
 
-    # 6) 출처
+    # 6) 출처 + capacity 사용 가능 판정
+    #
+    # **다른 검증 결과와 무관하게 출처만 보면 안 된다.** 캐시 적중 비율을 기록해 놓고
+    # 그 판정을 아무도 읽지 않으면 "적중 시 무효 처리" 는 서류상의 방어일 뿐이다.
+    # 무엇이 무효 사유인지는 schema.capacity_blocks 한 곳에만 적는다 — 이 판정을
+    # analysis/process.py 도 같은 규칙으로 다시 계산하기 때문이다.
     v["source"] = res.source
-    if res.source != "measured_local":
-        v["capacity_usable"] = False
-        v["capacity_note"] = (
-            "전용 서버 실측이 아닙니다. capacity 계산에 사용할 수 없습니다 "
-            "(docs/03-api-findings.md §7)."
-        )
-    else:
-        v["capacity_usable"] = True
+    blocks = capacity_blocks(v)
+    v["capacity_usable"] = not blocks
+    if blocks:
+        v["capacity_blocks"] = blocks
+        v["capacity_note"] = "capacity 계산에 사용할 수 없습니다: " + " / ".join(blocks)

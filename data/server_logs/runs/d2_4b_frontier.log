@@ -1,0 +1,14 @@
+run_id : furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658
+target : local (measured_local)  http://127.0.0.1:8004/v1
+model  : furiosa-ai/Qwen3-4B-FP8   api_path=/completions
+조건    : 6개, scale=1.0
+
+[1/6] D2q4b conc=1 in=512 out=128 ...  30.6s  agg=  100.3 tok/s  TTFT p50=   65.7ms p95=     67  TPOT p50=   9.5ms  ok=20 err=0
+[2/6] D2q4b conc=4 in=512 out=128 ...  31.3s  agg=  343.7 tok/s  TTFT p50=  125.1ms p95=    127  TPOT p50=  10.8ms  ok=80 err=0
+[3/6] D2q4b conc=16 in=512 out=128 ...  50.6s  agg=  846.1 tok/s  TTFT p50=  128.5ms p95=    190  TPOT p50=  18.1ms  ok=320 err=0
+[4/6] D2q4b conc=32 in=512 out=128 ...  74.5s  agg= 1149.0 tok/s  TTFT p50=  132.8ms p95=    198  TPOT p50=  26.8ms  ok=640 err=0
+[5/6] D2q4b conc=64 in=512 out=128 ... 120.1s  agg= 1426.8 tok/s  TTFT p50=  145.4ms p95=    218  TPOT p50=  43.5ms  ok=1280 err=0
+[6/6] D2q4b conc=128 in=512 out=128 ... 190.7s  agg= 1795.6 tok/s  TTFT p50=  164.1ms p95=    243  TPOT p50=  68.9ms  ok=2560 err=0
+
+결과 : /root/rngd-bench/data/raw/furiosa-ai_Qwen3-4B-FP8_D2q4b_20260826-065658
+  ! D2q4b conc=1 in=512 out=128: 입력 길이 편차 5.08%

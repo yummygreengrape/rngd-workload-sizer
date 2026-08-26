@@ -198,7 +198,7 @@ def main() -> None:
     # ---- 데이터 출처 배너 (숨기지 않는다) --------------------------------
     label, kind = SOURCE_LABEL.get(store.data_source, (store.data_source, "warning"))
     getattr(st, kind)(f"**데이터 출처: {label}** · 실측 {len(store.rows)}행"
-                      + (f" · 출처 게이팅으로 거부 {len(store.rejected)}행" if store.rejected else ""))
+                      + (f" · 로드 게이트에서 거부 {len(store.rejected)}행" if store.rejected else ""))
 
     if store.scaling_issues:
         st.warning(

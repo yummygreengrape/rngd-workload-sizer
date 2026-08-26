@@ -1,0 +1,9 @@
+run_id : furiosa-ai_Qwen3-8B-FP8_A3poll2_20260826-055358
+target : local (measured_local)  http://127.0.0.1:8000/v1
+model  : furiosa-ai/Qwen3-8B-FP8   api_path=/completions
+조건    : 1개, scale=1.0
+
+[1/1] A3poll2 conc=16 in=512 out=128 ... 314.1s  agg=  698.7 tok/s  TTFT p50=  154.8ms p95=    158  TPOT p50=  21.9ms  ok=1700 err=0
+
+결과 : /root/rngd-bench/data/raw/furiosa-ai_Qwen3-8B-FP8_A3poll2_20260826-055358
+  검증 경고 없음

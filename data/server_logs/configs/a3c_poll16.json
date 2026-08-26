@@ -1,0 +1,16 @@
+{
+  "experiment": "A3poll2",
+  "description": "세션 2 A-3(c). 폴링 비용 직접 측정. (a)와 **창 길이·표본 수까지 동일**하게 두고 furiosa-smi 폴러만 2개 띄운다. README 의 문서화된 실패 4번은 '폴러가 decode 를 33% 늦춘다'고 적고 있다. 차이가 없으면 그 항목이 오귀속이다.",
+  "defaults": {
+    "output_tokens": 128,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {
+      "input_tokens": 512,
+      "concurrency": 16,
+      "warmup_requests": 16,
+      "measured_requests": 1700
+    }
+  ]
+}

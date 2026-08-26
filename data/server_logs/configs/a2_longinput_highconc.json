@@ -1,0 +1,14 @@
+{
+  "experiment": "A2long",
+  "description": "세션 2 A-2. 긴 입력의 고동시성 구간. 세션 1 의 in=1024/2048 은 conc>=16 부터 전부 warm-up 8 / 표본 100 이라 지연 백분위를 믿을 수 없다(in=1024 conc=64 의 TTFT p95 6,226ms 는 램프 지배로 보인다). 긴 입력에서 절벽이 어디인지 확인한다. warm-up = 동시성, 표본 = 동시성 x 20.",
+  "defaults": {
+    "output_tokens": 128,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {"input_tokens": 1024, "concurrency": 32,  "warmup_requests": 32,  "measured_requests": 640},
+    {"input_tokens": 1024, "concurrency": 64,  "warmup_requests": 64,  "measured_requests": 1280},
+    {"input_tokens": 1024, "concurrency": 128, "warmup_requests": 128, "measured_requests": 2560},
+    {"input_tokens": 2048, "concurrency": 64,  "warmup_requests": 64,  "measured_requests": 1280}
+  ]
+}

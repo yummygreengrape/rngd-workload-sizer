@@ -1,0 +1,16 @@
+{
+  "experiment": "A3dualB",
+  "description": "세션 2 A-3(b) 클라이언트 B. A 와 동시 실행. 실험 코드를 갈라 둔 것은 같은 초에 띄우면 run_id 가 충돌하기 때문이다.",
+  "defaults": {
+    "output_tokens": 128,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {
+      "input_tokens": 512,
+      "concurrency": 16,
+      "warmup_requests": 16,
+      "measured_requests": 1250
+    }
+  ]
+}

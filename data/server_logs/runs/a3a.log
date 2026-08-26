@@ -1,0 +1,9 @@
+run_id : furiosa-ai_Qwen3-8B-FP8_A3solo_20260826-054247
+target : local (measured_local)  http://127.0.0.1:8000/v1
+model  : furiosa-ai/Qwen3-8B-FP8   api_path=/completions
+조건    : 1개, scale=1.0
+
+[1/1] A3solo conc=16 in=512 out=128 ... 312.5s  agg=  702.2 tok/s  TTFT p50=  154.1ms p95=    158  TPOT p50=  21.8ms  ok=1700 err=0
+
+결과 : /root/rngd-bench/data/raw/furiosa-ai_Qwen3-8B-FP8_A3solo_20260826-054247
+  검증 경고 없음

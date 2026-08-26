@@ -139,7 +139,7 @@ def plan(store: BenchmarkStore, req: ServiceRequirement) -> CapacityResult:
         )
     if store.rejected:
         res.warnings.append(
-            f"출처 게이팅으로 {len(store.rejected)}개 측정을 제외했습니다: "
+            f"로드 게이트에서 {len(store.rejected)}개 측정을 제외했습니다: "
             + " / ".join(sorted({r["reason"] for r in store.rejected}))
         )
     if store.data_source == "mock":
@@ -166,6 +166,15 @@ def plan(store: BenchmarkStore, req: ServiceRequirement) -> CapacityResult:
             + ", ".join(str(r.concurrency_per_card) for r in shared)
             + "). 부하 생성기가 호스트 자원을 나눠 쓰므로 처리량이 실제보다 "
             "낮게 나왔을 수 있습니다 — 보수적인 방향의 오차입니다."
+        )
+
+    untrusted = store.untrustworthy_percentile_rows(curve)
+    if untrusted:
+        res.warnings.append(
+            "지연 백분위를 믿을 수 없는 조건이 근거에 포함돼 있습니다 (동시성 "
+            + ", ".join(str(r.concurrency_per_card) for r in untrusted)
+            + "). warm-up 이 동시성보다 적었거나 표본이 얕습니다 — 그 행의 TTFT·E2E "
+            "백분위는 실제보다 부풀어 있을 수 있습니다."
         )
 
     short = store.short_window_rows(curve)
@@ -203,29 +212,26 @@ def plan(store: BenchmarkStore, req: ServiceRequirement) -> CapacityResult:
         )
 
     # --- 2) 처리량 제약: 고정점 반복 ---------------------------------------
-    n = 1
-    conc_level = "measured"
-    for _ in range(MAX_ITERATIONS):
-        c_per_card = max(1, math.ceil(req.concurrent_users / n))
-        row, conc_level = _interp_rows(curve, c_per_card)
-        eff, basis = store.scaling_efficiency(req.model, n, c_per_card)
-        usable = row.aggregate_output_tps * eff * req.target_utilization
-        n_new = max(1, math.ceil(res.required_output_tps / usable)) if usable else n
-        res.iterations.append({
-            "n_cards": n, "concurrency_per_card": c_per_card,
-            "row_aggregate_output_tps": round(row.aggregate_output_tps, 1),
-            "scaling_efficiency": round(eff, 4), "scaling_basis": basis,
-            "usable_tps_per_card": round(usable, 1), "n_cards_next": n_new,
-        })
-        if n_new == n:
-            break
-        n = n_new
-    else:
+    #
+    # 반복이 발산하거나 진동할 수 있으므로 **거쳐간 값 전체**를 들고 있다가,
+    # 수렴하지 않으면 그중 가장 큰 값을 채택한다. 예전에는 루프 안에서 n = n_new 를
+    # 한 뒤 max(n, n_new) 를 해서 두 값이 항상 같았고, "보수적으로 큰 값" 이
+    # 실행되지 않는 죽은 코드였다.
+    n, conc_level, converged, seen = _solve_throughput_cards(
+        store, curve, req, res.required_output_tps, res.iterations)
+    if not converged:
+        # 진동의 두 극 중 어느 쪽도 참값이 아니다. 큰 쪽을 고르는 것은 "보수적" 이
+        # 아니라 그저 안전한 쪽이며, 원인(효율 곡선의 불연속)을 고치기 전에는
+        # 어느 값에도 근거가 없다. 그 사실을 경고에 그대로 쓴다.
+        tail = seen[-6:] if len(seen) >= 6 else seen
+        n = max(seen)
         res.warnings.append(
-            f"카드 수 계산이 {MAX_ITERATIONS}회 안에 수렴하지 않았습니다. "
-            f"보수적으로 큰 값을 채택합니다."
+            f"⚠ 카드 수 계산이 {MAX_ITERATIONS}회 안에 **수렴하지 않았습니다.** "
+            f"마지막 반복이 {tail} 를 오갔습니다. {n}장은 그중 큰 값일 뿐 "
+            f"수렴한 답이 아니며, 어느 값도 근거가 없습니다. "
+            f"확장 효율 곡선에 불연속이 있는지 확인하세요 "
+            f"(거쳐간 값 {min(seen)}~{max(seen)})."
         )
-        n = max(n, n_new)
     res.n_cards_by_throughput = n
 
     # --- 3) 결합 -----------------------------------------------------------
@@ -236,6 +242,43 @@ def plan(store: BenchmarkStore, req: ServiceRequirement) -> CapacityResult:
         res.binding_constraint = "throughput"
     else:
         res.binding_constraint = "both"
+
+    # --- 3.5) 최종 카드 수에서 제약을 **다시** 만족하는지 확인 ----------------
+    #
+    # max(n_latency, n_throughput) 로 정한 뒤 카드당 동시성이 달라지면 실측 행도 달라진다.
+    # 그 지점에서 처리량과 목표 이용률이 여전히 성립하는지 확인하지 않으면,
+    # 사용자가 70% 여유를 요청했는데 75% 가 나올 수 있다(실제로 그랬다).
+    # **종료 조건은 반복 횟수가 아니라 충족 여부다.** 한 번에 한 장씩 올리면서
+    # 횟수로 끊으면, 사용자 수가 클수록 부족분이 커져 목표를 못 지킨 채로 끝난다 —
+    # 실제로 1,000명에서 69.95%(충족)였지만 3,000명에서 73.31%(초과)를 내면서도
+    # `feasible=True` 를 반환했다. 요청한 여유를 못 주면서 "가능" 이라고 말한 것이다.
+    #
+    # 그래서 (a) 필요한 만큼 한 번에 올리고 (b) 그래도 못 맞추면 feasible 을 내린다.
+    util = None
+    for _ in range(MAX_ITERATIONS):
+        c = max(1, math.ceil(req.concurrent_users / res.n_cards))
+        row_c, _ = _interp_rows(curve, c)
+        eff_c, _ = store.scaling_efficiency(req.model, res.n_cards, c)
+        capacity = res.n_cards * row_c.aggregate_output_tps * eff_c
+        if capacity <= 0:
+            break
+        util = res.required_output_tps / capacity
+        if util <= req.target_utilization + 1e-9:
+            break
+        # 부족분만큼 한 번에 올린다. 카드당 처리량이 카드 수에 따라 바뀌므로
+        # 한 번에 정확히 맞지는 않지만, 한 장씩 올리는 것보다 훨씬 빨리 수렴한다.
+        need = math.ceil(res.n_cards * util / req.target_utilization)
+        res.n_cards = max(res.n_cards + 1, need)
+    if util is not None and util > req.target_utilization + 1e-9:
+        res.feasible = False
+        res.binding_constraint = "target_utilization_unreachable"
+        res.warnings.append(
+            f"⚠ **요청한 목표 이용률({req.target_utilization:.0%})을 만족시키지 못했습니다.** "
+            f"{res.n_cards}장에서 예상 이용률이 {util:.1%} 입니다. 카드를 더 늘려도 "
+            f"카드당 동시성이 낮아지면서 카드당 처리량이 같이 떨어져 수렴하지 않습니다 "
+            f"— 실측 격자의 낮은 동시성 구간이 부족하거나 조건이 실측 범위 밖입니다. "
+            f"이 결과를 '가능' 으로 읽지 마십시오."
+        )
 
     res.concurrency_per_card = max(1, math.ceil(req.concurrent_users / res.n_cards))
     final_row, lvl = _interp_rows(curve, res.concurrency_per_card)
@@ -275,6 +318,51 @@ def plan(store: BenchmarkStore, req: ServiceRequirement) -> CapacityResult:
     return res
 
 
+def _solve_throughput_cards(store: BenchmarkStore, curve: list[BenchmarkRow],
+                            req: ServiceRequirement, required_tps: float,
+                            record: list[dict[str, Any]] | None = None
+                            ) -> tuple[int, str, bool, list[int]]:
+    """처리량 제약을 고정점 반복으로 푼다. (카드 수, 신뢰도, 수렴 여부, 거쳐간 값)
+
+    **`plan()` 과 `_tradeoffs()` 가 같은 함수를 쓴다.** 예전에는 완화 시나리오가
+    1패스로 계산돼서 같은 조건을 `plan()` 으로 다시 풀면 답이 달랐다 — 격자 전수
+    비교에서 절반 이상이 어긋났고 거의 전부 **과소** 보고였다. "TTFT 를 완화하면
+    6장 절약" 이라고 출력하는데 다시 풀면 절약이 0장인 식이다.
+
+    카드 수와 카드당 동시성은 서로를 결정한다(카드가 늘면 카드당 사용자가 줄고,
+    그러면 카드당 처리량이 달라져 필요한 카드 수가 다시 바뀐다). 한 번만 계산하면
+    그 순환을 안 푼 값이 나온다.
+    """
+    n = 1
+    conc_level = "measured"
+    # 초기값 1 은 후보였던 적이 없으므로 seen 에 넣지 않는다. 넣으면 min(seen) 이
+    # 항상 1 이 되어 경고의 범위 표시가 늘 "1~N" 으로 나온다 — 실제 진동이 20↔25 인데
+    # "범위 1~25" 로 읽히면 폭을 20배 크게 오해한다.
+    seen: list[int] = []
+    converged = False
+    for _ in range(MAX_ITERATIONS):
+        c_per_card = max(1, math.ceil(req.concurrent_users / n))
+        row, conc_level = _interp_rows(curve, c_per_card)
+        eff, basis = store.scaling_efficiency(req.model, n, c_per_card)
+        usable = row.aggregate_output_tps * eff * req.target_utilization
+        n_new = max(1, math.ceil(required_tps / usable)) if usable else n
+        if record is not None:
+            record.append({
+                "n_cards": n, "concurrency_per_card": c_per_card,
+                "row_aggregate_output_tps": round(row.aggregate_output_tps, 1),
+                "scaling_efficiency": round(eff, 4), "scaling_basis": basis,
+                "usable_tps_per_card": round(usable, 1), "n_cards_next": n_new,
+            })
+        seen.append(n_new)
+        if n_new == n:
+            converged = True
+            break
+        n = n_new
+    if not converged:
+        n = max(seen)
+    return n, conc_level, converged, seen
+
+
 def _tradeoffs(store: BenchmarkStore, curve: list[BenchmarkRow],
                req: ServiceRequirement, res: CapacityResult) -> list[SlaTradeoff]:
     """SLA 를 완화하면 카드가 몇 장 절약되는가 — 의사결정에 직접 쓰이는 출력."""
@@ -295,12 +383,12 @@ def _tradeoffs(store: BenchmarkStore, curve: list[BenchmarkRow],
             continue
         n_lat = math.ceil(relaxed.concurrent_users / c_max)
         required = relaxed.concurrent_users * relaxed.target_output_tps_per_user
-        row, _ = _interp_rows(curve, max(1, math.ceil(relaxed.concurrent_users / max(1, n_lat))))
-        eff, _ = store.scaling_efficiency(relaxed.model, n_lat, c_max)
-        usable = row.aggregate_output_tps * eff * relaxed.target_utilization
-        n_thr = max(1, math.ceil(required / usable)) if usable else n_lat
+        # **`plan()` 과 같은 고정점 반복을 쓴다.** 1패스로 계산하면 순환을 안 푼 값이
+        # 나오고, 같은 조건을 다시 풀면 답이 달라진다.
+        n_thr, _, conv, _ = _solve_throughput_cards(store, curve, relaxed, required)
         n = max(n_lat, n_thr)
-        out.append(SlaTradeoff(relaxed=label, n_cards=n,
+        out.append(SlaTradeoff(relaxed=label + ("" if conv else " (비수렴)"),
+                               n_cards=n,
                                cards_saved=res.n_cards - n,
                                users_per_card=c_max,
                                limited_by=_next_limit(curve, relaxed, c_max)))

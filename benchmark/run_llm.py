@@ -121,6 +121,11 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--devices", default=None,
                     help="serve 에 넘긴 --devices 문자열. 재현을 위해 그대로 저장한다")
     ap.add_argument("--note", action="append", default=[])
+    ap.add_argument("--not-for-capacity", action="store_true",
+                    help="실험 처치군 표시. 측정은 유효하지만 용량 산정의 근거로 쓰면 안 되는 "
+                         "run 에 붙인다 (예: 폴러를 의도적으로 띄운 대조 실험). "
+                         "붙이지 않으면 뒤늦게 analysis/process.py 의 EXPERIMENT_ARMS 에 "
+                         "손으로 등록해야 한다.")
     args = ap.parse_args(argv)
 
     cfg = load_config(args.config)
@@ -146,6 +151,15 @@ def main(argv: list[str] | None = None) -> int:
         environment=env_mod.collect(git_root=REPO_ROOT),
         notes=list(args.note),
     )
+    # 실험 처치군은 **meta 에 기계가 읽는 표시**를 남긴다. 노트에만 적으면 사람이
+    # 읽을 때는 보이는데 집계는 그대로 통과시킨다 — 실제로 폴러를 띄운 run 이
+    # 빠름 등급의 근거로 뽑혔었다.
+    if args.not_for_capacity:
+        meta.target["not_for_capacity"] = True
+        meta.notes.append(
+            "실험 처치군입니다. 측정 자체는 유효하지만 의도적으로 교란을 넣었으므로 "
+            "capacity 계산의 근거로 쓰면 안 됩니다."
+        )
     if target.source != "measured_local":
         meta.notes.append(
             "호스팅 엔드포인트 실행입니다. 카드 수 미상 + 멀티테넌트 + 네트워크 포함이므로 "

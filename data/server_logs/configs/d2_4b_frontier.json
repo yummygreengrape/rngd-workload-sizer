@@ -1,0 +1,17 @@
+{
+  "experiment": "D2q4b",
+  "description": "세션 2 구간 D(대체). **Qwen3-32B-FP8 은 이 서버에서 못 돌립니다** — 컴파일된 아티팩트(.fxb)가 캐시에 없습니다(가중치 34GB 만 있음). furiosa-llm build 는 장시간이라 3시간 예약에 안 들어갑니다. 대신 아티팩트가 있는 **Qwen3-4B-FP8** 로 모델 비교를 합니다. 오히려 이쪽이 정직한 비교입니다 — 8B 와 **같은 카드 1장**에 올라가므로 '카드당 용량' 을 같은 단위로 비교할 수 있습니다. 32B 는 4장이 최소 단위라 애초에 같은 축에 못 놓습니다. warm-up = 동시성, 표본 = 동시성 x 20.",
+  "defaults": {
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "min_samples_for_p95": 20
+  },
+  "conditions": [
+    {"concurrency": 1,   "warmup_requests": 4,   "measured_requests": 20},
+    {"concurrency": 4,   "warmup_requests": 4,   "measured_requests": 80},
+    {"concurrency": 16,  "warmup_requests": 16,  "measured_requests": 320},
+    {"concurrency": 32,  "warmup_requests": 32,  "measured_requests": 640},
+    {"concurrency": 64,  "warmup_requests": 64,  "measured_requests": 1280},
+    {"concurrency": 128, "warmup_requests": 128, "measured_requests": 2560}
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "experiment": "B3mixed",
+  "description": "혼합 부하 간섭. 대화형 배경 부하(in=512, out=128, conc=16) 위에 긴 문서 요청을 포아송 간격으로 주입하고, 배경 요청의 TPOT·TTFT가 주입과 겹쳤을 때 얼마나 나빠지는지 잰다. prefill 버킷이 batch=1뿐이라 긴 프롬프트가 decode 흐름을 끊을 것이라는 가설의 검증이다. 주입 길이를 3단계로 바꿔 용량-반응을 본다. docs/04-experiment-program.md B3",
+  "defaults": {
+    "background_concurrency": 16,
+    "background_input_tokens": 512,
+    "background_output_tokens": 128,
+    "inject_output_tokens": 1,
+    "inject_concurrency": 1,
+    "duration_s": 180.0,
+    "warmup_s": 20.0,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {"inject_input_tokens": 1024, "mean_inject_interval_s": 6.0},
+    {"inject_input_tokens": 4096, "mean_inject_interval_s": 6.0},
+    {"inject_input_tokens": 8192, "mean_inject_interval_s": 6.0},
+    {"inject_input_tokens": 8192, "mean_inject_interval_s": 2.0}
+  ]
+}
