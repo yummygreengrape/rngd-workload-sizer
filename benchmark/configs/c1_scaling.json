@@ -1,0 +1,16 @@
+{
+  "experiment": "C1",
+  "description": "카드 확장 효율. B1의 부분집합을 카드 수만 바꿔 반복한다. concurrency는 '카드당'이 아니라 '전체'이므로, 실행 시 카드 수에 맞춰 총 동시성을 곱해서 넣는다(runbook 참조). 1장 결과와 같은 카드당 동시성끼리 비교해야 공정하다. docs/04-experiment-program.md C1/C2",
+  "defaults": {
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "warmup_requests": 8,
+    "measured_requests": 100,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {"concurrency": 4},
+    {"concurrency": 16},
+    {"concurrency": 32}
+  ]
+}

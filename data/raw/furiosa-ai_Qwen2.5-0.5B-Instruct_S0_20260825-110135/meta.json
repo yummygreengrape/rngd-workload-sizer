@@ -1,0 +1,103 @@
+{
+  "run_id": "furiosa-ai_Qwen2.5-0.5B-Instruct_S0_20260825-110135",
+  "experiment": "S0",
+  "source": "measured_local",
+  "started_at": "2026-08-25T11:01:35.882305+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8001/v1",
+    "model": "furiosa-ai/Qwen2.5-0.5B-Instruct",
+    "api_path": "/completions",
+    "is_chat": false
+  },
+  "config": {
+    "file": "/root/rngd-bench/benchmark/configs/s0_smoke.json",
+    "scale": 1.0,
+    "description": "스모크. 하네스가 전용 서버와 실제로 대화되는지 확인한다. /tokenize 사용 여부, /metrics 수집, ignore_eos 동작, 스트리밍 파싱을 한 번에 검증.",
+    "conditions": [
+      {
+        "experiment": "S0",
+        "concurrency": 1,
+        "input_tokens": 128,
+        "output_tokens": 16,
+        "warmup_requests": 2,
+        "measured_requests": 5,
+        "ignore_eos": true,
+        "min_samples_for_p95": 5
+      },
+      {
+        "experiment": "S0",
+        "concurrency": 4,
+        "input_tokens": 512,
+        "output_tokens": 32,
+        "warmup_requests": 2,
+        "measured_requests": 5,
+        "ignore_eos": true,
+        "min_samples_for_p95": 5
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 128,
+        "words": 90,
+        "final_error_tokens": 2,
+        "probes": [
+          {
+            "words": 98,
+            "tokens": 139
+          },
+          {
+            "words": 90,
+            "tokens": 126
+          }
+        ]
+      },
+      {
+        "target_tokens": 512,
+        "words": 353,
+        "final_error_tokens": 3,
+        "probes": [
+          {
+            "words": 393,
+            "tokens": 570
+          },
+          {
+            "words": 353,
+            "tokens": 509
+          }
+        ]
+      }
+    ],
+    "token_counter_mode": "tokenize"
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 40.81°C | 42.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 38.34°C | 40.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 38.38°C | 39.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 39.69°C | 41.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 37.27°C | 39.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 39.15°C | 39.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 33.86°C | 36.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 36.78°C | 40.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+-------+-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID   | NPU core    | CMD                                                                                                                                                        |\n+-------+-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| 16264 | npu0:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen2.5-0.5B-Instruct --devices npu:0 --host 127.0.0.1 --port 8001 --no-enable-prefix-caching |\n+-------+-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| 16330 | npu1:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-8B-FP8 --devices npu:1 --host 127.0.0.1 --port 8000 --no-enable-prefix-caching          |\n+-------+-------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "S0 스모크: 하네스 x 전용서버 첫 통신"
+  ]
+}

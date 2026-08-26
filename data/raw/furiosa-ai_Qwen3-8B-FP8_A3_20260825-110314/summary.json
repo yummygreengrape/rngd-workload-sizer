@@ -1,0 +1,1162 @@
+[
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 64,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.6208505679387599,
+    "aggregate_output_tps": 48.32080624424776,
+    "per_user_output_tps_median": 50.48668154374063,
+    "ttft_ms_p50": 19.807206001132727,
+    "ttft_ms_p95": 20.33777814358473,
+    "e2e_ms_p50": 19.807206001132727,
+    "e2e_ms_p95": 20.33777814358473,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 65.5,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 64,
+        "median_actual": 65.5,
+        "drift_pct": 2.34,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 0.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "QUEUED_NOT_BATCHED"
+      },
+      "kv_cache_peak": 0.0,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 96,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.6293217791244388,
+    "aggregate_output_tps": 47.67036672676151,
+    "per_user_output_tps_median": 49.51988344404603,
+    "ttft_ms_p50": 20.193911506794393,
+    "ttft_ms_p95": 20.5931409727782,
+    "e2e_ms_p50": 20.193911506794393,
+    "e2e_ms_p95": 20.5931409727782,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 101.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 96,
+        "median_actual": 101.0,
+        "drift_pct": 5.21,
+        "verdict": "DRIFTED"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0003759555536989849,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 128,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.7961943750269711,
+    "aggregate_output_tps": 37.67924132719946,
+    "per_user_output_tps_median": 38.10190624768309,
+    "ttft_ms_p50": 26.245406130328774,
+    "ttft_ms_p95": 26.55104990117252,
+    "e2e_ms_p50": 26.245406130328774,
+    "e2e_ms_p95": 26.55104990117252,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 132.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 128,
+        "median_actual": 132.0,
+        "drift_pct": 3.12,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0005012740715986465,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 160,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.8263870689552277,
+    "aggregate_output_tps": 36.302600956629135,
+    "per_user_output_tps_median": 37.94660136122309,
+    "ttft_ms_p50": 26.352821965701878,
+    "ttft_ms_p95": 26.885163970291615,
+    "e2e_ms_p50": 26.352821965701878,
+    "e2e_ms_p95": 26.885163970291615,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 155.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 160,
+        "median_actual": 155.0,
+        "drift_pct": 3.12,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0005772246885075324,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 192,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.8150538739282638,
+    "aggregate_output_tps": 36.80738287324602,
+    "per_user_output_tps_median": 37.92381099692754,
+    "ttft_ms_p50": 26.368657941929996,
+    "ttft_ms_p95": 26.95966511964798,
+    "e2e_ms_p50": 26.368657941929996,
+    "e2e_ms_p95": 26.95966511964798,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 189.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 192,
+        "median_actual": 189.0,
+        "drift_pct": 1.56,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0007481135765525256,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 224,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.8142259689047933,
+    "aggregate_output_tps": 36.84480862278647,
+    "per_user_output_tps_median": 37.92456791079917,
+    "ttft_ms_p50": 26.368157006800175,
+    "ttft_ms_p95": 26.76598192192614,
+    "e2e_ms_p50": 26.368157006800175,
+    "e2e_ms_p95": 26.76598192192614,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 226.5,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 224,
+        "median_actual": 226.5,
+        "drift_pct": 1.12,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0008734320944521872,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 256,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 1.7391795800067484,
+    "aggregate_output_tps": 17.24951255458254,
+    "per_user_output_tps_median": 12.598915002129509,
+    "ttft_ms_p50": 79.37196455895901,
+    "ttft_ms_p95": 81.29250886850059,
+    "e2e_ms_p50": 79.37196455895901,
+    "e2e_ms_p95": 81.29250886850059,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 258.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 256,
+        "median_actual": 258.0,
+        "drift_pct": 0.78,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.000987358019815516,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 288,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.37758885580115,
+    "aggregate_output_tps": 12.617824956069297,
+    "per_user_output_tps_median": 12.541935646539262,
+    "ttft_ms_p50": 79.73252865485847,
+    "ttft_ms_p95": 81.94039692170918,
+    "e2e_ms_p50": 79.73252865485847,
+    "e2e_ms_p95": 81.94039692170918,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 272.5,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 288,
+        "median_actual": 272.5,
+        "drift_pct": 5.38,
+        "verdict": "DRIFTED"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.001089891352642512,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 320,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.415210752049461,
+    "aggregate_output_tps": 12.421276269386876,
+    "per_user_output_tps_median": 12.608176513199817,
+    "ttft_ms_p50": 79.31361044757068,
+    "ttft_ms_p95": 80.76309994794428,
+    "e2e_ms_p50": 79.31361044757068,
+    "e2e_ms_p95": 80.76309994794428,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 328.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 320,
+        "median_actual": 328.0,
+        "drift_pct": 2.5,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.001249387648151172,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 384,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.413342858897522,
+    "aggregate_output_tps": 12.430890161087506,
+    "per_user_output_tps_median": 12.653534323414146,
+    "ttft_ms_p50": 79.02930595446378,
+    "ttft_ms_p95": 82.13101699948311,
+    "e2e_ms_p50": 79.02930595446378,
+    "e2e_ms_p95": 82.13101699948311,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 376.5,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 384,
+        "median_actual": 376.5,
+        "drift_pct": 1.95,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0014582518446506082,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 448,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.388800519052893,
+    "aggregate_output_tps": 12.55860410307276,
+    "per_user_output_tps_median": 12.773267387454577,
+    "ttft_ms_p50": 78.28850450459868,
+    "ttft_ms_p95": 79.9918978009373,
+    "e2e_ms_p50": 78.28850450459868,
+    "e2e_ms_p95": 79.9918978009373,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 446.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 448,
+        "median_actual": 446.0,
+        "drift_pct": 0.45,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.00171648394214082,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 512,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.4067524180281907,
+    "aggregate_output_tps": 12.464929826300315,
+    "per_user_output_tps_median": 12.6803170389441,
+    "ttft_ms_p50": 78.8623815169558,
+    "ttft_ms_p95": 81.09771111048758,
+    "e2e_ms_p50": 78.8623815169558,
+    "e2e_ms_p95": 81.09771111048758,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 522.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 512,
+        "median_actual": 522.0,
+        "drift_pct": 1.95,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.002050666656539918,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 576,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.411974139045924,
+    "aggregate_output_tps": 12.43794430228292,
+    "per_user_output_tps_median": 12.707580344395392,
+    "ttft_ms_p50": 78.693458577618,
+    "ttft_ms_p95": 80.57629293762147,
+    "e2e_ms_p50": 78.693458577618,
+    "e2e_ms_p95": 80.57629293762147,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 558.5,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 576,
+        "median_actual": 558.5,
+        "drift_pct": 3.04,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.002156997520212358,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 640,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.4019981699530035,
+    "aggregate_output_tps": 12.48960152229715,
+    "per_user_output_tps_median": 12.712358126212354,
+    "ttft_ms_p50": 78.6636114353314,
+    "ttft_ms_p95": 80.1503648981452,
+    "e2e_ms_p50": 78.6636114353314,
+    "e2e_ms_p95": 80.1503648981452,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 668.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 640,
+        "median_actual": 668.0,
+        "drift_pct": 4.38,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.002586118505747563,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 768,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.379138425923884,
+    "aggregate_output_tps": 12.609606769034546,
+    "per_user_output_tps_median": 12.868053781716105,
+    "ttft_ms_p50": 77.71183759905398,
+    "ttft_ms_p95": 79.64844885282218,
+    "e2e_ms_p50": 77.71183759905398,
+    "e2e_ms_p95": 79.64844885282218,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 756.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 768,
+        "median_actual": 756.0,
+        "drift_pct": 1.56,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.002870933319155885,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 896,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.3709328828845173,
+    "aggregate_output_tps": 12.65324725831188,
+    "per_user_output_tps_median": 12.92552318209528,
+    "ttft_ms_p50": 77.3663125000894,
+    "ttft_ms_p95": 78.9770488627255,
+    "e2e_ms_p50": 77.3663125000894,
+    "e2e_ms_p95": 78.9770488627255,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 891.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 896,
+        "median_actual": 891.0,
+        "drift_pct": 0.56,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.003493728377808749,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 1024,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.6680298771243542,
+    "aggregate_output_tps": 11.244251894335788,
+    "per_user_output_tps_median": 10.48030286041556,
+    "ttft_ms_p50": 95.41713038925081,
+    "ttft_ms_p95": 97.86116098985076,
+    "e2e_ms_p50": 95.41713038925081,
+    "e2e_ms_p95": 97.86116098985076,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 1025.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 1024,
+        "median_actual": 1025.0,
+        "drift_pct": 0.1,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.003903861709116732,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 1152,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 3.108115723123774,
+    "aggregate_output_tps": 9.652150264807021,
+    "per_user_output_tps_median": 9.68403166827543,
+    "ttft_ms_p50": 103.26279606670141,
+    "ttft_ms_p95": 105.04791396670043,
+    "e2e_ms_p50": 103.26279606670141,
+    "e2e_ms_p95": 105.04791396670043,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 1176.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 1152,
+        "median_actual": 1176.0,
+        "drift_pct": 2.08,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.004534251829460485,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 1280,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 3.839230193058029,
+    "aggregate_output_tps": 7.814066490268029,
+    "per_user_output_tps_median": 9.550617605963609,
+    "ttft_ms_p50": 104.70537794753909,
+    "ttft_ms_p95": 161.2849598750472,
+    "e2e_ms_p50": 104.70537794753909,
+    "e2e_ms_p95": 161.2849598750472,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 1276.5,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 1280,
+        "median_actual": 1276.5,
+        "drift_pct": 0.27,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.004534251829460485,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A3",
+      "concurrency": 1,
+      "input_tokens": 1536,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 30,
+      "ignore_eos": true,
+      "min_samples_for_p95": 30
+    },
+    "source": "measured_local",
+    "n_measured_ok": 30,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 4.715125549118966,
+    "aggregate_output_tps": 6.362502904213353,
+    "per_user_output_tps_median": 6.420913988638043,
+    "ttft_ms_p50": 155.74108390137553,
+    "ttft_ms_p95": 159.21097993850708,
+    "e2e_ms_p50": 155.74108390137553,
+    "e2e_ms_p95": 159.21097993850708,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 1544.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 1536,
+        "median_actual": 1544.0,
+        "drift_pct": 0.52,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0060760493527108675,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  }
+]

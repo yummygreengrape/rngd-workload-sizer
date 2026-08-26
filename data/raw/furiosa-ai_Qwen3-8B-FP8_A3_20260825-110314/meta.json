@@ -1,0 +1,699 @@
+{
+  "run_id": "furiosa-ai_Qwen3-8B-FP8_A3_20260825-110314",
+  "experiment": "A3",
+  "source": "measured_local",
+  "started_at": "2026-08-25T11:03:14.294379+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8000/v1",
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "api_path": "/completions",
+    "is_chat": false
+  },
+  "config": {
+    "file": "/root/rngd-bench/benchmark/configs/a3_bucket_scan.json",
+    "scale": 1.0,
+    "description": "Prefill 계단 구조 정밀 스캔. A1에서 128≈256, 512≈1024로 TTFT가 같게 나온 것을 보고 재설계했다. 원래는 아티팩트의 128 간격 버킷 경계 주변만 찍으려 했으나, 실측이 다른 패턴을 보여 넓게 촘촘히 훑는다. output=1이므로 TTFT가 곧 prefill 비용이다. docs/04-experiment-program.md A3",
+    "conditions": [
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 64,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 96,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 128,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 160,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 192,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 224,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 256,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 288,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 320,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 384,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 448,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 512,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 576,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 640,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 768,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 896,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 1024,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 1152,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 1280,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 1536,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      },
+      {
+        "experiment": "A3",
+        "concurrency": 1,
+        "input_tokens": 2048,
+        "output_tokens": 1,
+        "warmup_requests": 3,
+        "measured_requests": 30,
+        "ignore_eos": true,
+        "min_samples_for_p95": 30
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 64,
+        "words": 44,
+        "final_error_tokens": 1,
+        "probes": [
+          {
+            "words": 49,
+            "tokens": 72
+          },
+          {
+            "words": 44,
+            "tokens": 65
+          }
+        ]
+      },
+      {
+        "target_tokens": 96,
+        "words": 68,
+        "final_error_tokens": 1,
+        "probes": [
+          {
+            "words": 73,
+            "tokens": 101
+          },
+          {
+            "words": 69,
+            "tokens": 103
+          },
+          {
+            "words": 64,
+            "tokens": 90
+          },
+          {
+            "words": 68,
+            "tokens": 95
+          }
+        ]
+      },
+      {
+        "target_tokens": 128,
+        "words": 92,
+        "final_error_tokens": 3,
+        "probes": [
+          {
+            "words": 98,
+            "tokens": 142
+          },
+          {
+            "words": 88,
+            "tokens": 139
+          },
+          {
+            "words": 81,
+            "tokens": 115
+          },
+          {
+            "words": 90,
+            "tokens": 142
+          },
+          {
+            "words": 81,
+            "tokens": 112
+          },
+          {
+            "words": 93,
+            "tokens": 135
+          },
+          {
+            "words": 88,
+            "tokens": 122
+          },
+          {
+            "words": 92,
+            "tokens": 131
+          }
+        ]
+      },
+      {
+        "target_tokens": 160,
+        "words": 107,
+        "final_error_tokens": 2,
+        "probes": [
+          {
+            "words": 123,
+            "tokens": 183
+          },
+          {
+            "words": 108,
+            "tokens": 152
+          },
+          {
+            "words": 114,
+            "tokens": 180
+          },
+          {
+            "words": 101,
+            "tokens": 152
+          },
+          {
+            "words": 106,
+            "tokens": 152
+          },
+          {
+            "words": 112,
+            "tokens": 168
+          },
+          {
+            "words": 107,
+            "tokens": 158
+          }
+        ]
+      },
+      {
+        "target_tokens": 192,
+        "words": 129,
+        "final_error_tokens": 1,
+        "probes": [
+          {
+            "words": 147,
+            "tokens": 204
+          },
+          {
+            "words": 138,
+            "tokens": 197
+          },
+          {
+            "words": 134,
+            "tokens": 183
+          },
+          {
+            "words": 141,
+            "tokens": 210
+          },
+          {
+            "words": 129,
+            "tokens": 193
+          }
+        ]
+      },
+      {
+        "target_tokens": 224,
+        "words": 157,
+        "final_error_tokens": 4,
+        "probes": [
+          {
+            "words": 172,
+            "tokens": 245
+          },
+          {
+            "words": 157,
+            "tokens": 228
+          }
+        ]
+      },
+      {
+        "target_tokens": 256,
+        "words": 178,
+        "final_error_tokens": 5,
+        "probes": [
+          {
+            "words": 196,
+            "tokens": 283
+          },
+          {
+            "words": 177,
+            "tokens": 250
+          },
+          {
+            "words": 181,
+            "tokens": 267
+          },
+          {
+            "words": 174,
+            "tokens": 250
+          },
+          {
+            "words": 178,
+            "tokens": 261
+          }
+        ]
+      },
+      {
+        "target_tokens": 288,
+        "words": 189,
+        "final_error_tokens": 3,
+        "probes": [
+          {
+            "words": 221,
+            "tokens": 322
+          },
+          {
+            "words": 198,
+            "tokens": 302
+          },
+          {
+            "words": 189,
+            "tokens": 291
+          }
+        ]
+      },
+      {
+        "target_tokens": 320,
+        "words": 223,
+        "final_error_tokens": 1,
+        "probes": [
+          {
+            "words": 246,
+            "tokens": 353
+          },
+          {
+            "words": 223,
+            "tokens": 321
+          }
+        ]
+      },
+      {
+        "target_tokens": 384,
+        "words": 258,
+        "final_error_tokens": 2,
+        "probes": [
+          {
+            "words": 295,
+            "tokens": 421
+          },
+          {
+            "words": 269,
+            "tokens": 410
+          },
+          {
+            "words": 252,
+            "tokens": 363
+          },
+          {
+            "words": 267,
+            "tokens": 398
+          },
+          {
+            "words": 258,
+            "tokens": 382
+          }
+        ]
+      },
+      {
+        "target_tokens": 448,
+        "words": 306,
+        "final_error_tokens": 5,
+        "probes": [
+          {
+            "words": 344,
+            "tokens": 504
+          },
+          {
+            "words": 306,
+            "tokens": 453
+          }
+        ]
+      },
+      {
+        "target_tokens": 512,
+        "words": 360,
+        "final_error_tokens": 9,
+        "probes": [
+          {
+            "words": 393,
+            "tokens": 536
+          },
+          {
+            "words": 375,
+            "tokens": 573
+          },
+          {
+            "words": 335,
+            "tokens": 476
+          },
+          {
+            "words": 360,
+            "tokens": 503
+          }
+        ]
+      },
+      {
+        "target_tokens": 576,
+        "words": 383,
+        "final_error_tokens": 6,
+        "probes": [
+          {
+            "words": 443,
+            "tokens": 673
+          },
+          {
+            "words": 379,
+            "tokens": 557
+          },
+          {
+            "words": 392,
+            "tokens": 590
+          },
+          {
+            "words": 383,
+            "tokens": 570
+          }
+        ]
+      },
+      {
+        "target_tokens": 640,
+        "words": 457,
+        "final_error_tokens": 11,
+        "probes": [
+          {
+            "words": 492,
+            "tokens": 699
+          },
+          {
+            "words": 450,
+            "tokens": 664
+          },
+          {
+            "words": 434,
+            "tokens": 608
+          },
+          {
+            "words": 457,
+            "tokens": 651
+          }
+        ]
+      },
+      {
+        "target_tokens": 768,
+        "words": 520,
+        "final_error_tokens": 11,
+        "probes": [
+          {
+            "words": 590,
+            "tokens": 877
+          },
+          {
+            "words": 517,
+            "tokens": 743
+          },
+          {
+            "words": 534,
+            "tokens": 789
+          },
+          {
+            "words": 520,
+            "tokens": 779
+          }
+        ]
+      },
+      {
+        "target_tokens": 896,
+        "words": 614,
+        "final_error_tokens": 2,
+        "probes": [
+          {
+            "words": 689,
+            "tokens": 1006
+          },
+          {
+            "words": 614,
+            "tokens": 898
+          }
+        ]
+      },
+      {
+        "target_tokens": 1024,
+        "words": 697,
+        "final_error_tokens": 9,
+        "probes": [
+          {
+            "words": 787,
+            "tokens": 1109
+          },
+          {
+            "words": 727,
+            "tokens": 1068
+          },
+          {
+            "words": 697,
+            "tokens": 1033
+          }
+        ]
+      },
+      {
+        "target_tokens": 1152,
+        "words": 807,
+        "final_error_tokens": 6,
+        "probes": [
+          {
+            "words": 886,
+            "tokens": 1276
+          },
+          {
+            "words": 800,
+            "tokens": 1189
+          },
+          {
+            "words": 775,
+            "tokens": 1107
+          },
+          {
+            "words": 807,
+            "tokens": 1158
+          }
+        ]
+      },
+      {
+        "target_tokens": 1280,
+        "words": 871,
+        "final_error_tokens": 16,
+        "probes": [
+          {
+            "words": 984,
+            "tokens": 1446
+          },
+          {
+            "words": 871,
+            "tokens": 1296
+          }
+        ]
+      },
+      {
+        "target_tokens": 1536,
+        "words": 1055,
+        "final_error_tokens": 10,
+        "probes": [
+          {
+            "words": 1181,
+            "tokens": 1720
+          },
+          {
+            "words": 1055,
+            "tokens": 1546
+          }
+        ]
+      }
+    ],
+    "token_counter_mode": "tokenize"
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 40.26°C | 40.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 42.05°C | 41.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 38.19°C | 39.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 39.13°C | 41.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 37.45°C | 39.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 39.52°C | 39.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 33.86°C | 36.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 36.78°C | 40.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+-------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID   | NPU core    | CMD                                                                                                                                               |\n+-------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------+\n| 16330 | npu1:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-8B-FP8 --devices npu:1 --host 127.0.0.1 --port 8000 --no-enable-prefix-caching |\n+-------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "A3 prefill 계단 정밀 스캔"
+  ]
+}

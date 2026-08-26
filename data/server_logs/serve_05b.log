@@ -1,0 +1,75 @@
+/usr/local/lib/python3.10/dist-packages/furiosa/models/core/attention/attention.py:6: UserWarning: LTW Backend is provided temporarily for compatibility purposes only. This feature may be removed without notice in future versions. (Default behavior, set USE_WTL_BACKEND=1 to use WTL backend)
+  from furiosa.models.core.attention.backends import LLMAttentionBackend
+INFO:furiosa_llm.server.models:Loading LLM: furiosa-ai/Qwen2.5-0.5B-Instruct
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 10 files:  10%|█         | 1/10 [00:00<00:02,  3.98it/s]Fetching 10 files:  50%|█████     | 5/10 [00:03<00:03,  1.60it/s]Fetching 10 files: 100%|██████████| 10/10 [00:03<00:00,  3.32it/s]
+[2m2026-08-25T11:00:07.799788164Z[0m [32m INFO[0m [2mfuriosa_llm_common::artifact::types::next_gen[0m[2m:[0m Loading artifact from path: /root/.cache/huggingface/hub/models--furiosa-ai--Qwen2.5-0.5B-Instruct/snapshots/ca96a4eadd7398ac1d00b647c195f3aba8d4b9be
+[2m2026-08-25T11:00:09.347945303Z[0m [32m INFO[0m [2mfuriosa_llm_common::artifact::types::commons[0m[2m:[0m Loading artifact with schema version: 3.0
+[2m2026-08-25T11:00:09.361858945Z[0m [32m INFO[0m [2mfuriosa_generator::pyo3::engine[0m[2m:[0m Loaded target artifact: SchemaVersion { major: 3, minor: 0 }
+[2m2026-08-25T11:00:09.361893696Z[0m [32m INFO[0m [2mfuriosa_generator::pyo3::engine[0m[2m:[0m Parallelism Config: tp=4, pp=1, dp=2
+[2m2026-08-25T11:00:09.450067539Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::hf_compat_next_gen[0m[2m:[0m Loading the target model ...
+[2m2026-08-25T11:00:09.450539086Z[0m [32m INFO[0m [2mdevice_runtime::context[0m[2m:[0m Memory dump thread for Device([npu:0:4-7]) started
+[2m2026-08-25T11:00:09.450603347Z[0m [32m INFO[0m [2mdevice_runtime::context[0m[2m:[0m Memory dump thread for Device([npu:0:0-3]) started
+[2m2026-08-25T11:00:09.461689758Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::pipeline::resolve[0m[2m:[0m PP device#0 allocation plan: Binary=9.9 MiB, Model weights=950.3 MiB, Reserved IO memory=6.0 GiB
+[2m2026-08-25T11:00:09.864121033Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::pipeline::resolve[0m[2m:[0m Resolve 1 pipeline for 2 DP groups (DP=2, PP=1) in 413.98ms
+[2m2026-08-25T11:00:09.864191794Z[0m [32m INFO[0m [2mfuriosa_generator::backing_file[0m[2m:[0m Total size of parameters loaded: 950.3 MiB in 0.4024761 s
+[2m2026-08-25T11:00:09.927576687Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::hf_compat_next_gen[0m[2m:[0m Loading the target model took 477.476288ms
+[2m2026-08-25T11:00:09.928354658Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::pipeline::resolve[0m[2m:[0m PP device#0 KV cache=16.8 GiB
+[2m2026-08-25T11:00:09.928436229Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::hf_compat_next_gen[0m[2m:[0m Computed bucket limits: max_executable_len=4096
+[2m2026-08-25T11:00:09.93124763Z[0m [32m INFO[0m [2mfuriosa_generator::structured_output::manager[0m[2m:[0m Initializing structured output manager for backend: Auto
+[2m2026-08-25T11:00:10.218984895Z[0m [33m WARN[0m [2mxgrammar[0m[2m:[0m Provided vocab_size 151936 does not match tokenizer vocab size 151665. Using provided vocab_size.
+[2m2026-08-25T11:00:10.376199151Z[0m [32m INFO[0m [2mfuriosa_generator::structured_output::manager[0m[2m:[0m XGrammar backend is initialized.
+[2m2026-08-25T11:00:11.056777277Z[0m [32m INFO[0m [2mfuriosa_generator::structured_output::manager[0m[2m:[0m LLGuidance backend is initialized.
+[2m2026-08-25T11:00:11.056808278Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::generator[0m[2m:[0m DP entry DpId(0) → device [npu0pe0-3]
+[2m2026-08-25T11:00:11.056814688Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::generator[0m[2m:[0m DP entry DpId(1) → device [npu0pe4-7]
+[2m2026-08-25T11:00:11.084175266Z[0m [33m WARN[0m [2mfuriosa_generator::next_gen::router::policy[0m[2m:[0m prefix cache is disabled; using data_parallel_scoring_profile='load' for better performance [3mprofile[0m[2m=[0mBalanced
+[2m2026-08-25T11:00:11.084399199Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::scheduler::request_management::task_selector[0m[2m:[0m Initializing TaskSelector([[npu:0:0-3]]) with config: TaskSelectorConfig { enable_jit_compilation: false }, 0 AOT wired pipelines
+[2m2026-08-25T11:00:11.08445083Z[0m [33m WARN[0m [2mfuriosa_generator::next_gen::scheduler::strategies::fcfs[0m[2m:[0m No extend buckets with kv_cache_size > 0 found in the artifact. Chunked prefill will be disabled to prevent liveness violations. If this is a non-pooling model, this may indicate a bucket misconfiguration in the artifact, causing suboptimal performance.
+[2m2026-08-25T11:00:11.115189166Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::scheduler::memory_manager[0m[2m:[0m Initialize KVCacheManager with config: KVCacheConfig(kv_cache_memory: {[npu:0:0-3]: Buffer { addr: 0x300000000, size: 0x433fd9e00, device: Npu([npu:0:0-3], Dram), state: 0 }}, KVCachePlan(global_attention_config: LayerConfig(attention_type: Global, unit_block_size: 256, block_size: 256, num_chips: 1), global_kv_cache_tensors: 48, aux_attention_config: None, aux_kv_cache_tensors: 0)), is_prefix_cache_enabled: false
+[2m2026-08-25T11:00:11.115259138Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::scheduler::memory_manager[0m[2m:[0m Configured KV cache blocks, global_num_blocks: 1469085, aux_num_blocks: None
+[2m2026-08-25T11:00:11.165153843Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::generator[0m[2m:[0m Eager scheduler has started with: SchedulerConfig { scheduler_kind: None, npu_queue_limit: 1, max_processing_samples: 65536, spare_blocks_ratio: 0.0, estimation_time_limit_ms: None, prefix_cache_config: PrefixCacheConfig { enabled: false, lookahead_requests: 2 }, scheduling_loop_type: Some(Eager), experimental_aggressive_batching: false, max_concurrency: None, max_num_batched_tokens: None, data_parallel_routing_policy: Scoring, data_parallel_scoring_profile: Balanced }
+[2m2026-08-25T11:00:11.165581299Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::scheduler::request_management::task_selector[0m[2m:[0m Initializing TaskSelector([[npu:0:4-7]]) with config: TaskSelectorConfig { enable_jit_compilation: false }, 0 AOT wired pipelines
+[2m2026-08-25T11:00:11.165621789Z[0m [33m WARN[0m [2mfuriosa_generator::next_gen::scheduler::strategies::fcfs[0m[2m:[0m No extend buckets with kv_cache_size > 0 found in the artifact. Chunked prefill will be disabled to prevent liveness violations. If this is a non-pooling model, this may indicate a bucket misconfiguration in the artifact, causing suboptimal performance.
+[2m2026-08-25T11:00:11.19593308Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::scheduler::memory_manager[0m[2m:[0m Initialize KVCacheManager with config: KVCacheConfig(kv_cache_memory: {[npu:0:4-7]: Buffer { addr: 0x733fd9e00, size: 0x433fd9e00, device: Npu([npu:0:4-7], Dram), state: 0 }}, KVCachePlan(global_attention_config: LayerConfig(attention_type: Global, unit_block_size: 256, block_size: 256, num_chips: 1), global_kv_cache_tensors: 48, aux_attention_config: None, aux_kv_cache_tensors: 0)), is_prefix_cache_enabled: false
+[2m2026-08-25T11:00:11.196015181Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::scheduler::memory_manager[0m[2m:[0m Configured KV cache blocks, global_num_blocks: 1469085, aux_num_blocks: None
+[2m2026-08-25T11:00:11.244520856Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::generator[0m[2m:[0m Eager scheduler has started with: SchedulerConfig { scheduler_kind: None, npu_queue_limit: 1, max_processing_samples: 65536, spare_blocks_ratio: 0.0, estimation_time_limit_ms: None, prefix_cache_config: PrefixCacheConfig { enabled: false, lookahead_requests: 2 }, scheduling_loop_type: Some(Eager), experimental_aggressive_batching: false, max_concurrency: None, max_num_batched_tokens: None, data_parallel_routing_policy: Scoring, data_parallel_scoring_profile: Balanced }
+[2m2026-08-25T11:00:11.244604087Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::generator[0m[2m:[0m max_kv_len=1469084 (from KV cache blocks across 2 DP device(s))
+INFO:furiosa_llm.server.chat_utils:Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+INFO:     Started server process [16264]
+INFO:     Waiting for application startup.
+WARNING:root:Error while pre-warming server: 'LLM' object has no attribute 'model_id_or_path'
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+INFO:     127.0.0.1:42574 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46808 - "GET /v1/models HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46816 - "POST /tokenize HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38436 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38450 - "POST /tokenize HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38450 - "POST /tokenize HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38456 - "POST /v1/completions HTTP/1.1" 200 OK
+[2m2026-08-25T11:01:36.437055969Z[0m [32m INFO[0m [2mdevice_runtime::alloc::cpu[0m[2m:[0m Support for huge page size of 2 MiB has been detected.
+INFO:     127.0.0.1:38456 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38456 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38456 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38456 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38456 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38456 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38470 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38450 - "POST /tokenize HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38450 - "POST /tokenize HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38476 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38478 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38480 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38484 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38478 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38476 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38484 - "POST /v1/completions HTTP/1.1" 200 OK
+INFO:furiosa_llm.server.metrics:[Engine 0] Avg prompt throughput: 243.5 tokens/s, Avg generation throughput: 20.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, RNGD KV cache usage: 0.0%, Prefix cache hit rate: 0.0%, Wire pipeline hit rate: 0.0%
+INFO:furiosa_llm.server.metrics:[Engine 1] Avg prompt throughput: 205.6 tokens/s, Avg generation throughput: 12.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, RNGD KV cache usage: 0.0%, Prefix cache hit rate: 0.0%, Wire pipeline hit rate: 0.0%
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-25T11:02:04.797425473Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::generator[0m[2m:[0m Scheduler exits normally
+[2m2026-08-25T11:02:04.797440173Z[0m [32m INFO[0m [2mfuriosa_generator::next_gen::generator[0m[2m:[0m Scheduler exits normally
+INFO:     Application shutdown complete.
+INFO:     Finished server process [16264]

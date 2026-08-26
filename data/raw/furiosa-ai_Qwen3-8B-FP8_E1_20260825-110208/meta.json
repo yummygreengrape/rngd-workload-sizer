@@ -1,0 +1,236 @@
+{
+  "run_id": "furiosa-ai_Qwen3-8B-FP8_E1_20260825-110208",
+  "experiment": "E1",
+  "source": "measured_local",
+  "started_at": "2026-08-25T11:02:08.384355+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8000/v1",
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "api_path": "/completions",
+    "is_chat": false
+  },
+  "config": {
+    "file": "/root/rngd-bench/benchmark/configs/e1_path_check.json",
+    "scale": 1.0,
+    "description": "실행 경로 확인. prefill 버킷(batch=1, 최대 1024)을 넘는 프롬프트가 어떻게 처리되는지 본다. TTFT가 길이에 대해 선형인지 계단형인지, 1024 초과에서 에러가 나는지 확인한 뒤 E2/E4의 input 축을 확정한다. docs/01-spec-review.md CRIT-1",
+    "conditions": [
+      {
+        "experiment": "E1",
+        "concurrency": 1,
+        "input_tokens": 128,
+        "output_tokens": 1,
+        "warmup_requests": 2,
+        "measured_requests": 10,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "E1",
+        "concurrency": 1,
+        "input_tokens": 256,
+        "output_tokens": 1,
+        "warmup_requests": 2,
+        "measured_requests": 10,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "E1",
+        "concurrency": 1,
+        "input_tokens": 512,
+        "output_tokens": 1,
+        "warmup_requests": 2,
+        "measured_requests": 10,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "E1",
+        "concurrency": 1,
+        "input_tokens": 1024,
+        "output_tokens": 1,
+        "warmup_requests": 2,
+        "measured_requests": 10,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "E1",
+        "concurrency": 1,
+        "input_tokens": 2048,
+        "output_tokens": 1,
+        "warmup_requests": 2,
+        "measured_requests": 10,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "E1",
+        "concurrency": 1,
+        "input_tokens": 4096,
+        "output_tokens": 1,
+        "warmup_requests": 2,
+        "measured_requests": 10,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "E1",
+        "concurrency": 1,
+        "input_tokens": 8192,
+        "output_tokens": 1,
+        "warmup_requests": 2,
+        "measured_requests": 10,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 128,
+        "words": 88,
+        "final_error_tokens": 1,
+        "probes": [
+          {
+            "words": 98,
+            "tokens": 134
+          },
+          {
+            "words": 94,
+            "tokens": 136
+          },
+          {
+            "words": 88,
+            "tokens": 129
+          }
+        ]
+      },
+      {
+        "target_tokens": 256,
+        "words": 174,
+        "final_error_tokens": 0,
+        "probes": [
+          {
+            "words": 196,
+            "tokens": 289
+          },
+          {
+            "words": 174,
+            "tokens": 256
+          }
+        ]
+      },
+      {
+        "target_tokens": 512,
+        "words": 357,
+        "final_error_tokens": 1,
+        "probes": [
+          {
+            "words": 393,
+            "tokens": 563
+          },
+          {
+            "words": 357,
+            "tokens": 513
+          }
+        ]
+      },
+      {
+        "target_tokens": 1024,
+        "words": 693,
+        "final_error_tokens": 1,
+        "probes": [
+          {
+            "words": 787,
+            "tokens": 1163
+          },
+          {
+            "words": 693,
+            "tokens": 1025
+          }
+        ]
+      },
+      {
+        "target_tokens": 2048,
+        "words": 1414,
+        "final_error_tokens": 1,
+        "probes": [
+          {
+            "words": 1575,
+            "tokens": 2350
+          },
+          {
+            "words": 1373,
+            "tokens": 1988
+          },
+          {
+            "words": 1414,
+            "tokens": 2049
+          }
+        ]
+      },
+      {
+        "target_tokens": 4096,
+        "words": 2821,
+        "final_error_tokens": 38,
+        "probes": [
+          {
+            "words": 3150,
+            "tokens": 4573
+          },
+          {
+            "words": 2821,
+            "tokens": 4134
+          }
+        ]
+      },
+      {
+        "target_tokens": 8192,
+        "words": 5612,
+        "final_error_tokens": 34,
+        "probes": [
+          {
+            "words": 6301,
+            "tokens": 9198
+          },
+          {
+            "words": 5612,
+            "tokens": 8226
+          }
+        ]
+      }
+    ],
+    "token_counter_mode": "tokenize"
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 41.00°C | 41.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 38.36°C | 40.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 38.56°C | 39.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 39.69°C | 41.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 37.08°C | 39.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 39.15°C | 39.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 33.67°C | 36.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 36.78°C | 40.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+-------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID   | NPU core    | CMD                                                                                                                                               |\n+-------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------+\n| 16330 | npu1:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-8B-FP8 --devices npu:1 --host 127.0.0.1 --port 8000 --no-enable-prefix-caching |\n+-------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "A1 실행경로 확인. 1 RNGD = npu:1 카드 전체(TP=8). prefix cache OFF."
+  ]
+}

@@ -1,0 +1,415 @@
+[
+  {
+    "spec": {
+      "experiment": "E1",
+      "concurrency": 1,
+      "input_tokens": 128,
+      "output_tokens": 1,
+      "warmup_requests": 2,
+      "measured_requests": 10,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100
+    },
+    "source": "measured_local",
+    "n_measured_ok": 10,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.2325349359307438,
+    "aggregate_output_tps": 43.00429077451963,
+    "per_user_output_tps_median": 40.37161900014357,
+    "ttft_ms_p50": 24.769882089458406,
+    "ttft_ms_p95": null,
+    "e2e_ms_p50": 24.769882089458406,
+    "e2e_ms_p95": null,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 130.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "p95": "insufficient_samples: 측정 성공 10건 < 기준 100건",
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 128,
+        "median_actual": 130.0,
+        "drift_pct": 1.56,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 0.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "QUEUED_NOT_BATCHED"
+      },
+      "kv_cache_peak": 0.0,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "E1",
+      "concurrency": 1,
+      "input_tokens": 256,
+      "output_tokens": 1,
+      "warmup_requests": 2,
+      "measured_requests": 10,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100
+    },
+    "source": "measured_local",
+    "n_measured_ok": 10,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.42841690382920206,
+    "aggregate_output_tps": 23.341749381548034,
+    "per_user_output_tps_median": 36.85131735515306,
+    "ttft_ms_p50": 27.136179036460817,
+    "ttft_ms_p95": null,
+    "e2e_ms_p50": 27.136179036460817,
+    "e2e_ms_p95": null,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 251.5,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "p95": "insufficient_samples: 측정 성공 10건 < 기준 100건",
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 256,
+        "median_actual": 251.5,
+        "drift_pct": 1.76,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 0.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "QUEUED_NOT_BATCHED"
+      },
+      "kv_cache_peak": 0.0,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "E1",
+      "concurrency": 1,
+      "input_tokens": 512,
+      "output_tokens": 1,
+      "warmup_requests": 2,
+      "measured_requests": 10,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100
+    },
+    "source": "measured_local",
+    "n_measured_ok": 10,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.798921903129667,
+    "aggregate_output_tps": 12.516867995265082,
+    "per_user_output_tps_median": 12.737906062837471,
+    "ttft_ms_p50": 78.50693305954337,
+    "ttft_ms_p95": null,
+    "e2e_ms_p50": 78.50693305954337,
+    "e2e_ms_p95": null,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 524.5,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "p95": "insufficient_samples: 측정 성공 10건 < 기준 100건",
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 512,
+        "median_actual": 524.5,
+        "drift_pct": 2.44,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0019557283854038103,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "E1",
+      "concurrency": 1,
+      "input_tokens": 1024,
+      "output_tokens": 1,
+      "warmup_requests": 2,
+      "measured_requests": 10,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100
+    },
+    "source": "measured_local",
+    "n_measured_ok": 10,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.8056177890393883,
+    "aggregate_output_tps": 12.412834145487171,
+    "per_user_output_tps_median": 12.944458234468446,
+    "ttft_ms_p50": 77.25327089428902,
+    "ttft_ms_p95": null,
+    "e2e_ms_p50": 77.25327089428902,
+    "e2e_ms_p95": null,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 1013.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "p95": "insufficient_samples: 측정 성공 10건 < 기준 100건",
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 1024,
+        "median_actual": 1013.0,
+        "drift_pct": 1.07,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0037861382529079594,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "E1",
+      "concurrency": 1,
+      "input_tokens": 2048,
+      "output_tokens": 1,
+      "warmup_requests": 2,
+      "measured_requests": 10,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100
+    },
+    "source": "measured_local",
+    "n_measured_ok": 10,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 1.769185297191143,
+    "aggregate_output_tps": 5.65231918662028,
+    "per_user_output_tps_median": 5.635349475185567,
+    "ttft_ms_p50": 177.451407071203,
+    "ttft_ms_p95": null,
+    "e2e_ms_p50": 177.451407071203,
+    "e2e_ms_p95": null,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 2083.5,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "p95": "insufficient_samples: 측정 성공 10건 < 기준 100건",
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 2048,
+        "median_actual": 2083.5,
+        "drift_pct": 1.73,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.00777734317146991,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "E1",
+      "concurrency": 1,
+      "input_tokens": 4096,
+      "output_tokens": 1,
+      "warmup_requests": 2,
+      "measured_requests": 10,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100
+    },
+    "source": "measured_local",
+    "n_measured_ok": 10,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 3.519562517059967,
+    "aggregate_output_tps": 2.841262216973888,
+    "per_user_output_tps_median": 2.919893598228258,
+    "ttft_ms_p50": 342.4858454382047,
+    "ttft_ms_p95": null,
+    "e2e_ms_p50": 342.4858454382047,
+    "e2e_ms_p95": null,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 4093.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "p95": "insufficient_samples: 측정 성공 10건 < 기준 100건",
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 4096,
+        "median_actual": 4093.0,
+        "drift_pct": 0.07,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.01555468634293982,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "E1",
+      "concurrency": 1,
+      "input_tokens": 8192,
+      "output_tokens": 1,
+      "warmup_requests": 2,
+      "measured_requests": 10,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100
+    },
+    "source": "measured_local",
+    "n_measured_ok": 10,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 8.059155496070161,
+    "aggregate_output_tps": 1.2408247991835175,
+    "per_user_output_tps_median": 1.2541603876365301,
+    "ttft_ms_p50": 797.3464649403468,
+    "ttft_ms_p95": null,
+    "e2e_ms_p50": 797.3464649403468,
+    "e2e_ms_p95": null,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 8159.5,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "p95": "insufficient_samples: 측정 성공 10건 < 기준 100건",
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 8192,
+        "median_actual": 8159.5,
+        "drift_pct": 0.4,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.03110937268587964,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  }
+]

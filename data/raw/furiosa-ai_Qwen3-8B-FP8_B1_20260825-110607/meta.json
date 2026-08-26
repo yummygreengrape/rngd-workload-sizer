@@ -1,0 +1,280 @@
+{
+  "run_id": "furiosa-ai_Qwen3-8B-FP8_B1_20260825-110607",
+  "experiment": "B1",
+  "source": "measured_local",
+  "started_at": "2026-08-25T11:06:07.515107+00:00",
+  "target": {
+    "kind": "local",
+    "base_url": "http://127.0.0.1:8000/v1",
+    "model": "furiosa-ai/Qwen3-8B-FP8",
+    "api_path": "/completions",
+    "is_chat": false
+  },
+  "config": {
+    "file": "/root/rngd-bench/benchmark/configs/b1_sla_frontier.json",
+    "scale": 1.0,
+    "description": "SLA 프론티어. 이 프로그램의 중심 데이터. 입력 길이 × 동시성 격자에서 처리량과 지연을 함께 재어, 'SLA를 지키면서 낼 수 있는 카드당 용량'을 구한다. 용량 치트시트(D1), SLA 완화 곡선(D2), 병목 지도(D4), planner의 실측 테이블이 전부 여기서 나온다. docs/04-experiment-program.md B1",
+    "conditions": [
+      {
+        "experiment": "B1",
+        "concurrency": 1,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 2,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 4,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 8,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 16,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 32,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 64,
+        "input_tokens": 512,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 1,
+        "input_tokens": 1024,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 4,
+        "input_tokens": 1024,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 8,
+        "input_tokens": 1024,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 16,
+        "input_tokens": 1024,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 32,
+        "input_tokens": 1024,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 64,
+        "input_tokens": 1024,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 1,
+        "input_tokens": 2048,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 4,
+        "input_tokens": 2048,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 16,
+        "input_tokens": 2048,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      },
+      {
+        "experiment": "B1",
+        "concurrency": 32,
+        "input_tokens": 2048,
+        "output_tokens": 128,
+        "warmup_requests": 8,
+        "measured_requests": 100,
+        "ignore_eos": true,
+        "min_samples_for_p95": 100
+      }
+    ],
+    "prompt_calibration": [
+      {
+        "target_tokens": 512,
+        "words": 350,
+        "final_error_tokens": 4,
+        "probes": [
+          {
+            "words": 393,
+            "tokens": 582
+          },
+          {
+            "words": 346,
+            "tokens": 524
+          },
+          {
+            "words": 338,
+            "tokens": 494
+          },
+          {
+            "words": 350,
+            "tokens": 508
+          }
+        ]
+      },
+      {
+        "target_tokens": 1024,
+        "words": 697,
+        "final_error_tokens": 5,
+        "probes": [
+          {
+            "words": 787,
+            "tokens": 1185
+          },
+          {
+            "words": 680,
+            "tokens": 999
+          },
+          {
+            "words": 697,
+            "tokens": 1019
+          }
+        ]
+      },
+      {
+        "target_tokens": 2048,
+        "words": 1411,
+        "final_error_tokens": 32,
+        "probes": [
+          {
+            "words": 1575,
+            "tokens": 2286
+          },
+          {
+            "words": 1411,
+            "tokens": 2080
+          }
+        ]
+      }
+    ],
+    "token_counter_mode": "tokenize"
+  },
+  "environment": {
+    "host": "edu-hlu-1",
+    "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "python": "3.10.12",
+    "packages": {
+      "furiosa-llm": "2026.3.0",
+      "furiosa-llm-native": "2026.3.0",
+      "furiosa-native-llm-common": "2026.3.0",
+      "furiosa-kernels": "2026.3.0",
+      "furiosa-tcc": "2026.3.0",
+      "furiosa-torch": "2026.2.0",
+      "furiosa-torch-ext": "2026.3.0",
+      "furiosa-smi-py": "2026.1.2",
+      "furiosa-models": "2026.2.0",
+      "torch": "2.10.0+cpu",
+      "transformers": "5.1.0"
+    },
+    "furiosa_smi_info": "+------+--------+-------------------+---------+---------+--------------+\n| Arch | Device | Firmware          | Temp.   | Power   | PCI-BDF      |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu0   | 2026.3.0, 2d3f72a | 38.58°C | 40.00 W | 0000:03:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu1   | 2026.3.0, 2d3f72a | 41.87°C | 41.00 W | 0000:04:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu2   | 2026.3.0, 2d3f72a | 36.52°C | 39.00 W | 0000:44:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu3   | 2026.3.0, 2d3f72a | 37.45°C | 40.00 W | 0000:45:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu4   | 2026.3.0, 2d3f72a | 37.27°C | 39.00 W | 0000:83:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu5   | 2026.3.0, 2d3f72a | 38.78°C | 39.00 W | 0000:84:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu6   | 2026.3.0, 2d3f72a | 33.67°C | 36.00 W | 0000:c3:00.0 |\n+------+--------+-------------------+---------+---------+--------------+\n| rngd | npu7   | 2026.3.0, 2d3f72a | 36.41°C | 40.00 W | 0000:c4:00.0 |\n+------+--------+-------------------+---------+---------+--------------+",
+    "npu_present": true,
+    "furiosa_smi_version": "- furiosa-smi\n  2026.1.1\n\n- device driver\n  2026.3.1, e28c5c0",
+    "furiosa_smi_ps_at_start": "+-------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------+\n| PID   | NPU core    | CMD                                                                                                                                               |\n+-------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------+\n| 16330 | npu1:[0, 7] | /usr/bin/python3 /usr/local/bin/furiosa-llm serve furiosa-ai/Qwen3-8B-FP8 --devices npu:1 --host 127.0.0.1 --port 8000 --no-enable-prefix-caching |\n+-------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------+",
+    "furiosa_llm_version": "furiosa-llm v2026.3.0-release (rev: a13b5a4)",
+    "metrics_available": true
+  },
+  "server_argv": [],
+  "artifact_buckets": {},
+  "notes": [
+    "B1 SLA 프론티어. 1 RNGD = npu:1 (TP=8, PE 0-7). prefix cache OFF. KV 37030MB / max_kv_len 263329."
+  ]
+}

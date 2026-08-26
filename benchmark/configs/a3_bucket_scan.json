@@ -1,0 +1,20 @@
+{
+  "experiment": "A3",
+  "description": "Prefill 계단 구조 정밀 스캔. A1에서 128≈256, 512≈1024로 TTFT가 같게 나온 것을 보고 재설계했다. 원래는 아티팩트의 128 간격 버킷 경계 주변만 찍으려 했으나, 실측이 다른 패턴을 보여 넓게 촘촘히 훑는다. output=1이므로 TTFT가 곧 prefill 비용이다. docs/04-experiment-program.md A3",
+  "defaults": {
+    "concurrency": 1,
+    "output_tokens": 1,
+    "warmup_requests": 3,
+    "measured_requests": 30,
+    "min_samples_for_p95": 30
+  },
+  "conditions": [
+    {"input_tokens": 64},   {"input_tokens": 96},   {"input_tokens": 128},
+    {"input_tokens": 160},  {"input_tokens": 192},  {"input_tokens": 224},
+    {"input_tokens": 256},  {"input_tokens": 288},  {"input_tokens": 320},
+    {"input_tokens": 384},  {"input_tokens": 448},  {"input_tokens": 512},
+    {"input_tokens": 576},  {"input_tokens": 640},  {"input_tokens": 768},
+    {"input_tokens": 896},  {"input_tokens": 1024}, {"input_tokens": 1152},
+    {"input_tokens": 1280}, {"input_tokens": 1536}, {"input_tokens": 2048}
+  ]
+}

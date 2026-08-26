@@ -1,0 +1,18 @@
+{
+  "experiment": "A4",
+  "description": "버킷 경계 정밀 특정. A3에서 같은 조건 안의 요청들이 실제 프롬프트 토큰 1003 이하(77ms)와 1037 이상(96ms)으로 갈렸다. 경계를 정확히 짚어 planner 경고에 실측값으로 넣는다. 256 경계(224->256에서 +53ms)도 함께 확인.",
+  "defaults": {
+    "concurrency": 1,
+    "output_tokens": 1,
+    "warmup_requests": 3,
+    "measured_requests": 25,
+    "min_samples_for_p95": 25
+  },
+  "conditions": [
+    {"input_tokens": 232}, {"input_tokens": 240}, {"input_tokens": 248},
+    {"input_tokens": 252}, {"input_tokens": 256}, {"input_tokens": 260},
+    {"input_tokens": 1000}, {"input_tokens": 1008}, {"input_tokens": 1012},
+    {"input_tokens": 1016}, {"input_tokens": 1020}, {"input_tokens": 1024},
+    {"input_tokens": 1028}, {"input_tokens": 1032}
+  ]
+}

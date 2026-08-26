@@ -1,0 +1,118 @@
+[
+  {
+    "spec": {
+      "experiment": "S0",
+      "concurrency": 1,
+      "input_tokens": 128,
+      "output_tokens": 16,
+      "warmup_requests": 2,
+      "measured_requests": 5,
+      "ignore_eos": true,
+      "min_samples_for_p95": 5
+    },
+    "source": "measured_local",
+    "n_measured_ok": 5,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.7708085228223354,
+    "aggregate_output_tps": 103.78712433935983,
+    "per_user_output_tps_median": 104.78759796397915,
+    "ttft_ms_p50": 21.895064041018486,
+    "ttft_ms_p95": 22.6024619769305,
+    "e2e_ms_p50": 152.68982504494488,
+    "e2e_ms_p95": 156.501485966146,
+    "tpot_ms_p50": 8.719650733595094,
+    "prompt_tokens_median": 132.0,
+    "completion_tokens_median": 16.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 16,
+        "distinct_observed": [
+          16
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 128,
+        "median_actual": 132.0,
+        "drift_pct": 3.12,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 8.71291226369629e-05,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "S0",
+      "concurrency": 4,
+      "input_tokens": 512,
+      "output_tokens": 32,
+      "warmup_requests": 2,
+      "measured_requests": 5,
+      "ignore_eos": true,
+      "min_samples_for_p95": 5
+    },
+    "source": "measured_local",
+    "n_measured_ok": 5,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.7895805789157748,
+    "aggregate_output_tps": 202.63922932312565,
+    "per_user_output_tps_median": 100.56826321434382,
+    "ttft_ms_p50": 50.501368939876556,
+    "ttft_ms_p95": 197.51051510684192,
+    "e2e_ms_p50": 318.1918328627944,
+    "e2e_ms_p95": 471.51128808036447,
+    "tpot_ms_p50": 8.7857267729217,
+    "prompt_tokens_median": 516.0,
+    "completion_tokens_median": 32.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 32,
+        "distinct_observed": [
+          32
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 512,
+        "median_actual": 516.0,
+        "drift_pct": 0.78,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 4,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "QUEUED_NOT_BATCHED"
+      },
+      "kv_cache_peak": 8.71291226369629e-05,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  }
+]

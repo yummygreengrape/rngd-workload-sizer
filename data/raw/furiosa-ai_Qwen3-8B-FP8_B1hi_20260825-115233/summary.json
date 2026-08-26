@@ -1,0 +1,234 @@
+[
+  {
+    "spec": {
+      "experiment": "B1hi",
+      "concurrency": 32,
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "warmup_requests": 64,
+      "measured_requests": 400,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100
+    },
+    "source": "measured_local",
+    "n_measured_ok": 400,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 50.95174417598173,
+    "aggregate_output_tps": 1004.8723714572129,
+    "per_user_output_tps_median": 32.246450231029016,
+    "ttft_ms_p50": 160.14903655741364,
+    "ttft_ms_p95": 241.90453183837235,
+    "e2e_ms_p50": 3969.4291645428166,
+    "e2e_ms_p95": 4144.904186949134,
+    "tpot_ms_p50": 29.83046182262616,
+    "prompt_tokens_median": 522.5,
+    "completion_tokens_median": 128.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 128,
+        "distinct_observed": [
+          128
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 512,
+        "median_actual": 522.5,
+        "drift_pct": 2.05,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 32,
+        "peak_running_samples": 32.0,
+        "peak_waiting_samples": 2.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0769151897436287,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "B1hi",
+      "concurrency": 64,
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "warmup_requests": 64,
+      "measured_requests": 600,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100
+    },
+    "source": "measured_local",
+    "n_measured_ok": 600,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 63.32728807814419,
+    "aggregate_output_tps": 1212.7473373758062,
+    "per_user_output_tps_median": 19.480617874207184,
+    "ttft_ms_p50": 175.33698154147714,
+    "ttft_ms_p95": 261.0908979550004,
+    "e2e_ms_p50": 6570.633489405736,
+    "e2e_ms_p95": 6709.66235594824,
+    "tpot_ms_p50": 49.992391645292365,
+    "prompt_tokens_median": 524.0,
+    "completion_tokens_median": 128.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 128,
+        "distinct_observed": [
+          128
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 512,
+        "median_actual": 524.0,
+        "drift_pct": 2.34,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 64,
+        "peak_running_samples": 64.0,
+        "peak_waiting_samples": 2.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.1520987054217348,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "B1hi",
+      "concurrency": 128,
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "warmup_requests": 64,
+      "measured_requests": 800,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100
+    },
+    "source": "measured_local",
+    "n_measured_ok": 800,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 70.1614103349857,
+    "aggregate_output_tps": 1459.4917563813374,
+    "per_user_output_tps_median": 12.729986385901706,
+    "ttft_ms_p50": 268.81051645614207,
+    "ttft_ms_p95": 5324.085703119636,
+    "e2e_ms_p50": 10054.998970474117,
+    "e2e_ms_p95": 15018.061597133055,
+    "tpot_ms_p50": 77.03274323634334,
+    "prompt_tokens_median": 524.0,
+    "completion_tokens_median": 128.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 128,
+        "distinct_observed": [
+          128
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 512,
+        "median_actual": 524.0,
+        "drift_pct": 2.34,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 128,
+        "peak_running_samples": 128.0,
+        "peak_waiting_samples": 115.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.29178708004055764,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "B1hi",
+      "concurrency": 256,
+      "input_tokens": 512,
+      "output_tokens": 128,
+      "warmup_requests": 64,
+      "measured_requests": 1000,
+      "ignore_eos": true,
+      "min_samples_for_p95": 100
+    },
+    "source": "measured_local",
+    "n_measured_ok": 1000,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 97.7250337509904,
+    "aggregate_output_tps": 1309.7974499159768,
+    "per_user_output_tps_median": 5.5025268012531985,
+    "ttft_ms_p50": 8943.025050451979,
+    "ttft_ms_p95": 14882.379416143522,
+    "e2e_ms_p50": 23262.040265020914,
+    "e2e_ms_p95": 29218.6445039697,
+    "tpot_ms_p50": 113.23418171607017,
+    "prompt_tokens_median": 523.0,
+    "completion_tokens_median": 128.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 128,
+        "distinct_observed": [
+          128
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 512,
+        "median_actual": 523.0,
+        "drift_pct": 2.15,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 256,
+        "peak_running_samples": 177.0,
+        "peak_waiting_samples": 240.0,
+        "verdict": "QUEUED_NOT_BATCHED"
+      },
+      "kv_cache_peak": 0.3955394202689411,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  }
+]

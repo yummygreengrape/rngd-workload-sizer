@@ -1,0 +1,22 @@
+run_id : furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445
+target : local (measured_local)  http://127.0.0.1:8000/v1
+model  : furiosa-ai/Qwen3-8B-FP8   api_path=/completions
+조건    : 14개, scale=1.0
+
+[1/14] A4 conc=1 in=232 out=1 ...   0.8s  agg=   36.1 tok/s  TTFT p50=   26.7ms p95=     27  TPOT p50=   nanms  ok=25 err=0
+[2/14] A4 conc=1 in=240 out=1 ...   0.8s  agg=   33.3 tok/s  TTFT p50=   26.9ms p95=     28  TPOT p50=   nanms  ok=25 err=0
+[3/14] A4 conc=1 in=248 out=1 ...   0.8s  agg=   36.2 tok/s  TTFT p50=   26.7ms p95=     27  TPOT p50=   nanms  ok=25 err=0
+[4/14] A4 conc=1 in=252 out=1 ...   0.8s  agg=   33.5 tok/s  TTFT p50=   26.7ms p95=     28  TPOT p50=   nanms  ok=25 err=0
+[5/14] A4 conc=1 in=256 out=1 ...   1.3s  agg=   21.0 tok/s  TTFT p50=   27.5ms p95=     82  TPOT p50=   nanms  ok=25 err=0
+[6/14] A4 conc=1 in=260 out=1 ...   1.6s  agg=   17.3 tok/s  TTFT p50=   79.8ms p95=     81  TPOT p50=   nanms  ok=25 err=0
+[7/14] A4 conc=1 in=1000 out=1 ...   2.3s  agg=   12.4 tok/s  TTFT p50=   78.0ms p95=     96  TPOT p50=   nanms  ok=25 err=0
+[8/14] A4 conc=1 in=1008 out=1 ...   2.6s  agg=   10.7 tok/s  TTFT p50=   96.4ms p95=     99  TPOT p50=   nanms  ok=25 err=0
+[9/14] A4 conc=1 in=1012 out=1 ...   2.4s  agg=   11.6 tok/s  TTFT p50=   77.8ms p95=     97  TPOT p50=   nanms  ok=25 err=0
+[10/14] A4 conc=1 in=1016 out=1 ...   2.5s  agg=   11.1 tok/s  TTFT p50=   95.4ms p95=     98  TPOT p50=   nanms  ok=25 err=0
+[11/14] A4 conc=1 in=1020 out=1 ...   2.7s  agg=   10.6 tok/s  TTFT p50=   96.0ms p95=     97  TPOT p50=   nanms  ok=25 err=0
+[12/14] A4 conc=1 in=1024 out=1 ...   2.5s  agg=   11.3 tok/s  TTFT p50=   95.5ms p95=     98  TPOT p50=   nanms  ok=25 err=0
+[13/14] A4 conc=1 in=1028 out=1 ...   2.7s  agg=   10.6 tok/s  TTFT p50=   95.7ms p95=     97  TPOT p50=   nanms  ok=25 err=0
+[14/14] A4 conc=1 in=1032 out=1 ...   2.7s  agg=   10.5 tok/s  TTFT p50=   96.2ms p95=     97  TPOT p50=   nanms  ok=25 err=0
+
+결과 : data/raw/furiosa-ai_Qwen3-8B-FP8_A4_20260825-112445
+  ! A4 conc=1 in=232 out=1: 의도한 동시성만큼 동시에 처리되지 않았습니다 (큐잉)

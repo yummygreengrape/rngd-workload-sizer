@@ -1,0 +1,18 @@
+{
+  "experiment": "D1emb",
+  "description": "Embedding 용량. batch size(요청 하나에 담는 문서 수)를 늘리며 documents/s 와 요청 지연을 잰다. 용량 단위는 documents/s로 통일한다. 문서 길이 2종(128, 512 토큰)으로 길이 의존성도 본다.",
+  "defaults": {
+    "concurrency": 1,
+    "warmup_requests": 4,
+    "measured_requests": 60,
+    "min_samples_for_p95": 60
+  },
+  "conditions": [
+    {"batch_size": 1,  "doc_tokens": 128}, {"batch_size": 2,  "doc_tokens": 128},
+    {"batch_size": 4,  "doc_tokens": 128}, {"batch_size": 8,  "doc_tokens": 128},
+    {"batch_size": 16, "doc_tokens": 128}, {"batch_size": 32, "doc_tokens": 128},
+    {"batch_size": 64, "doc_tokens": 128},
+    {"batch_size": 1,  "doc_tokens": 512}, {"batch_size": 8,  "doc_tokens": 512},
+    {"batch_size": 32, "doc_tokens": 512}
+  ]
+}

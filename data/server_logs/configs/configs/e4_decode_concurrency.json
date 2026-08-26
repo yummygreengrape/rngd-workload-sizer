@@ -1,0 +1,19 @@
+{
+  "experiment": "E4",
+  "description": "Decode 처리량과 동시성. capacity 계산의 주 데이터원. input/output을 고정하고 concurrency만 움직인다. decode 버킷은 batch 256까지 있지만 prefill은 batch=1뿐이라, aggregate throughput은 늘어도 TTFT는 악화될 것으로 예상된다(가설). docs/01-spec-review.md IMP-2",
+  "defaults": {
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "warmup_requests": 8,
+    "measured_requests": 100,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {"concurrency": 1},
+    {"concurrency": 2},
+    {"concurrency": 4},
+    {"concurrency": 8},
+    {"concurrency": 16},
+    {"concurrency": 32}
+  ]
+}

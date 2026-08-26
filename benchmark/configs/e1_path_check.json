@@ -1,0 +1,20 @@
+{
+  "experiment": "E1",
+  "description": "실행 경로 확인. prefill 버킷(batch=1, 최대 1024)을 넘는 프롬프트가 어떻게 처리되는지 본다. TTFT가 길이에 대해 선형인지 계단형인지, 1024 초과에서 에러가 나는지 확인한 뒤 E2/E4의 input 축을 확정한다. docs/01-spec-review.md CRIT-1",
+  "defaults": {
+    "concurrency": 1,
+    "output_tokens": 1,
+    "warmup_requests": 2,
+    "measured_requests": 10,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {"input_tokens": 128},
+    {"input_tokens": 256},
+    {"input_tokens": 512},
+    {"input_tokens": 1024},
+    {"input_tokens": 2048},
+    {"input_tokens": 4096},
+    {"input_tokens": 8192}
+  ]
+}

@@ -1,0 +1,814 @@
+[
+  {
+    "spec": {
+      "experiment": "A4",
+      "concurrency": 1,
+      "input_tokens": 232,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 25,
+      "ignore_eos": true,
+      "min_samples_for_p95": 25
+    },
+    "source": "measured_local",
+    "n_measured_ok": 25,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.6933942609466612,
+    "aggregate_output_tps": 36.05452396717068,
+    "per_user_output_tps_median": 37.45689695214354,
+    "ttft_ms_p50": 26.69735299423337,
+    "ttft_ms_p95": 27.0742978900671,
+    "e2e_ms_p50": 26.69735299423337,
+    "e2e_ms_p95": 27.0742978900671,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 231.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 232,
+        "median_actual": 231.0,
+        "drift_pct": 0.43,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 0.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "QUEUED_NOT_BATCHED"
+      },
+      "kv_cache_peak": 0.0,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A4",
+      "concurrency": 1,
+      "input_tokens": 240,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 25,
+      "ignore_eos": true,
+      "min_samples_for_p95": 25
+    },
+    "source": "measured_local",
+    "n_measured_ok": 25,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.7509989710524678,
+    "aggregate_output_tps": 33.28899367859906,
+    "per_user_output_tps_median": 37.14905912696192,
+    "ttft_ms_p50": 26.918582152575254,
+    "ttft_ms_p95": 27.76927105151117,
+    "e2e_ms_p50": 26.918582152575254,
+    "e2e_ms_p95": 27.76927105151117,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 235.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 240,
+        "median_actual": 235.0,
+        "drift_pct": 2.08,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0009190024645975187,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A4",
+      "concurrency": 1,
+      "input_tokens": 248,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 25,
+      "ignore_eos": true,
+      "min_samples_for_p95": 25
+    },
+    "source": "measured_local",
+    "n_measured_ok": 25,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.6915223561227322,
+    "aggregate_output_tps": 36.15212115508667,
+    "per_user_output_tps_median": 37.511845544974584,
+    "ttft_ms_p50": 26.65824582800269,
+    "ttft_ms_p95": 27.158188866451383,
+    "e2e_ms_p50": 26.65824582800269,
+    "e2e_ms_p95": 27.158188866451383,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 239.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 248,
+        "median_actual": 239.0,
+        "drift_pct": 3.63,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0009190024645975187,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A4",
+      "concurrency": 1,
+      "input_tokens": 252,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 25,
+      "ignore_eos": true,
+      "min_samples_for_p95": 25
+    },
+    "source": "measured_local",
+    "n_measured_ok": 25,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 0.7467866910155863,
+    "aggregate_output_tps": 33.47676157163629,
+    "per_user_output_tps_median": 37.43634984110829,
+    "ttft_ms_p50": 26.712005957961082,
+    "ttft_ms_p95": 27.984129963442683,
+    "e2e_ms_p50": 26.712005957961082,
+    "e2e_ms_p95": 27.984129963442683,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 243.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 252,
+        "median_actual": 243.0,
+        "drift_pct": 3.57,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0009303950571338516,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A4",
+      "concurrency": 1,
+      "input_tokens": 256,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 25,
+      "ignore_eos": true,
+      "min_samples_for_p95": 25
+    },
+    "source": "measured_local",
+    "n_measured_ok": 25,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 1.1909430490341038,
+    "aggregate_output_tps": 20.991767843370738,
+    "per_user_output_tps_median": 36.404532620048826,
+    "ttft_ms_p50": 27.469106949865818,
+    "ttft_ms_p95": 81.73860795795918,
+    "e2e_ms_p50": 27.469106949865818,
+    "e2e_ms_p95": 81.73860795795918,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 253.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 256,
+        "median_actual": 253.0,
+        "drift_pct": 1.17,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.000975965427279183,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A4",
+      "concurrency": 1,
+      "input_tokens": 260,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 25,
+      "ignore_eos": true,
+      "min_samples_for_p95": 25
+    },
+    "source": "measured_local",
+    "n_measured_ok": 25,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 1.446081724949181,
+    "aggregate_output_tps": 17.28809621799111,
+    "per_user_output_tps_median": 12.531985535405045,
+    "ttft_ms_p50": 79.79581505060196,
+    "ttft_ms_p95": 80.99718205630779,
+    "e2e_ms_p50": 79.79581505060196,
+    "e2e_ms_p95": 80.99718205630779,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 261.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 260,
+        "median_actual": 261.0,
+        "drift_pct": 0.38,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.0010367259208062917,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A4",
+      "concurrency": 1,
+      "input_tokens": 1000,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 25,
+      "ignore_eos": true,
+      "min_samples_for_p95": 25
+    },
+    "source": "measured_local",
+    "n_measured_ok": 25,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.017750791972503,
+    "aggregate_output_tps": 12.390033545996342,
+    "per_user_output_tps_median": 12.81825961525941,
+    "ttft_ms_p50": 78.01371091045439,
+    "ttft_ms_p95": 95.94206302426755,
+    "e2e_ms_p50": 78.01371091045439,
+    "e2e_ms_p95": 95.94206302426755,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 1002.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 1000,
+        "median_actual": 1002.0,
+        "drift_pct": 0.2,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.003824113561362402,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A4",
+      "concurrency": 1,
+      "input_tokens": 1008,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 25,
+      "ignore_eos": true,
+      "min_samples_for_p95": 25
+    },
+    "source": "measured_local",
+    "n_measured_ok": 25,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.3263769780751318,
+    "aggregate_output_tps": 10.74632367652007,
+    "per_user_output_tps_median": 10.371311188403846,
+    "ttft_ms_p50": 96.4198240544647,
+    "ttft_ms_p95": 98.9395771175623,
+    "e2e_ms_p50": 96.4198240544647,
+    "e2e_ms_p95": 98.9395771175623,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 1030.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 1008,
+        "median_actual": 1030.0,
+        "drift_pct": 2.18,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.003888671585734955,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A4",
+      "concurrency": 1,
+      "input_tokens": 1012,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 25,
+      "ignore_eos": true,
+      "min_samples_for_p95": 25
+    },
+    "source": "measured_local",
+    "n_measured_ok": 25,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.156101774889976,
+    "aggregate_output_tps": 11.59499996296591,
+    "per_user_output_tps_median": 12.852279538053418,
+    "ttft_ms_p50": 77.80720898881555,
+    "ttft_ms_p95": 97.14801819063723,
+    "e2e_ms_p50": 77.80720898881555,
+    "e2e_ms_p95": 97.14801819063723,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 1017.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 1012,
+        "median_actual": 1017.0,
+        "drift_pct": 0.49,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.003919051832498509,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A4",
+      "concurrency": 1,
+      "input_tokens": 1016,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 25,
+      "ignore_eos": true,
+      "min_samples_for_p95": 25
+    },
+    "source": "measured_local",
+    "n_measured_ok": 25,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.247837302973494,
+    "aggregate_output_tps": 11.121801371891726,
+    "per_user_output_tps_median": 10.482331821963196,
+    "ttft_ms_p50": 95.39862093515694,
+    "ttft_ms_p95": 98.23427093215287,
+    "e2e_ms_p50": 95.39862093515694,
+    "e2e_ms_p95": 98.23427093215287,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 1027.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 1016,
+        "median_actual": 1027.0,
+        "drift_pct": 1.08,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.003919051832498509,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A4",
+      "concurrency": 1,
+      "input_tokens": 1020,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 25,
+      "ignore_eos": true,
+      "min_samples_for_p95": 25
+    },
+    "source": "measured_local",
+    "n_measured_ok": 25,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.3676140781026334,
+    "aggregate_output_tps": 10.559153297497954,
+    "per_user_output_tps_median": 10.419267142080463,
+    "ttft_ms_p50": 95.97604000009596,
+    "ttft_ms_p95": 97.23739186301827,
+    "e2e_ms_p50": 95.97604000009596,
+    "e2e_ms_p95": 97.23739186301827,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 1054.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 1020,
+        "median_actual": 1054.0,
+        "drift_pct": 3.33,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.004108928374770724,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A4",
+      "concurrency": 1,
+      "input_tokens": 1024,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 25,
+      "ignore_eos": true,
+      "min_samples_for_p95": 25
+    },
+    "source": "measured_local",
+    "n_measured_ok": 25,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.217343111988157,
+    "aggregate_output_tps": 11.2747548472929,
+    "per_user_output_tps_median": 10.466094550735816,
+    "ttft_ms_p50": 95.54662392474711,
+    "ttft_ms_p95": 97.65574079938233,
+    "e2e_ms_p50": 95.54662392474711,
+    "e2e_ms_p95": 97.65574079938233,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 1026.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 1024,
+        "median_actual": 1026.0,
+        "drift_pct": 0.2,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.004108928374770724,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A4",
+      "concurrency": 1,
+      "input_tokens": 1028,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 25,
+      "ignore_eos": true,
+      "min_samples_for_p95": 25
+    },
+    "source": "measured_local",
+    "n_measured_ok": 25,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.365698616951704,
+    "aggregate_output_tps": 10.567702842982378,
+    "per_user_output_tps_median": 10.444298252336552,
+    "ttft_ms_p50": 95.74602101929486,
+    "ttft_ms_p95": 97.4287148565054,
+    "e2e_ms_p50": 95.74602101929486,
+    "e2e_ms_p95": 97.4287148565054,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 1041.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 1028,
+        "median_actual": 1041.0,
+        "drift_pct": 1.26,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.004108928374770724,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  },
+  {
+    "spec": {
+      "experiment": "A4",
+      "concurrency": 1,
+      "input_tokens": 1032,
+      "output_tokens": 1,
+      "warmup_requests": 3,
+      "measured_requests": 25,
+      "ignore_eos": true,
+      "min_samples_for_p95": 25
+    },
+    "source": "measured_local",
+    "n_measured_ok": 25,
+    "n_error": 0,
+    "errors": {},
+    "window_s": 2.371393699897453,
+    "aggregate_output_tps": 10.542323698119414,
+    "per_user_output_tps_median": 10.396735465080068,
+    "ttft_ms_p50": 96.18403809145093,
+    "ttft_ms_p95": 97.45037090033293,
+    "e2e_ms_p50": 96.18403809145093,
+    "e2e_ms_p95": 97.45037090033293,
+    "tpot_ms_p50": null,
+    "prompt_tokens_median": 1047.0,
+    "completion_tokens_median": 1.0,
+    "validation": {
+      "prefix_cache": {
+        "reported": true,
+        "max_cached_ratio": 0.0,
+        "max_cached_tokens": 0,
+        "requests_over_limit": 0,
+        "limit": 0.05,
+        "verdict": "clean"
+      },
+      "output_length": {
+        "requested": 1,
+        "distinct_observed": [
+          1
+        ],
+        "verdict": "fixed"
+      },
+      "input_length": {
+        "target": 1032,
+        "median_actual": 1047.0,
+        "drift_pct": 1.45,
+        "verdict": "ok"
+      },
+      "concurrency": {
+        "requested": 1,
+        "peak_running_samples": 1.0,
+        "peak_waiting_samples": 0.0,
+        "verdict": "ok"
+      },
+      "kv_cache_peak": 0.004108928374770724,
+      "source": "measured_local",
+      "capacity_usable": true
+    }
+  }
+]

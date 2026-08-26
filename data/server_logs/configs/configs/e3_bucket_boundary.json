@@ -1,0 +1,22 @@
+{
+  "experiment": "E3",
+  "description": "버킷 경계 실험. prefill attention_size 간격이 128(128,256,...,1024)이므로 TTFT가 계단형으로 튈 것으로 예상된다. 경계 바로 아래/위를 조밀하게 찍는다. 이 결과가 planner의 보간 경고 기능 근거가 된다. docs/01-spec-review.md IMP-1, ADD-1",
+  "defaults": {
+    "concurrency": 1,
+    "output_tokens": 1,
+    "warmup_requests": 3,
+    "measured_requests": 30,
+    "min_samples_for_p95": 30
+  },
+  "conditions": [
+    {"input_tokens": 760},
+    {"input_tokens": 768},
+    {"input_tokens": 776},
+    {"input_tokens": 890},
+    {"input_tokens": 896},
+    {"input_tokens": 904},
+    {"input_tokens": 1016},
+    {"input_tokens": 1024},
+    {"input_tokens": 1032}
+  ]
+}

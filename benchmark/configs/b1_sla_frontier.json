@@ -1,0 +1,31 @@
+{
+  "experiment": "B1",
+  "description": "SLA 프론티어. 이 프로그램의 중심 데이터. 입력 길이 × 동시성 격자에서 처리량과 지연을 함께 재어, 'SLA를 지키면서 낼 수 있는 카드당 용량'을 구한다. 용량 치트시트(D1), SLA 완화 곡선(D2), 병목 지도(D4), planner의 실측 테이블이 전부 여기서 나온다. docs/04-experiment-program.md B1",
+  "defaults": {
+    "output_tokens": 128,
+    "warmup_requests": 8,
+    "measured_requests": 100,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {"input_tokens": 512,  "concurrency": 1},
+    {"input_tokens": 512,  "concurrency": 2},
+    {"input_tokens": 512,  "concurrency": 4},
+    {"input_tokens": 512,  "concurrency": 8},
+    {"input_tokens": 512,  "concurrency": 16},
+    {"input_tokens": 512,  "concurrency": 32},
+    {"input_tokens": 512,  "concurrency": 64},
+
+    {"input_tokens": 1024, "concurrency": 1},
+    {"input_tokens": 1024, "concurrency": 4},
+    {"input_tokens": 1024, "concurrency": 8},
+    {"input_tokens": 1024, "concurrency": 16},
+    {"input_tokens": 1024, "concurrency": 32},
+    {"input_tokens": 1024, "concurrency": 64},
+
+    {"input_tokens": 2048, "concurrency": 1},
+    {"input_tokens": 2048, "concurrency": 4},
+    {"input_tokens": 2048, "concurrency": 16},
+    {"input_tokens": 2048, "concurrency": 32}
+  ]
+}

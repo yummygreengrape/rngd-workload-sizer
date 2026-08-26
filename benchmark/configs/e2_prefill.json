@@ -1,0 +1,19 @@
+{
+  "experiment": "E2",
+  "description": "Prefill 비용. output_tokens=1 이므로 TTFT가 곧 prefill 시간이다. input 축은 E1 결과로 확정한 뒤 필요하면 조정한다.",
+  "defaults": {
+    "concurrency": 1,
+    "output_tokens": 1,
+    "warmup_requests": 3,
+    "measured_requests": 30,
+    "min_samples_for_p95": 30
+  },
+  "conditions": [
+    {"input_tokens": 128},
+    {"input_tokens": 256},
+    {"input_tokens": 384},
+    {"input_tokens": 512},
+    {"input_tokens": 768},
+    {"input_tokens": 1024}
+  ]
+}

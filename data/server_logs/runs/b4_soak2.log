@@ -1,0 +1,10 @@
+run_id : furiosa-ai_Qwen3-8B-FP8_B4soak2_20260825-114958
+target : local (measured_local)  http://127.0.0.1:8000/v1
+model  : furiosa-ai/Qwen3-8B-FP8   api_path=/completions
+조건    : 1개, scale=1.0
+
+[1/1] B4soak2 conc=16 in=512 out=128 ... 1973.1s  agg=  521.1 tok/s  TTFT p50=  158.7ms p95=    162  TPOT p50=  32.7ms  ok=8000 err=0
+
+결과 : data/raw/furiosa-ai_Qwen3-8B-FP8_B4soak2_20260825-114958
+  검증 경고 없음
+DONE 12:22:52
