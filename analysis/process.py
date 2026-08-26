@@ -38,7 +38,7 @@ EXPERIMENT_ARMS: dict[str, str] = {
 # 무효 처리 규칙은 하네스와 **같은 정의**를 쓴다. 여기서 다시 적으면 두 곳이 갈린다.
 # `python analysis/process.py` 로 직접 실행해도 import 되도록 경로를 넣는다.
 sys.path.insert(0, REPO_ROOT)
-from benchmark.schema import capacity_blocks  # noqa: E402
+from benchmark.schema import SOURCE_MEASURED_LOCAL, capacity_blocks  # noqa: E402
 
 # --cards 플래그를 붙이기 전에 실행한 run 들의 카드 수. **최후 수단이다.**
 # 이름 표에 의존하면 새 실험 코드로 측정한 데이터가 조용히 버려진다.
@@ -520,6 +520,11 @@ def scaling_table(rows: list[dict]) -> list[dict]:
     for r in rows:
         if r["source"] != "measured_local":
             continue
+        # 응답이 1토큰이면 `aggregate_output_tps` 는 **생성 처리량이 아니라 요청 처리율**이다.
+        # prefill 계단 스캔이 그런 조건인데(out=1), 확장 효율을 계산할 대상이 아니다.
+        # 창이 1초 미만이라 run 간 산포가 그대로 효율로 찍힌다 — 1장 대 1장에서 135% 가 나왔다.
+        if (r.get("output_tokens") or 0) <= 1:
+            continue
         # 무효 처리된 행은 기준선뿐 아니라 비교 대상에서도 뺀다. 그러지 않으면
         # 오염된 1장 측정이 "1장인데 효율 68%" 같은 모양으로 표에 남는다
         # (A3dualA/B: 같은 카드에 클라이언트 2개, soak: 라벨과 실제 동시성 불일치).
@@ -601,13 +606,37 @@ def main(argv=None) -> int:
             }, f, ensure_ascii=False, indent=2)
 
     usable = [r for r in rows if r["source"] == "measured_local"]
+
+    # **원본이 커밋되지 않는 run 의 파생물은 커밋본에도 남기지 않는다.**
+    #
+    # 호스팅 엔드포인트 run 은 meta 에 실행한 머신의 경로·이름이 남아서 커밋하지 않는다
+    # (.gitignore 참조). 그런데 그 run 에서 나온 행을 집계 파일에 실으면, clone 한 사람이
+    # `python -m analysis.process` 를 돌렸을 때 그 행들이 조용히 사라진다 — 커밋된 파일이
+    # "재현 가능" 처럼 보이는데 실제로는 재현 안 되는 부분을 담게 된다.
+    #
+    # 용량 계산에는 영향이 없다(출처 게이트가 어차피 거부한다). 그래도 **표시와 실제가
+    # 다른 것**은 이 프로젝트가 반복해서 걸린 실패 유형이라 맞춰 둔다.
+    # 무엇이 왜 빠졌는지는 아래 excluded 에 남긴다.
+    committed = [r for r in rows if r["source"] == SOURCE_MEASURED_LOCAL]
+    excluded = [{"run_id": r["run_id"], "source": r["source"],
+                 "input_tokens": r["input_tokens"], "concurrency_total": r["concurrency_total"],
+                 "reason": "원본 run 이 커밋 대상이 아니라 재생성할 수 없습니다 "
+                           "(.gitignore). capacity 계산에는 어차피 쓰이지 않습니다."}
+                for r in rows if r["source"] != SOURCE_MEASURED_LOCAL]
     with open(os.path.join(args.out, "benchmark_rows.json"), "w", encoding="utf-8") as f:
-        json.dump({"rows": rows, "skipped": skipped}, f, ensure_ascii=False, indent=2)
+        json.dump({"rows": committed, "skipped": skipped, "excluded": excluded},
+                  f, ensure_ascii=False, indent=2)
+    rows = committed
     scal = scaling_table(rows)
     with open(os.path.join(args.out, "scaling.json"), "w", encoding="utf-8") as f:
         json.dump(scal, f, ensure_ascii=False, indent=2)
 
     print(f"run {len(runs)}개 → 행 {len(rows)}개 (measured_local {len(usable)}개, 건너뜀 {len(skipped)}개)")
+    if excluded:
+        # 조용히 빠지면 안 된다. 무엇이 왜 빠졌는지 콘솔에도 남긴다.
+        by_run = sorted({e["run_id"] for e in excluded})
+        print(f"  출력에서 제외: {len(excluded)}행 / run {len(by_run)}개 "
+              f"— 원본이 커밋 대상이 아니라 재생성할 수 없습니다 (excluded 에 기록)")
     by_src: dict[str, int] = {}
     for r in rows:
         by_src[r["source"]] = by_src.get(r["source"], 0) + 1

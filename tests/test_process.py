@@ -234,3 +234,30 @@ class TestCapacityFlagsReachThePlanner:
                               "distinct_observed": [64, 128]},
         }))
         assert rows[0]["capacity_usable"] is False
+
+
+class TestScalingTableExcludesNonThroughputRows:
+    """확장 효율을 계산할 수 있는 행만 표에 넣는다.
+
+    응답이 1토큰이면 `aggregate_output_tps` 는 생성 처리량이 아니라 요청 처리율이다.
+    prefill 계단 스캔이 그런 조건인데(out=1, 창 1초 미만), run 간 산포가 그대로
+    효율로 찍혀 **1장이 다른 1장 대비 135%** 가 나왔다.
+    """
+
+    def _row(self, **kw):
+        base = dict(model="m", source="measured_local", n_cards=1, input_tokens=256,
+                    output_tokens=128, concurrency_per_card=1, aggregate_output_tps=100.0,
+                    window_s=200.0, load_retention=0.99, run_id="r", capacity_usable=True)
+        base.update(kw)
+        return base
+
+    def test_output_one_token_conditions_are_dropped(self):
+        from analysis.process import scaling_table
+        rows = [self._row(output_tokens=1, aggregate_output_tps=20.0, run_id="a"),
+                self._row(output_tokens=1, aggregate_output_tps=23.0, run_id="b")]
+        assert scaling_table(rows) == []
+
+    def test_normal_conditions_survive(self):
+        from analysis.process import scaling_table
+        rows = [self._row(run_id="a"), self._row(run_id="b", aggregate_output_tps=99.0)]
+        assert len(scaling_table(rows)) == 2
