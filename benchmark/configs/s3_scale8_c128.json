@@ -1,0 +1,16 @@
+{
+  "experiment": "S3x8c128",
+  "description": "세션 3. 8장 카드당 128(총 1024). 세션 2 에서 8장 총 요청 처리율이 카드당 32(60.94 건/초)와 64(60.89)에서 같아 '약 61 건/초에서 포화' 로 보였는데 두 점뿐이다. 세 번째 점을 찍는다. 총 동시성 1024 라 클라이언트 스레드가 1024개 — **유지율을 반드시 확인하고 95% 미만이면 그 값은 쓰지 않는다.**",
+  "defaults": {
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {
+      "concurrency": 1024,
+      "warmup_requests": 1024,
+      "measured_requests": 18280
+    }
+  ]
+}

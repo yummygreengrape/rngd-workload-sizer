@@ -44,6 +44,11 @@ MIN_SAMPLES_PER_WORKER = 20
 # 서로 다른 프롬프트라도 선두 토큰 2~4개는 공유되므로 0 을 기준으로 쓰면 전부 오탐이 된다.
 PREFIX_CACHE_RATIO_LIMIT = 0.05
 
+# 창 동안 유지한 평균 동시성이 요청의 이 비율 미만이면 파이프가 안 찬 것이다.
+# 세션 2 의 깊은 측정은 96.8~99.4% 였고, 세션 1 의 다중 카드는 37~94% 였다.
+# 확장 효율을 명목 동시성으로 나누면 이 차이가 그대로 효율 저하로 둔갑한다.
+MIN_LOAD_RETENTION = 0.95
+
 
 @dataclass
 class ConditionSpec:
@@ -297,6 +302,32 @@ def _validate(res: ConditionResult, spec: ConditionSpec, ok: list[RequestRecord]
         "ratio_to_concurrency": round(len(ok) / max(1, spec.concurrency), 1),
         "verdict": "ok" if len(ok) >= need else "SHALLOW",
     }
+
+    # 3.6) 창 동안 파이프가 실제로 찼는가 — **peak 은 "닿았다" 를 말하지 "유지했다" 를
+    #      말하지 않는다.** 세션 1 의 다중 카드 측정은 창이 짧아(8장 14.6초) 파이프가
+    #      안 찬 채 끝났고, `peak_running=32` 에 verdict `ok` 였는데 평균 in-flight 는
+    #      27.05 였다. 그 차이가 그대로 "카드가 늘수록 효율이 떨어진다" 로 찍혔다.
+    #
+    #      디코드 in-flight 를 따로 내는 것은 처리량이 디코드에서 나오기 때문이다 —
+    #      성능 정규화는 이쪽으로 해야 한다. 둘 다 requests.jsonl 만으로 계산되고
+    #      /metrics 폴링이 필요 없다. **측정 중에 바로 보이는 것이 중요하다.**
+    if window and window[1] > window[0]:
+        span = window[1] - window[0]
+        busy = sum((r.e2e_ms or 0.0) / 1000.0 for r in ok)
+        decode = sum(max(0.0, r.t_last_token - r.t_first_token) for r in ok
+                     if r.t_last_token is not None and r.t_first_token is not None)
+        mean_in = busy / span
+        mean_dec = decode / span
+        v["load_retention"] = {
+            "mean_inflight": round(mean_in, 2),
+            "mean_decode_inflight": round(mean_dec, 2),
+            "concurrency": spec.concurrency,
+            "retention": round(mean_in / max(1, spec.concurrency), 4),
+            "slot_output_tps": (round(res.aggregate_output_tps / mean_dec, 2)
+                                if mean_dec > 0 and res.aggregate_output_tps else None),
+            "verdict": ("ok" if mean_in / max(1, spec.concurrency) >= MIN_LOAD_RETENTION
+                        else "UNDERFILLED"),
+        }
 
     # 4) 의도한 concurrency 가 실제로 발생했는지 — 배칭인가 큐잉인가
     if poller and poller.available:

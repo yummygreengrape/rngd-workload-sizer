@@ -282,3 +282,46 @@ class TestForeignLoadDetection:
                              make_target(), make_records(5, out_tokens=128),
                              FakePoller(running))
             assert res.validation["concurrency"]["verdict"] == expected, (running, expected)
+
+
+class TestLoadRetention:
+    """창 동안 파이프가 실제로 찼는가.
+
+    `peak_running` 은 "목표에 한 번 닿았다" 를 말하지 "유지했다" 를 말하지 않는다.
+    세션 1 의 8장 측정은 창 14.6초에 `peak_running=256`·verdict `ok` 였는데 평균
+    in-flight 는 219 였고, 그 차이가 그대로 "확장 효율 82.1%" 로 찍혔다.
+
+    측정 중에 바로 보여야 한다 — 사후에 원본에서 다시 뽑으면 이미 예약이 끝나 있다.
+    """
+
+    def test_full_pipe_is_ok(self):
+        # span 5초에 요청 5건이 각 1초 → 평균 in-flight 1.0, 동시성 1 → 유지율 100%
+        res = _summarize(ConditionSpec(experiment="E", concurrency=1, min_samples_for_p95=1),
+                         make_target(), make_records(5, out_tokens=128, span=1.0), None)
+        lr = res.validation["load_retention"]
+        assert lr["verdict"] == "ok"
+        assert lr["retention"] >= 0.95
+
+    def test_underfilled_is_flagged(self):
+        """요청한 동시성의 절반만 유지되면 걸려야 한다."""
+        res = _summarize(ConditionSpec(experiment="E", concurrency=4, min_samples_for_p95=1),
+                         make_target(), make_records(5, out_tokens=128, span=1.0), None)
+        lr = res.validation["load_retention"]
+        assert lr["verdict"] == "UNDERFILLED"
+        assert lr["retention"] < 0.95
+
+    def test_decode_inflight_is_separate_from_total(self):
+        """처리량은 디코드에서 나오므로 정규화는 디코드 in-flight 로 해야 한다."""
+        res = _summarize(ConditionSpec(experiment="E", concurrency=1, min_samples_for_p95=1),
+                         make_target(), make_records(5, out_tokens=128, span=1.0), None)
+        lr = res.validation["load_retention"]
+        # make_records 는 t_send +0.1 에 첫 토큰, +span 에 마지막 → 디코드가 전체보다 짧다
+        assert 0 < lr["mean_decode_inflight"] < lr["mean_inflight"]
+        assert lr["slot_output_tps"] is not None
+
+    def test_retention_does_not_block_capacity(self):
+        """유지율은 metric 마다 영향이 달라 하드 무효로 잡지 않는다 (X12)."""
+        res = _summarize(ConditionSpec(experiment="E", concurrency=4, min_samples_for_p95=1),
+                         make_target(), make_records(5, out_tokens=128, span=1.0), None)
+        assert res.validation["load_retention"]["verdict"] == "UNDERFILLED"
+        assert res.validation["capacity_usable"] is True

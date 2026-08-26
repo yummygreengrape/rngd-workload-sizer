@@ -1,0 +1,31 @@
+{
+  "experiment": "S3c2048",
+  "description": "세션 3. 입력 2048 의 절벽 위치. 지금 conc=64 한 점뿐이라 절벽을 모른다. 입력 512 는 128↔256, 1024 는 64↔128 이었는데 **두 점이라 추세로 일반화하지 않았다.** 세 점째를 만든다. 창 300초.",
+  "defaults": {
+    "input_tokens": 2048,
+    "output_tokens": 128,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {
+      "concurrency": 16,
+      "warmup_requests": 16,
+      "measured_requests": 750
+    },
+    {
+      "concurrency": 32,
+      "warmup_requests": 32,
+      "measured_requests": 870
+    },
+    {
+      "concurrency": 64,
+      "warmup_requests": 64,
+      "measured_requests": 1050
+    },
+    {
+      "concurrency": 128,
+      "warmup_requests": 128,
+      "measured_requests": 1200
+    }
+  ]
+}

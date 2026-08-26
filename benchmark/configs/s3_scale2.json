@@ -1,0 +1,26 @@
+{
+  "experiment": "S3x2",
+  "description": "세션 3. 카드 확장 곡선 — 2장. 세션 1 의 2장 측정은 창이 27~37초라 유지율이 91~95% 로 떨어졌고, 그 하락이 그대로 '확장 효율 저하' 로 찍혔다(8장 82.1% 가 그렇게 나온 값이다). 창을 300초로 맞춰 유지율을 1장 기준선(98.8~99.4%)과 같은 대역에 둔다. 표본 수는 세션 2 실측 처리량 x 2 로 역산했다.",
+  "defaults": {
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {
+      "concurrency": 32,
+      "warmup_requests": 32,
+      "measured_requests": 3290
+    },
+    {
+      "concurrency": 64,
+      "warmup_requests": 64,
+      "measured_requests": 4550
+    },
+    {
+      "concurrency": 128,
+      "warmup_requests": 128,
+      "measured_requests": 5690
+    }
+  ]
+}

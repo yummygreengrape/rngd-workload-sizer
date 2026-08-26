@@ -1,0 +1,19 @@
+{
+  "experiment": "S3kv",
+  "description": "세션 3. KV 승인 상한의 세 번째 점. 세션 2 에서 입력 2048·4096 이 승인 토큰 12.4만·12.7만(max_kv_len 의 47~48%)에서 같은 값에 멈췄는데 두 점이다. in=6144·8192 를 더한다. **백분위용이 아니다** — 표본 200 으로 얕게 잡으므로 sample_depth 가 SHALLOW 로 기록되고 처리량은 인용하지 않는다(세션 2 A-4 는 유지율 80~86% 였다). 읽을 값은 kv_cache_peak 와 peak_running 이다.",
+  "defaults": {
+    "output_tokens": 128,
+    "concurrency": 64,
+    "warmup_requests": 64,
+    "measured_requests": 200,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {
+      "input_tokens": 6144
+    },
+    {
+      "input_tokens": 8192
+    }
+  ]
+}

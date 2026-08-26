@@ -1,0 +1,16 @@
+{
+  "experiment": "S3x1",
+  "description": "세션 3. 카드 확장 곡선 — 1장. 카드당 16·32 는 세션 2 에 창 300초 이상으로 있으므로 64 만 재측정한다(세션 2 는 창 131.5초라 앞 120초를 빼면 125건만 남아 정상상태를 낼 수 없었다). 창을 요청 수가 아니라 **시간**으로 잡는다.",
+  "defaults": {
+    "input_tokens": 512,
+    "output_tokens": 128,
+    "min_samples_for_p95": 100
+  },
+  "conditions": [
+    {
+      "concurrency": 64,
+      "warmup_requests": 64,
+      "measured_requests": 2840
+    }
+  ]
+}
