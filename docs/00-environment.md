@@ -86,6 +86,49 @@ POST /v1/responses ...
 
 `--devices` 표기법: `npu:X` = 카드 전체, `npu:X:Y` = 카드 X의 코어 Y (예: `npu:0:0-7`).
 
+**여러 장은 콤마로 나열한다. 범위 표기는 안 된다** (세션 4 실측):
+
+```
+안 됨   --devices npu:0-7
+        → ValueError: internal error: engine init failed: Bad textual device format
+됨      --devices npu:0,npu:1,npu:2,npu:3,npu:4,npu:5,npu:6,npu:7
+```
+
+⚠️ `benchmark/run_llm.py --devices` 에 넘기는 값은 **기록용 라벨**이라 `npu:0-7` 처럼
+써도 통과한다. 서버 기동 문자열과 혼동하기 쉽다. **확인은 기동 로그의 `Device mesh` 줄로 한다.**
+
+```
+Device mesh: 8 DP group(s), TP=8, devices=npu:0,npu:1,...,npu:7
+```
+
+### 파일 디스크립터 한도 — 총 동시성 900 이상을 재려면 먼저 올린다
+
+**클라이언트와 서버 양쪽 다 리눅스 기본 soft limit 1024 를 물려받는다** (세션 4 실측).
+
+```
+클라(run_llm)  ulimit -Sn 1024        서버(furiosa-llm serve)  ulimit -Sn 1024
+                                       서버 유휴 상태 fd 131개
+```
+
+총 동시성 1,024 를 걸면 **1,024 에 닿기 전에** 터진다. 한쪽만 올리면 다른 쪽에서 터진다.
+
+**증상이 진짜 이름으로 안 나온다.** 세션 4 의 16,807건 오류 중:
+
+| 오류 | 건수 | 비율 |
+|---|---:|---:|
+| `Broken pipe` | 9,501 | 57% |
+| `Connection reset by peer` | 5,267 | 31% |
+| `Too many open files` | 2,037 | **12%** |
+
+**88% 가 서버 문제처럼 보이는 이름을 단다.** `curl /health` 로 서버 생존을 같이 확인해야
+"서버가 그 동시성을 못 받는다" 로 오진하지 않는다. 실제로 서버는 200 을 반환하고 있었다.
+
+기동 스크립트와 러너 실행 양쪽에 넣는다:
+
+```bash
+ulimit -n 65535
+```
+
 ### 개발용 엔드포인트
 
 `FURIOSA_SERVER_DEV_MODE=1` 환경변수로 기동하면 추가된다:
@@ -224,5 +267,8 @@ max_position_embeddings = 131072   (32L, 32 heads, 8 KV heads)
 | 5 | **HBM bandwidth counter 제공 여부** | 제공 안 되면 병목 판정을 간접 분석으로 대체해야 함 | `DevicePerformanceCounter` 필드 확인 |
 | 6 | **Llama 구형 아티팩트의 최신 서버 호환성** | artifact `254c5ee` vs 설치본 `a13b5a4` 불일치 | 실제 `serve` 시도 |
 | 7 | **Embedding 모델이 `furiosa-llm serve`로 뜨는지** | `.fxb`는 있으나 `/v1/embeddings` 경로 동작 미검증 | 스모크 테스트 |
+| 8 | **서버 커넥션 한계의 실제 위치** | 512 는 되고 1,024 는 fd 한도에 걸려 못 쟀다. 양쪽 `ulimit` 을 올린 뒤 512~1,024 를 훑어야 한다 | 세션 5 C3 |
+| 9 | **고부하 처리량이 기동마다 22% 흔들리는 이유** | 같은 조건·같은 구성인데 서버 재기동만으로 74.7~91.2% 로 흩어진다. 저부하(카드당16)는 0.04% 로 재현된다 | 세션 5 C4 |
+| 10 | **`KVCachePlan` 의 `block_size: 2048` 과 `/metrics` 의 `block_size="1"` 이 어긋난다** | 산술로는 토큰 단위가 맞다(상주 KV = conc × (in + out/2) 가 96조건에서 ±2.9%). 어느 쪽이 무엇을 뜻하는지 미상 | 문서·소스 조사 |
 | 8 | **dp≥2 스케일링 실효율** | planner의 "N장" 계산이 선형 가정에 의존 | 2카드 실측 |
 | 9 | **eval 서버 이용 가능 기간 / 독점 여부** | 실험 범위 전체를 결정 | ⚠️ **사용자 확인 필요** |

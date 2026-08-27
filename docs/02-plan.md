@@ -1,7 +1,12 @@
 # 02. 구체화된 실행 계획
 
 > 근거: [00-environment.md](00-environment.md) 실측 / [01-spec-review.md](01-spec-review.md) 검토 결과
-> 이 문서는 **착수 승인 전의 계획서**다. 아직 코드는 작성하지 않았다.
+>
+> ⚠ **이 문서는 착수 전 계획서이고, 그 시점의 판단을 그대로 남깁니다.**
+> §1 실험 계획은 [04-experiment-program.md](04-experiment-program.md) 로 대체됐고,
+> §5 일정(2일)과 §6 착수 전 확인 사항은 소진됐습니다.
+> **지금 유효한 것**은 §0 확정 전제·§2 데이터 스키마·§3 capacity 계산 정의·§4 프로젝트 구조입니다.
+> 현재 상태는 [STATUS.md](STATUS.md), 결과는 [../README.md](../README.md) 를 보세요.
 
 ## 0. 확정 전제
 
