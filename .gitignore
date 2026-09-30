@@ -38,9 +38,6 @@ data/raw/**/*.tmp
 # pyproject.toml 에는 `[tool.pytest.ini_options] pythonpath` 가 있어서 이것만 빠져도
 # import 가 깨진다. 재현 가능하다고 적어놓고 재현 수단을 빼면 안 된다 (교차검증 X10).
 
-# 굳이 공개할 필요 없는 폴더 및 파일(agent.md 등 추가 필요 시 추가)
-.claude/
-
 # 호스팅 엔드포인트 dev run 은 커밋하지 않는다.
 #
 # 하네스 검증용으로 개발 머신에서 돌린 것이라 (a) capacity 계산에 쓸 수 없고
@@ -48,3 +45,6 @@ data/raw/**/*.tmp
 # 남는다. 이 run 들에서 얻은 결론은 docs/03-api-findings.md 에 전부 정리돼 있다.
 # 원본은 로컬 data/raw/ 에 그대로 보관한다.
 data/raw/*_Qwen3-32B-FP8_*/
+
+#에이전트.md 파일
+claude.md
